@@ -4,513 +4,13 @@
 > 
 > **제약**: 각 문서 800라인 이하 유지
 > 
-> **최종 수정일**: 2025년 12월 13일
+> **최종 수정일**: 2025년 12월 14일
 
 ---
 
 ## 📋 문서화 진행 상태
 
-### 전체 진행률: 0 / 147 완료
-
----
-
-## 🗂️ 문서 구조 (도메인 중심)
-
-```
-docs/
-├── DOCUMENTATION-TODO.md              ← 현재 파일
-│
-├── 00-overview/                       ← 프로젝트 개요 (5개)
-│   ├── README.md
-│   ├── architecture.md
-│   ├── folder-structure.md
-│   ├── tech-stack.md
-│   └── deployment.md
-│
-├── 01-database/                       ← 데이터베이스 (6개)
-│   ├── README.md
-│   ├── models-user.md
-│   ├── models-study.md
-│   ├── models-content.md
-│   ├── models-admin.md
-│   └── enums-indexes.md
-│
-├── 02-auth/                           ← 인증 도메인 (8개)
-│   ├── README.md
-│   ├── api-nextauth.md
-│   ├── api-endpoints.md
-│   ├── screens-sign-in.md
-│   ├── screens-sign-up.md
-│   ├── components.md
-│   ├── helpers.md
-│   └── middleware.md
-│
-├── 03-users/                          ← 사용자 도메인 (6개)
-│   ├── README.md
-│   ├── api.md
-│   ├── screens-my-page.md
-│   ├── components-profile.md
-│   ├── components-settings.md
-│   └── helpers.md
-│
-├── 04-studies/                        ← 스터디 도메인 (16개)
-│   ├── README.md
-│   ├── api-crud.md
-│   ├── api-members.md
-│   ├── api-features.md
-│   ├── screens-list.md
-│   ├── screens-detail.md
-│   ├── screens-create.md
-│   ├── screens-join.md
-│   ├── components-list.md
-│   ├── components-detail.md
-│   ├── components-sidebar.md
-│   ├── components-members.md
-│   ├── components-settings.md
-│   ├── helpers.md
-│   ├── validators.md
-│   └── exceptions.md
-│
-├── 05-my-studies/                     ← 내 스터디 도메인 (12개)
-│   ├── README.md
-│   ├── api.md
-│   ├── screens-list.md
-│   ├── screens-dashboard.md
-│   ├── screens-chat.md
-│   ├── screens-notices.md
-│   ├── screens-calendar.md
-│   ├── screens-files.md
-│   ├── screens-members.md
-│   ├── screens-settings.md
-│   ├── screens-video-call.md
-│   └── components-widgets.md
-│
-├── 06-groups/                         ← 그룹 도메인 (5개)
-│   ├── README.md
-│   ├── api.md
-│   ├── components.md
-│   ├── helpers.md
-│   └── validators.md
-│
-├── 07-tasks/                          ← 할 일 도메인 (9개)
-│   ├── README.md
-│   ├── api.md
-│   ├── screens-main.md
-│   ├── components-card.md
-│   ├── components-modal.md
-│   ├── components-calendar.md
-│   ├── components-widgets.md
-│   ├── components-study-tasks.md
-│   └── helpers.md
-│
-├── 08-notifications/                  ← 알림 도메인 (7개)
-│   ├── README.md
-│   ├── api.md
-│   ├── screens-main.md
-│   ├── components.md
-│   ├── helpers.md
-│   ├── validators.md
-│   └── realtime.md
-│
-├── 09-chat/                           ← 채팅 도메인 (7개)
-│   ├── README.md
-│   ├── api.md
-│   ├── components-message.md
-│   ├── components-input.md
-│   ├── helpers.md
-│   ├── validators.md
-│   └── realtime.md
-│
-├── 10-files/                          ← 파일 도메인 (4개)
-│   ├── README.md
-│   ├── api.md
-│   ├── components.md
-│   └── helpers.md
-│
-├── 11-calendar/                       ← 캘린더 도메인 (4개)
-│   ├── README.md
-│   ├── api.md
-│   ├── components.md
-│   └── helpers.md
-│
-├── 12-notices/                        ← 공지사항 도메인 (4개)
-│   ├── README.md
-│   ├── api.md
-│   ├── components.md
-│   └── helpers.md
-│
-├── 13-dashboard/                      ← 대시보드 도메인 (7개)
-│   ├── README.md
-│   ├── api.md
-│   ├── screens-main.md
-│   ├── components.md
-│   ├── widgets.md
-│   ├── helpers.md
-│   └── validators.md
-│
-├── 14-admin/                          ← 관리자 도메인 (14개)
-│   ├── README.md
-│   ├── api-users.md
-│   ├── api-studies.md
-│   ├── api-reports.md
-│   ├── api-system.md
-│   ├── screens-dashboard.md
-│   ├── screens-users.md
-│   ├── screens-studies.md
-│   ├── screens-reports.md
-│   ├── screens-settings.md
-│   ├── components.md
-│   ├── permissions.md
-│   ├── logging.md
-│   └── exceptions.md
-│
-├── 15-reports/                        ← 신고 도메인 (3개)
-│   ├── README.md
-│   ├── api.md
-│   └── helpers.md
-│
-├── 16-video-call/                     ← 화상통화 도메인 (5개)
-│   ├── README.md
-│   ├── components.md
-│   ├── signaling-server.md
-│   ├── signaling-handlers.md
-│   └── helpers.md
-│
-├── 17-landing/                        ← 랜딩 도메인 (3개)
-│   ├── README.md
-│   ├── screens-home.md
-│   └── components.md
-│
-├── 18-common/                         ← 공통 모듈 (12개)
-│   ├── README.md
-│   ├── components-ui.md
-│   ├── components-layout.md
-│   ├── components-common.md
-│   ├── contexts.md
-│   ├── hooks.md
-│   ├── utils.md
-│   ├── providers.md
-│   ├── api-client.md
-│   ├── error-handling.md
-│   ├── logging.md
-│   └── styling.md
-│
-├── 19-infrastructure/                 ← 인프라 (5개)
-│   ├── README.md
-│   ├── docker.md
-│   ├── caching.md
-│   ├── realtime-socket.md
-│   └── realtime-signaling.md
-│
-├── 20-testing/                        ← 테스트 (5개)
-│   ├── README.md
-│   ├── setup.md
-│   ├── unit-tests.md
-│   ├── integration-tests.md
-│   └── mocks.md
-│
-└── git/                               ← 기존 Git 문서
-    ├── commit-convention.md
-    └── SECURITY-NOTICE.md
-```
-
----
-
-## ✅ TODO 체크리스트
-
----
-
-### 00. 프로젝트 개요 (Overview) - 5개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 00.1 | `00-overview/README.md` | 프로젝트 소개, 주요 기능 | ⬜ |
-| 00.2 | `00-overview/architecture.md` | 시스템 아키텍처, 서비스 구조 | ⬜ |
-| 00.3 | `00-overview/folder-structure.md` | 폴더 구조 상세 | ⬜ |
-| 00.4 | `00-overview/tech-stack.md` | 기술 스택 상세 | ⬜ |
-| 00.5 | `00-overview/deployment.md` | 배포/환경 구성 | ⬜ |
-
----
-
-### 01. 데이터베이스 (Database) - 6개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 01.1 | `01-database/README.md` | Prisma 설정, DB 연결 개요 | ⬜ |
-| 01.2 | `01-database/models-user.md` | User, StudyMember, GroupMember | ⬜ |
-| 01.3 | `01-database/models-study.md` | Study, Group, GroupInvite | ⬜ |
-| 01.4 | `01-database/models-content.md` | Message, Notice, File, Event, Task | ⬜ |
-| 01.5 | `01-database/models-admin.md` | AdminRole, Warning, Sanction, Report | ⬜ |
-| 01.6 | `01-database/enums-indexes.md` | Enum 정의, 인덱스 전략 | ⬜ |
-
----
-
-### 02. 인증 도메인 (Auth) - 8개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 02.1 | `02-auth/README.md` | 인증 시스템 개요 | ⬜ |
-| 02.2 | `02-auth/api-nextauth.md` | NextAuth 설정, 프로바이더 | ⬜ |
-| 02.3 | `02-auth/api-endpoints.md` | 인증 API (signup, verify 등) | ⬜ |
-| 02.4 | `02-auth/screens-sign-in.md` | 로그인 화면 레이아웃 | ⬜ |
-| 02.5 | `02-auth/screens-sign-up.md` | 회원가입 화면 레이아웃 | ⬜ |
-| 02.6 | `02-auth/components.md` | 인증 관련 컴포넌트 | ⬜ |
-| 02.7 | `02-auth/helpers.md` | auth-helpers, jwt, session | ⬜ |
-| 02.8 | `02-auth/middleware.md` | 인증 미들웨어, 라우트 보호 | ⬜ |
-
----
-
-### 03. 사용자 도메인 (Users) - 6개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 03.1 | `03-users/README.md` | 사용자 관리 개요 | ⬜ |
-| 03.2 | `03-users/api.md` | 프로필 API, 통계 API | ⬜ |
-| 03.3 | `03-users/screens-my-page.md` | 마이페이지 화면 레이아웃 | ⬜ |
-| 03.4 | `03-users/components-profile.md` | 프로필 관련 컴포넌트 | ⬜ |
-| 03.5 | `03-users/components-settings.md` | 설정 관련 컴포넌트 | ⬜ |
-| 03.6 | `03-users/helpers.md` | 사용자 헬퍼, 로거 | ⬜ |
-
----
-
-### 04. 스터디 도메인 (Studies) - 16개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 04.1 | `04-studies/README.md` | 스터디 시스템 개요 | ⬜ |
-| 04.2 | `04-studies/api-crud.md` | 스터디 CRUD API | ⬜ |
-| 04.3 | `04-studies/api-members.md` | 멤버 관리 API | ⬜ |
-| 04.4 | `04-studies/api-features.md` | 초대, 소유권 이전 등 API | ⬜ |
-| 04.5 | `04-studies/screens-list.md` | 스터디 목록 화면 | ⬜ |
-| 04.6 | `04-studies/screens-detail.md` | 스터디 상세 화면 | ⬜ |
-| 04.7 | `04-studies/screens-create.md` | 스터디 생성 화면 | ⬜ |
-| 04.8 | `04-studies/screens-join.md` | 스터디 가입 화면 | ⬜ |
-| 04.9 | `04-studies/components-list.md` | 목록 관련 컴포넌트 | ⬜ |
-| 04.10 | `04-studies/components-detail.md` | 상세 관련 컴포넌트 | ⬜ |
-| 04.11 | `04-studies/components-sidebar.md` | 사이드바 위젯 컴포넌트 | ⬜ |
-| 04.12 | `04-studies/components-members.md` | 멤버 관리 컴포넌트 | ⬜ |
-| 04.13 | `04-studies/components-settings.md` | 설정 컴포넌트 | ⬜ |
-| 04.14 | `04-studies/helpers.md` | 스터디 헬퍼 | ⬜ |
-| 04.15 | `04-studies/validators.md` | 스터디 검증 | ⬜ |
-| 04.16 | `04-studies/exceptions.md` | 스터디 예외 처리 | ⬜ |
-
----
-
-### 05. 내 스터디 도메인 (My Studies) - 12개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 05.1 | `05-my-studies/README.md` | 내 스터디 개요 | ⬜ |
-| 05.2 | `05-my-studies/api.md` | 내 스터디 API | ⬜ |
-| 05.3 | `05-my-studies/screens-list.md` | 내 스터디 목록 화면 | ⬜ |
-| 05.4 | `05-my-studies/screens-dashboard.md` | 스터디 대시보드 화면 | ⬜ |
-| 05.5 | `05-my-studies/screens-chat.md` | 채팅 화면 | ⬜ |
-| 05.6 | `05-my-studies/screens-notices.md` | 공지사항 화면 | ⬜ |
-| 05.7 | `05-my-studies/screens-calendar.md` | 캘린더 화면 | ⬜ |
-| 05.8 | `05-my-studies/screens-files.md` | 파일 화면 | ⬜ |
-| 05.9 | `05-my-studies/screens-members.md` | 멤버 관리 화면 | ⬜ |
-| 05.10 | `05-my-studies/screens-settings.md` | 설정 화면 | ⬜ |
-| 05.11 | `05-my-studies/screens-video-call.md` | 화상통화 화면 | ⬜ |
-| 05.12 | `05-my-studies/components-widgets.md` | 사이드바 위젯 | ⬜ |
-
----
-
-### 06. 그룹 도메인 (Groups) - 5개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 06.1 | `06-groups/README.md` | 그룹 시스템 개요 | ⬜ |
-| 06.2 | `06-groups/api.md` | 그룹 API | ⬜ |
-| 06.3 | `06-groups/components.md` | 그룹 컴포넌트 | ⬜ |
-| 06.4 | `06-groups/helpers.md` | 그룹 헬퍼 | ⬜ |
-| 06.5 | `06-groups/validators.md` | 그룹 검증 | ⬜ |
-
----
-
-### 07. 할 일 도메인 (Tasks) - 9개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 07.1 | `07-tasks/README.md` | 할 일 시스템 개요 | ⬜ |
-| 07.2 | `07-tasks/api.md` | 할 일 API | ⬜ |
-| 07.3 | `07-tasks/screens-main.md` | 할 일 메인 화면 | ⬜ |
-| 07.4 | `07-tasks/components-card.md` | 카드, 그룹 컴포넌트 | ⬜ |
-| 07.5 | `07-tasks/components-modal.md` | 모달 컴포넌트 | ⬜ |
-| 07.6 | `07-tasks/components-calendar.md` | 캘린더 뷰 컴포넌트 | ⬜ |
-| 07.7 | `07-tasks/components-widgets.md` | 위젯 컴포넌트 | ⬜ |
-| 07.8 | `07-tasks/components-study-tasks.md` | 스터디 할 일 컴포넌트 | ⬜ |
-| 07.9 | `07-tasks/helpers.md` | 할 일 헬퍼 | ⬜ |
-
----
-
-### 08. 알림 도메인 (Notifications) - 7개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 08.1 | `08-notifications/README.md` | 알림 시스템 개요 | ⬜ |
-| 08.2 | `08-notifications/api.md` | 알림 API | ⬜ |
-| 08.3 | `08-notifications/screens-main.md` | 알림 화면 | ⬜ |
-| 08.4 | `08-notifications/components.md` | 알림 컴포넌트 | ⬜ |
-| 08.5 | `08-notifications/helpers.md` | 알림 헬퍼 | ⬜ |
-| 08.6 | `08-notifications/validators.md` | 알림 검증 | ⬜ |
-| 08.7 | `08-notifications/realtime.md` | 실시간 알림 | ⬜ |
-
----
-
-### 09. 채팅 도메인 (Chat) - 7개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 09.1 | `09-chat/README.md` | 채팅 시스템 개요 | ⬜ |
-| 09.2 | `09-chat/api.md` | 채팅 API | ⬜ |
-| 09.3 | `09-chat/components-message.md` | 메시지 컴포넌트 | ⬜ |
-| 09.4 | `09-chat/components-input.md` | 입력 컴포넌트 | ⬜ |
-| 09.5 | `09-chat/helpers.md` | 채팅 헬퍼 | ⬜ |
-| 09.6 | `09-chat/validators.md` | 채팅 검증 | ⬜ |
-| 09.7 | `09-chat/realtime.md` | 실시간 채팅 | ⬜ |
-
----
-
-### 10. 파일 도메인 (Files) - 4개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 10.1 | `10-files/README.md` | 파일 관리 개요 | ⬜ |
-| 10.2 | `10-files/api.md` | 파일 API | ⬜ |
-| 10.3 | `10-files/components.md` | 파일 컴포넌트 | ⬜ |
-| 10.4 | `10-files/helpers.md` | 파일 헬퍼 | ⬜ |
-
----
-
-### 11. 캘린더 도메인 (Calendar) - 4개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 11.1 | `11-calendar/README.md` | 캘린더 개요 | ⬜ |
-| 11.2 | `11-calendar/api.md` | 캘린더 API | ⬜ |
-| 11.3 | `11-calendar/components.md` | 캘린더 컴포넌트 | ⬜ |
-| 11.4 | `11-calendar/helpers.md` | 캘린더 헬퍼 | ⬜ |
-
----
-
-### 12. 공지사항 도메인 (Notices) - 4개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 12.1 | `12-notices/README.md` | 공지사항 개요 | ⬜ |
-| 12.2 | `12-notices/api.md` | 공지사항 API | ⬜ |
-| 12.3 | `12-notices/components.md` | 공지사항 컴포넌트 | ⬜ |
-| 12.4 | `12-notices/helpers.md` | 공지사항 헬퍼 | ⬜ |
-
----
-
-### 13. 대시보드 도메인 (Dashboard) - 7개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 13.1 | `13-dashboard/README.md` | 대시보드 개요 | ⬜ |
-| 13.2 | `13-dashboard/api.md` | 대시보드 API | ⬜ |
-| 13.3 | `13-dashboard/screens-main.md` | 대시보드 화면 | ⬜ |
-| 13.4 | `13-dashboard/components.md` | 대시보드 컴포넌트 | ⬜ |
-| 13.5 | `13-dashboard/widgets.md` | 위젯 컴포넌트 | ⬜ |
-| 13.6 | `13-dashboard/helpers.md` | 대시보드 헬퍼 | ⬜ |
-| 13.7 | `13-dashboard/validators.md` | 대시보드 검증 | ⬜ |
-
----
-
-### 14. 관리자 도메인 (Admin) - 14개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 14.1 | `14-admin/README.md` | 관리자 시스템 개요 | ⬜ |
-| 14.2 | `14-admin/api-users.md` | 사용자 관리 API | ⬜ |
-| 14.3 | `14-admin/api-studies.md` | 스터디 관리 API | ⬜ |
-| 14.4 | `14-admin/api-reports.md` | 신고 관리 API | ⬜ |
-| 14.5 | `14-admin/api-system.md` | 시스템 설정/통계 API | ⬜ |
-| 14.6 | `14-admin/screens-dashboard.md` | 관리자 대시보드 화면 | ⬜ |
-| 14.7 | `14-admin/screens-users.md` | 사용자 관리 화면 | ⬜ |
-| 14.8 | `14-admin/screens-studies.md` | 스터디 관리 화면 | ⬜ |
-| 14.9 | `14-admin/screens-reports.md` | 신고 관리 화면 | ⬜ |
-| 14.10 | `14-admin/screens-settings.md` | 설정 화면 | ⬜ |
-| 14.11 | `14-admin/components.md` | 관리자 컴포넌트 | ⬜ |
-| 14.12 | `14-admin/permissions.md` | 권한 시스템 | ⬜ |
-| 14.13 | `14-admin/logging.md` | 관리자 로깅 | ⬜ |
-| 14.14 | `14-admin/exceptions.md` | 관리자 예외 처리 | ⬜ |
-
----
-
-### 15. 신고 도메인 (Reports) - 3개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 15.1 | `15-reports/README.md` | 신고 시스템 개요 | ⬜ |
-| 15.2 | `15-reports/api.md` | 신고 API | ⬜ |
-| 15.3 | `15-reports/helpers.md` | 신고 헬퍼 | ⬜ |
-
----
-
-### 16. 화상통화 도메인 (Video Call) - 5개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 16.1 | `16-video-call/README.md` | 화상통화 개요 | ⬜ |
-| 16.2 | `16-video-call/components.md` | 화상통화 컴포넌트 | ⬜ |
-| 16.3 | `16-video-call/signaling-server.md` | Signaling Server | ⬜ |
-| 16.4 | `16-video-call/signaling-handlers.md` | 핸들러 상세 | ⬜ |
-| 16.5 | `16-video-call/helpers.md` | 화상통화 헬퍼 | ⬜ |
-
----
-
-### 17. 랜딩 도메인 (Landing) - 3개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 17.1 | `17-landing/README.md` | 랜딩 페이지 개요 | ⬜ |
-| 17.2 | `17-landing/screens-home.md` | 홈 화면 레이아웃 | ⬜ |
-| 17.3 | `17-landing/components.md` | 랜딩 컴포넌트 | ⬜ |
-
----
-
-### 18. 공통 모듈 (Common) - 12개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 18.1 | `18-common/README.md` | 공통 모듈 개요 | ⬜ |
-| 18.2 | `18-common/components-ui.md` | UI 컴포넌트 | ⬜ |
-| 18.3 | `18-common/components-layout.md` | 레이아웃 컴포넌트 | ⬜ |
-| 18.4 | `18-common/components-common.md` | 공통 컴포넌트 | ⬜ |
-| 18.5 | `18-common/contexts.md` | Context API | ⬜ |
-| 18.6 | `18-common/hooks.md` | 커스텀 훅 | ⬜ |
-| 18.7 | `18-common/utils.md` | 유틸리티 함수 | ⬜ |
-| 18.8 | `18-common/providers.md` | Provider 구성 | ⬜ |
-| 18.9 | `18-common/api-client.md` | API 클라이언트 | ⬜ |
-| 18.10 | `18-common/error-handling.md` | 에러 처리 | ⬜ |
-| 18.11 | `18-common/logging.md` | 로깅 시스템 | ⬜ |
-| 18.12 | `18-common/styling.md` | 스타일링 가이드 | ⬜ |
-
----
-
-### 19. 인프라 (Infrastructure) - 5개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 19.1 | `19-infrastructure/README.md` | 인프라 개요 | ⬜ |
-| 19.2 | `19-infrastructure/docker.md` | Docker 설정 | ⬜ |
-| 19.3 | `19-infrastructure/caching.md` | Redis 캐싱 | ⬜ |
-| 19.4 | `19-infrastructure/realtime-socket.md` | Socket.io 설정 | ⬜ |
-| 19.5 | `19-infrastructure/realtime-signaling.md` | Signaling Server | ⬜ |
-
----
-
-### 20. 테스트 (Testing) - 5개
-
-| # | 파일 | 설명 | 상태 |
-|---|------|------|------|
-| 20.1 | `20-testing/README.md` | 테스트 개요 | ⬜ |
-| 20.2 | `20-testing/setup.md` | Jest 설정 | ⬜ |
-| 20.3 | `20-testing/unit-tests.md` | 단위 테스트 | ⬜ |
-| 20.4 | `20-testing/integration-tests.md` | 통합 테스트 | ⬜ |
-| 20.5 | `20-testing/mocks.md` | 목 및 테스트 유틸 | ⬜ |
+### 전체 진행률: 106 / 106 완료 (100%) ✅
 
 ---
 
@@ -518,366 +18,209 @@ docs/
 
 | 카테고리 | 문서 수 | 완료 | 진행률 |
 |---------|--------|------|--------|
-| 00-overview | 5 | 0 | 0% |
-| 01-database | 6 | 0 | 0% |
-| 02-auth | 8 | 0 | 0% |
-| 03-users | 6 | 0 | 0% |
-| 04-studies | 16 | 0 | 0% |
-| 05-my-studies | 12 | 0 | 0% |
-| 06-groups | 5 | 0 | 0% |
-| 07-tasks | 9 | 0 | 0% |
-| 08-notifications | 7 | 0 | 0% |
-| 09-chat | 7 | 0 | 0% |
-| 10-files | 4 | 0 | 0% |
-| 11-calendar | 4 | 0 | 0% |
-| 12-notices | 4 | 0 | 0% |
-| 13-dashboard | 7 | 0 | 0% |
-| 14-admin | 14 | 0 | 0% |
-| 15-reports | 3 | 0 | 0% |
-| 16-video-call | 5 | 0 | 0% |
-| 17-landing | 3 | 0 | 0% |
-| 18-common | 12 | 0 | 0% |
-| 19-infrastructure | 5 | 0 | 0% |
-| 20-testing | 5 | 0 | 0% |
-| **Total** | **147** | **0** | **0%** |
+| 00-overview | 5 | 5 | ✅ 100% |
+| 01-database | 6 | 6 | ✅ 100% |
+| 02-auth | 8 | 8 | ✅ 100% |
+| 03-users | 6 | 6 | ✅ 100% |
+| 04-studies | 16 | 16 | ✅ 100% |
+| 05-my-studies | 12 | 12 | ✅ 100% |
+| 06-groups | 5 | 5 | ✅ 100% |
+| 07-tasks | 5 | 5 | ✅ 100% |
+| 08-notifications | 4 | 4 | ✅ 100% |
+| 09-chat | 4 | 4 | ✅ 100% |
+| 10-files | 4 | 4 | ✅ 100% |
+| 11-calendar | 4 | 4 | ✅ 100% |
+| 12-notices | 4 | 4 | ✅ 100% |
+| 13-dashboard | 5 | 5 | ✅ 100% |
+| 14-admin | 5 | 5 | ✅ 100% |
+| 15-reports | 3 | 3 | ✅ 100% |
+| 16-video-call | 3 | 3 | ✅ 100% |
+| 17-landing | 2 | 2 | ✅ 100% |
+| 18-common | 1 | 1 | ✅ 100% |
+| 19-infrastructure | 1 | 1 | ✅ 100% |
+| 20-testing | 1 | 1 | ✅ 100% |
+| **Total** | **106** | **106** | **100%** |
 
 ---
 
-## 🔄 작업 순서 권장
+## ✅ 완료된 문서
+
+### 00. 프로젝트 개요 (Overview) - ✅ 5/5
+
+- [x] `00-overview/README.md` - 프로젝트 소개
+- [x] `00-overview/architecture.md` - 시스템 아키텍처
+- [x] `00-overview/folder-structure.md` - 폴더 구조
+- [x] `00-overview/tech-stack.md` - 기술 스택
+- [x] `00-overview/deployment.md` - 배포/환경
+
+### 01. 데이터베이스 (Database) - ✅ 6/6
+
+- [x] `01-database/README.md` - DB 개요
+- [x] `01-database/models-user.md` - User 모델
+- [x] `01-database/models-study.md` - Study 모델
+- [x] `01-database/models-content.md` - Content 모델
+- [x] `01-database/models-admin.md` - Admin 모델
+- [x] `01-database/enums-indexes.md` - Enum/인덱스
+
+### 02. 인증 (Auth) - ✅ 8/8
+
+- [x] `02-auth/README.md` - 인증 개요
+- [x] `02-auth/api-nextauth.md` - NextAuth 설정
+- [x] `02-auth/api-endpoints.md` - API 엔드포인트
+- [x] `02-auth/screens-sign-in.md` - 로그인 화면
+- [x] `02-auth/screens-sign-up.md` - 회원가입 화면
+- [x] `02-auth/components.md` - 컴포넌트
+- [x] `02-auth/helpers.md` - 헬퍼
+- [x] `02-auth/middleware.md` - 미들웨어
+
+### 03. 사용자 (Users) - ✅ 6/6
+
+- [x] `03-users/README.md` - 사용자 개요
+- [x] `03-users/api.md` - API
+- [x] `03-users/screens-my-page.md` - 마이페이지
+- [x] `03-users/components-profile.md` - 프로필 컴포넌트
+- [x] `03-users/components-settings.md` - 설정 컴포넌트
+- [x] `03-users/helpers.md` - 헬퍼
+
+### 04. 스터디 (Studies) - ✅ 16/16
+
+- [x] `04-studies/README.md` - 스터디 개요
+- [x] `04-studies/api-crud.md` - CRUD API
+- [x] `04-studies/api-members.md` - 멤버 API
+- [x] `04-studies/api-features.md` - 기능 API
+- [x] `04-studies/screens-list.md` - 목록 화면
+- [x] `04-studies/screens-detail.md` - 상세 화면
+- [x] `04-studies/screens-create.md` - 생성 화면
+- [x] `04-studies/screens-join.md` - 가입 화면
+- [x] `04-studies/components-list.md` - 목록 컴포넌트
+- [x] `04-studies/components-detail.md` - 상세 컴포넌트
+- [x] `04-studies/components-sidebar.md` - 사이드바 컴포넌트
+- [x] `04-studies/components-members.md` - 멤버 컴포넌트
+- [x] `04-studies/components-settings.md` - 설정 컴포넌트
+- [x] `04-studies/helpers.md` - 헬퍼
+- [x] `04-studies/validators.md` - 검증
+- [x] `04-studies/exceptions.md` - 예외
+
+### 05. 내 스터디 (My Studies) - ✅ 12/12
+
+- [x] `05-my-studies/README.md` - 내 스터디 개요
+- [x] `05-my-studies/api.md` - API
+- [x] `05-my-studies/screens-list.md` - 목록 화면
+- [x] `05-my-studies/screens-dashboard.md` - 대시보드 화면
+- [x] `05-my-studies/screens-chat.md` - 채팅 화면
+- [x] `05-my-studies/screens-notices.md` - 공지사항 화면
+- [x] `05-my-studies/screens-calendar.md` - 캘린더 화면
+- [x] `05-my-studies/screens-files.md` - 파일 화면
+- [x] `05-my-studies/screens-members.md` - 멤버 관리 화면
+- [x] `05-my-studies/screens-settings.md` - 설정 화면
+- [x] `05-my-studies/screens-video-call.md` - 화상통화 화면
+- [x] `05-my-studies/components-widgets.md` - 사이드바 위젯
+
+### 06. 그룹 (Groups) - ✅ 5/5
+
+- [x] `06-groups/README.md` - 그룹 개요
+- [x] `06-groups/api.md` - 그룹 API
+- [x] `06-groups/api-members.md` - 멤버 API
+- [x] `06-groups/helpers.md` - 헬퍼 함수
+- [x] `06-groups/exceptions.md` - 예외 클래스
+- [x] `06-groups/validators.md` - 검증 함수
+
+### 07. 할일 (Tasks) - ✅ 5/5
+
+- [x] `07-tasks/README.md` - 할일 개요
+- [x] `07-tasks/api-personal.md` - 개인 할일 API
+- [x] `07-tasks/api-study.md` - 스터디 할일 API
+- [x] `07-tasks/screens.md` - 할일 화면
+- [x] `07-tasks/components.md` - 할일 컴포넌트
+- [x] `07-tasks/widgets.md` - 대시보드 위젯
+
+### 08. 알림 (Notifications) - ✅ 4/4
+
+- [x] `08-notifications/README.md` - 알림 개요
+- [x] `08-notifications/api.md` - 알림 API
+- [x] `08-notifications/components.md` - 컴포넌트
+- [x] `08-notifications/helpers.md` - 헬퍼 함수
+- [x] `08-notifications/exceptions.md` - 예외 클래스
+
+### 09. 채팅 (Chat) - ✅ 4/4
+
+- [x] `09-chat/README.md` - 채팅 개요
+- [x] `09-chat/api.md` - 채팅 API
+- [x] `09-chat/screens.md` - 채팅 화면
+- [x] `09-chat/exceptions.md` - 예외 클래스
 
-### Phase 1: 기반 (1주차) - 11개
-- `00-overview/` 전체 (5개)
-- `01-database/` 전체 (6개)
+### 10. 파일 (Files) - ✅ 4/4
 
-### Phase 2: 인증/사용자 (2주차) - 14개
-- `02-auth/` 전체 (8개)
-- `03-users/` 전체 (6개)
+- [x] `10-files/README.md` - 파일 개요
+- [x] `10-files/api.md` - 파일 API
+- [x] `10-files/screens.md` - 파일 화면
+- [x] `10-files/security.md` - 보안
+- [x] `10-files/exceptions.md` - 예외 클래스
 
-### Phase 3: 스터디 핵심 (3주차) - 28개
-- `04-studies/` 전체 (16개)
-- `05-my-studies/` 전체 (12개)
-
-### Phase 4: 협업 기능 (4주차) - 22개
-- `07-tasks/` 전체 (9개)
-- `09-chat/` 전체 (7개)
-- `06-groups/` 전체 (5개)
-- `17-landing/` 전체 (3개) - 간단
-
-### Phase 5: 보조 기능 (5주차) - 19개
-- `08-notifications/` 전체 (7개)
-- `10-files/` 전체 (4개)
-- `11-calendar/` 전체 (4개)
-- `12-notices/` 전체 (4개)
-
-### Phase 6: 대시보드/관리자 (6주차) - 21개
-- `13-dashboard/` 전체 (7개)
-- `14-admin/` 전체 (14개)
-
-### Phase 7: 기타 도메인 (7주차) - 11개
-- `15-reports/` 전체 (3개)
-- `16-video-call/` 전체 (5개)
-- `17-landing/` 전체 (3개)
-
-### Phase 8: 공통/인프라/테스트 (8주차) - 22개
-- `18-common/` 전체 (12개)
-- `19-infrastructure/` 전체 (5개)
-- `20-testing/` 전체 (5개)
-
----
-
-## 📝 문서 템플릿
-
-### 도메인 README 템플릿
-
-```markdown
-# [도메인명]
-
-## 개요
-[도메인 설명 1-2줄]
-
-## 주요 기능
-- 기능 1
-- 기능 2
-- 기능 3
-
-## 관련 파일
-
-### API
-- `src/app/api/xxx/`
-
-### 페이지
-- `src/app/xxx/`
-
-### 컴포넌트
-- `src/components/xxx/`
-
-### 헬퍼/유틸리티
-- `src/lib/xxx-helpers.js`
-
-## 관련 문서
-- [API](./api.md)
-- [화면](./screens-xxx.md)
-- [컴포넌트](./components.md)
-- [헬퍼](./helpers.md)
-```
-
----
-
-### 화면 레이아웃 문서 템플릿
-
-```markdown
-# [화면명] 화면
-
-## 개요
-[화면 설명]
-
-## 접근 경로
-- **URL**: `/xxx/xxx`
-- **라우트 파일**: `src/app/xxx/page.jsx`
-
-## 레이아웃 구조
-
-### 전체 레이아웃
-```
-┌─────────────────────────────────────────────────────┐
-│                    Header                           │
-├──────────┬──────────────────────────────────────────┤
-│          │                                          │
-│ Sidebar  │            Main Content                  │
-│  240px   │                                          │
-│          │                                          │
-├──────────┴──────────────────────────────────────────┤
-│                   Footer (optional)                  │
-└─────────────────────────────────────────────────────┘
-```
-
-### Main Content 상세
-```
-┌──────────────────────────────────────────────────────┐
-│  Page Header (title, breadcrumb, actions)            │
-├──────────────────────────────────────────────────────┤
-│                                                      │
-│  Section 1                                           │
-│  ┌────────────────────────────────────────────────┐  │
-│  │                                                │  │
-│  └────────────────────────────────────────────────┘  │
-│                                                      │
-│  Section 2                                           │
-│  ┌────────────────────────────────────────────────┐  │
-│  │                                                │  │
-│  └────────────────────────────────────────────────┘  │
-│                                                      │
-└──────────────────────────────────────────────────────┘
-```
-
-## 영역별 상세
-
-### Header
-| 항목 | 컴포넌트 | 설명 |
-|------|---------|------|
-| 로고 | `Logo` | 홈으로 이동 |
-| 네비게이션 | `NavMenu` | 주요 메뉴 |
-| 사용자 메뉴 | `UserMenu` | 프로필, 로그아웃 |
-
-### Sidebar
-| 항목 | 컴포넌트 | 설명 |
-|------|---------|------|
-| 메뉴 1 | `MenuItem` | 설명 |
-
-### Main Content
-| 영역 | 컴포넌트 | 설명 |
-|------|---------|------|
-| 섹션 1 | `Component1` | 설명 |
-
-## 사용 컴포넌트
-| 컴포넌트 | 경로 | 용도 |
-|---------|------|------|
-| `ComponentName` | `src/components/...` | 용도 |
-
-## 상태 관리
-| 상태 | 타입 | 설명 |
-|------|------|------|
-| `state1` | `Type` | 설명 |
-
-## API 호출
-| API | 메서드 | 시점 | 용도 |
-|-----|--------|------|------|
-| `/api/xxx` | GET | 마운트 | 데이터 로드 |
-
-## 사용자 상호작용
-| 액션 | 트리거 | 결과 |
-|------|--------|------|
-| 버튼 클릭 | `onClick` | 모달 열기 |
-
-## 반응형 동작
-| 브레이크포인트 | 변화 |
-|---------------|------|
-| Desktop (1200px+) | 기본 레이아웃 |
-| Tablet (768-1199px) | 사이드바 축소 |
-| Mobile (-767px) | 사이드바 숨김 |
-```
-
----
-
-### API 문서 템플릿
-
-```markdown
-# [도메인] API
-
-## 엔드포인트 목록
-
-| Method | Path | Description | Auth |
-|--------|------|-------------|------|
-| GET | `/api/xxx` | 목록 조회 | ✓ |
-| POST | `/api/xxx` | 생성 | ✓ |
-
----
-
-## GET /api/xxx
-
-### 설명
-[API 설명]
-
-### 인증
-필요
-
-### 파일 위치
-`src/app/api/xxx/route.js`
-
-### Query Parameters
-| 파라미터 | 타입 | 필수 | 기본값 | 설명 |
-|---------|------|------|--------|------|
-| `page` | number | - | 1 | 페이지 번호 |
-
-### Request Headers
-```
-Authorization: Bearer {token}
-Content-Type: application/json
-```
-
-### Response
-```json
-{
-  "success": true,
-  "data": []
-}
-```
-
-### 에러 응답
-| 코드 | 메시지 | 설명 |
-|------|--------|------|
-| 400 | Bad Request | 잘못된 요청 |
-| 401 | Unauthorized | 인증 필요 |
-```
-
----
-
-### 컴포넌트 문서 템플릿
-
-```markdown
-# [도메인] 컴포넌트
-
-## 컴포넌트 목록
-
-| 컴포넌트 | 경로 | 설명 |
-|---------|------|------|
-| `ComponentName` | `src/components/.../` | 설명 |
-
----
-
-## ComponentName
-
-### 경로
-`src/components/.../ComponentName.jsx`
-
-### 설명
-[컴포넌트 설명]
-
-### Props
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `prop1` | `string` | ✓ | - | 설명 |
-| `prop2` | `number` | - | `0` | 설명 |
-
-### 사용 예시
-```jsx
-<ComponentName 
-  prop1="value"
-  prop2={10}
-/>
-```
-
-### 내부 상태
-| 상태 | 타입 | 설명 |
-|------|------|------|
-| `state1` | `boolean` | 설명 |
-
-### 스타일
-- CSS Module: `ComponentName.module.css`
-- 주요 클래스: `.container`, `.title`
-```
-
----
-
-### 헬퍼 문서 템플릿
-
-```markdown
-# [도메인] 헬퍼
-
-## 파일 목록
-
-| 파일 | 경로 | 설명 |
-|------|------|------|
-| `xxx-helpers.js` | `src/lib/` | 설명 |
-
----
-
-## xxx-helpers.js
-
-### 경로
-`src/lib/xxx-helpers.js`
-
-### 함수 목록
-
-#### functionName
-
-```javascript
-functionName(param1, param2)
-```
-
-**설명**: 함수 설명
-
-**파라미터**:
-| 파라미터 | 타입 | 필수 | 설명 |
-|---------|------|------|------|
-| `param1` | `string` | ✓ | 설명 |
-
-**반환값**: `ReturnType` - 설명
-
-**사용 예시**:
-```javascript
-const result = functionName('value', 123);
-```
-```
-
----
-
-## 📌 작성 규칙
-
-1. **800라인 제한**: 각 문서는 800라인을 초과하지 않음
-2. **도메인 중심**: 모든 관련 정보는 해당 도메인 폴더에 집중
-3. **한국어 작성**: 모든 문서는 한국어로 작성
-4. **실제 코드 기반**: 예시는 실제 프로젝트 코드 사용
-5. **상호 참조**: 관련 문서끼리 링크로 연결
-6. **ASCII 레이아웃**: 화면 구조는 ASCII 아트로 표현
-7. **테이블 활용**: 정보는 가능한 테이블로 정리
+### 11. 캘린더 (Calendar) - ✅ 4/4
+
+- [x] `11-calendar/README.md` - 캘린더 개요
+- [x] `11-calendar/api.md` - 캘린더 API
+- [x] `11-calendar/screens.md` - 캘린더 화면
+- [x] `11-calendar/exceptions.md` - 예외 클래스
+
+### 12. 공지사항 (Notices) - ✅ 4/4
+
+- [x] `12-notices/README.md` - 공지사항 개요
+- [x] `12-notices/api.md` - 공지사항 API
+- [x] `12-notices/screens.md` - 공지사항 화면
+- [x] `12-notices/exceptions.md` - 예외 클래스
+
+### 13. 대시보드 (Dashboard) - ✅ 5/5
+
+- [x] `13-dashboard/README.md` - 대시보드 개요
+- [x] `13-dashboard/api.md` - 대시보드 API
+- [x] `13-dashboard/screens.md` - 대시보드 화면
+- [x] `13-dashboard/widgets.md` - 위젯 컴포넌트
+- [x] `13-dashboard/exceptions.md` - 예외 클래스
+
+### 14. 관리자 (Admin) - ✅ 5/5
+
+- [x] `14-admin/README.md` - 관리자 개요
+- [x] `14-admin/api.md` - 관리자 API
+- [x] `14-admin/screens.md` - 관리자 화면
+- [x] `14-admin/permissions.md` - 권한 시스템
+- [x] `14-admin/exceptions.md` - 예외 클래스
+
+### 15. 신고 (Reports) - ✅ 3/3
+
+- [x] `15-reports/README.md` - 신고 개요
+- [x] `15-reports/api.md` - 신고 API
+- [x] `15-reports/screens.md` - 신고 화면
+
+### 16. 화상통화 (Video Call) - ✅ 3/3
+
+- [x] `16-video-call/README.md` - 화상통화 개요
+- [x] `16-video-call/signaling-server.md` - 시그널링 서버
+- [x] `16-video-call/components.md` - 컴포넌트
+
+### 17. 랜딩 (Landing) - ✅ 2/2
+
+- [x] `17-landing/README.md` - 랜딩 개요
+- [x] `17-landing/components.md` - 컴포넌트
+
+### 18. 공통 (Common) - ✅ 1/1
+
+- [x] `18-common/README.md` - 공통 컴포넌트 및 유틸리티
+
+### 19. 인프라 (Infrastructure) - ✅ 1/1
+
+- [x] `19-infrastructure/README.md` - 인프라 개요
+
+### 20. 테스트 (Testing) - ✅ 1/1
+
+- [x] `20-testing/README.md` - 테스트 개요
 
 ---
 
 ## 📅 버전 관리
 
-| 날짜 | 버전 | 변경 내용 |
-|------|------|----------|
-| 2025-12-13 | v1.0 | 초기 TODO 작성 |
-| 2025-12-13 | v2.0 | 도메인 중심 구조로 재편성 |
-
+| 날짜 | 변경 내용 |
+|------|----------|
+| 2025-12-14 | 106개 문서 완료 (전체 완료 🎉) |
+| 2025-12-13 | 71개 문서 완료 (00~09 섹션) |
