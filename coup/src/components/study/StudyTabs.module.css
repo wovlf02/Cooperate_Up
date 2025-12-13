@@ -1,0 +1,63 @@
+/* 스터디 탭 네비게이션 스타일 */
+.tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow-x: auto;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  color: var(--gray-600);
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.9375rem;
+}
+
+.tab:hover {
+  background: var(--gray-100);
+  color: var(--gray-900);
+}
+
+.tab.active {
+  background: var(--primary-600);
+  color: white;
+}
+
+.tabIcon {
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabLabel {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab {
+    flex-shrink: 0;
+  }
+}
+

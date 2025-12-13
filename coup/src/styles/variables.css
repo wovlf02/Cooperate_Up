@@ -1,0 +1,288 @@
+/* CoUp 디자인 시스템 - CSS 변수 */
+
+:root {
+  /* ========== Colors ========== */
+  
+  /* Primary (브랜드 컬러) */
+  --primary-50: #EEF2FF;
+  --primary-100: #E0E7FF;
+  --primary-200: #C7D2FE;
+  --primary-300: #A5B4FC;
+  --primary-400: #818CF8;
+  --primary-500: #6366F1;
+  --primary-600: #4F46E5;
+  --primary-700: #4338CA;
+  --primary-800: #3730A3;
+  --primary-900: #312E81;
+  
+  /* Gray (중립 컬러) */
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  
+  /* Blue */
+  --blue-50: #EFF6FF;
+  --blue-100: #DBEAFE;
+  --blue-200: #BFDBFE;
+  --blue-300: #93C5FD;
+  --blue-400: #60A5FA;
+  --blue-500: #3B82F6;
+  --blue-600: #2563EB;
+  --blue-700: #1D4ED8;
+  --blue-800: #1E40AF;
+  --blue-900: #1E3A8A;
+
+  /* Green */
+  --green-50: #F0FDF4;
+  --green-100: #DCFCE7;
+  --green-200: #BBF7D0;
+  --green-300: #86EFAC;
+  --green-400: #4ADE80;
+  --green-500: #22C55E;
+  --green-600: #16A34A;
+  --green-700: #15803D;
+  --green-800: #166534;
+  --green-900: #14532D;
+
+  /* Yellow */
+  --yellow-50: #FEFCE8;
+  --yellow-100: #FEF9C3;
+  --yellow-200: #FEF08A;
+  --yellow-300: #FDE047;
+  --yellow-400: #FACC15;
+  --yellow-500: #EAB308;
+  --yellow-600: #CA8A04;
+  --yellow-700: #A16207;
+  --yellow-800: #854D0E;
+  --yellow-900: #713F12;
+
+  /* Red */
+  --red-50: #FEF2F2;
+  --red-100: #FEE2E2;
+  --red-200: #FECACA;
+  --red-300: #FCA5A5;
+  --red-400: #F87171;
+  --red-500: #EF4444;
+  --red-600: #DC2626;
+  --red-700: #B91C1C;
+  --red-800: #991B1B;
+  --red-900: #7F1D1D;
+
+  /* ========== Pastel Palette ========== */
+
+  /* Primary Pastel Set (메인 콘텐츠용) */
+  --pastel-blue-bg: #EFF6FF;
+  --pastel-blue-border: #BFDBFE;
+  --pastel-blue-hover: #DBEAFE;
+
+  --pastel-green-bg: #ECFDF5;
+  --pastel-green-border: #A7F3D0;
+  --pastel-green-hover: #D1FAE5;
+
+  --pastel-yellow-bg: #FEF3C7;
+  --pastel-yellow-border: #FDE68A;
+  --pastel-yellow-hover: #FEF08A;
+
+  --pastel-purple-bg: #F3E8FF;
+  --pastel-purple-border: #D8B4FE;
+  --pastel-purple-hover: #E9D5FF;
+
+  /* Secondary Pastel Set (위젯/사이드바용) */
+  --pastel-light-blue-bg: #F0F4FF;
+  --pastel-light-blue-border: #D6E4FF;
+  --pastel-light-blue-hover: #E5EDFF;
+
+  --pastel-pink-bg: #FCE7F3;
+  --pastel-pink-border: #F9A8D4;
+  --pastel-pink-hover: #FBCFE8;
+
+  --pastel-orange-bg: #FFF7ED;
+  --pastel-orange-border: #FED7AA;
+  --pastel-orange-hover: #FFEDD5;
+
+  --pastel-cyan-bg: #ECFEFF;
+  --pastel-cyan-border: #A5F3FC;
+  --pastel-cyan-hover: #CFFAFE;
+
+  /* Semantic Colors */
+  --success-500: #10B981;
+  --success-600: #059669;
+  --warning-500: #F59E0B;
+  --warning-600: #D97706;
+  --danger-500: #EF4444;
+  --danger-600: #DC2626;
+  --error-50: #FEF2F2;
+  --error-100: #FEE2E2;
+  --error-500: #EF4444;
+  --error-600: #DC2626;
+  --error-700: #B91C1C;
+  --info-500: #3B82F6;
+  --info-600: #2563EB;
+  
+  /* ========== Spacing ========== */
+  --spacing-xs: 0.5rem;      /* 8px */
+  --spacing-sm: 1rem;        /* 16px */
+  --spacing-md: 1.5rem;      /* 24px */
+  --spacing-lg: 2rem;        /* 32px */
+  --spacing-xl: 3rem;        /* 48px */
+  --spacing-2xl: 4rem;       /* 64px */
+  --spacing-3xl: 6rem;       /* 96px */
+  --spacing-4xl: 8rem;       /* 128px */
+  
+  /* ========== Typography ========== */
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-base: 1rem;    /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem;  /* 36px */
+  --font-size-5xl: 3rem;     /* 48px */
+  --font-size-6xl: 3.75rem;  /* 60px */
+  
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* ========== Border Radius ========== */
+  --radius-sm: 0.25rem;      /* 4px */
+  --radius-md: 0.5rem;       /* 8px */
+  --radius-lg: 0.75rem;      /* 12px */
+  --radius-xl: 1rem;         /* 16px */
+  --radius-2xl: 1.5rem;      /* 24px */
+  --radius-full: 9999px;
+  
+  /* ========== Shadows ========== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* ========== Transitions ========== */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+  
+  /* ========== Z-Index ========== */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  
+  /* ========== Container ========== */
+  --container-max-width: 1280px;
+  --container-padding: 1rem;
+  --container-padding-lg: 2rem;
+
+  /* ========== Layout (추가) ========== */
+  --nav-width: 240px;
+  --sidebar-width: 280px;
+  --content-max-width: 1920px;
+
+  /* ========== Spacing (추가) ========== */
+  --spacing-2xs: 4px;
+  --spacing-3xs: 8px;
+  --spacing-4xs: 12px;
+  --spacing-5xs: 16px;
+  --spacing-6xs: 24px;
+  --spacing-7xs: 32px;
+
+  /* ========== 알림/할일 상태 색상 (추가) ========== */
+
+  /* 긴급 상태 */
+  --urgent-bg: #fef2f2;
+  --urgent-border: #fca5a5;
+  --urgent-text: #dc2626;
+
+  /* 읽지 않은 알림 */
+  --unread-bg: #eff6ff;
+  --unread-border: #bfdbfe;
+  --unread-dot: #3b82f6;
+
+  /* 완료 상태 */
+  --completed-bg: #f0fdf4;
+  --completed-border: #86efac;
+  --completed-text: #16a34a;
+
+  /* ========== 역할 배지 색상 (추가) ========== */
+
+  /* OWNER */
+  --role-owner-bg: #fee2e2;
+  --role-owner-text: #dc2626;
+  --role-owner-border: #fecaca;
+
+  /* ADMIN */
+  --role-admin-bg: #ede9fe;
+  --role-admin-text: #7c3aed;
+  --role-admin-border: #ddd6fe;
+
+  /* MEMBER */
+  --role-member-bg: #dbeafe;
+  --role-member-text: #2563eb;
+  --role-member-border: #bfdbfe;
+
+  /* PENDING */
+  --role-pending-bg: #f3f4f6;
+  --role-pending-text: #6b7280;
+  --role-pending-border: #e5e7eb;
+
+  /* ========== 알림 타입별 색상 (추가) ========== */
+
+  /* 가입승인 */
+  --notification-join-bg: #d1fae5;
+  --notification-join-text: #059669;
+
+  /* 공지 */
+  --notification-notice-bg: #dbeafe;
+  --notification-notice-text: #2563eb;
+
+  /* 파일 */
+  --notification-file-bg: #e9d5ff;
+  --notification-file-text: #9333ea;
+
+  /* 일정 */
+  --notification-event-bg: #fed7aa;
+  --notification-event-text: #ea580c;
+
+  /* 할일 */
+  --notification-task-bg: #f3f4f6;
+  --notification-task-text: #4b5563;
+
+  /* 멤버 */
+  --notification-member-bg: #e0e7ff;
+  --notification-member-text: #4f46e5;
+
+  /* 강퇴 */
+  --notification-kick-bg: #fee2e2;
+  --notification-kick-text: #dc2626;
+}
+
+/* 반응형 타이포그래피 (모바일 최적화) */
+@media (max-width: 768px) {
+  :root {
+    --font-size-4xl: 1.875rem; /* 30px */
+    --font-size-5xl: 2.25rem;  /* 36px */
+    --font-size-6xl: 2.75rem;  /* 44px */
+  }
+}

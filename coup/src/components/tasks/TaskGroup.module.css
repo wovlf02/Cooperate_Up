@@ -1,0 +1,38 @@
+/* 할 일 그룹 스타일 */
+
+.taskGroup {
+  margin-bottom: 32px;
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.groupTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.groupCount {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  padding: 2px 8px;
+  background: var(--gray-100);
+  border-radius: 12px;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+

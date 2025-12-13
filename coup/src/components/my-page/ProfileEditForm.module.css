@@ -1,0 +1,132 @@
+/* 프로필 수정 폼 스타일 */
+
+.section {
+  background: var(--pastel-green-bg);
+  border: 1px solid var(--pastel-green-border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(16, 185, 129, 0.08), 0 1px 2px rgba(16, 185, 129, 0.04);
+  transition: all 0.2s ease;
+}
+
+.section:hover {
+  box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1), 0 2px 4px -1px rgba(16, 185, 129, 0.06);
+}
+
+.sectionHeader {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+
+.required {
+  color: var(--danger-500);
+}
+
+.optional {
+  color: var(--gray-500);
+  font-weight: 400;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.charCount {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  text-align: right;
+  margin-top: 4px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.saveButton {
+  padding: 10px 20px;
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.saveButton:hover:not(:disabled) {
+  background: var(--primary-600);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
+}
+
+.saveButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.saveButton:disabled {
+  background: var(--gray-300);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .section {
+    padding: 16px;
+  }
+
+  .saveButton {
+    width: 100%;
+  }
+}

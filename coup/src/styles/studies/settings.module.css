@@ -1,0 +1,550 @@
+/* 설정 컨테이너 */
+.settingsContainer {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.settingsContainer > h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 32px 0;
+}
+
+/* 설정 섹션 */
+.settingsSection {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.settingsSection h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 20px 0;
+}
+
+/* 폼 그룹 */
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="number"],
+.formGroup textarea,
+.formGroup select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: var(--primary-500);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* 숫자 입력 */
+.numberInput {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.numberInput button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--gray-300);
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+.numberInput button:hover {
+  background: var(--gray-50);
+}
+
+.numberInput input {
+  width: 80px;
+  text-align: center;
+}
+
+.memberCount {
+  font-size: 14px;
+  color: var(--gray-600);
+}
+
+/* 라디오 그룹 */
+.radioGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.radioGroup label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.radioGroup input[type="radio"] {
+  cursor: pointer;
+}
+
+/* 체크박스 라벨 */
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 400 !important;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* 태그 */
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  min-height: 48px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--primary-100);
+  color: var(--primary-700);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tag button {
+  background: none;
+  border: none;
+  color: var(--primary-700);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.addTagInput {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+  min-width: 150px;
+}
+
+.addTagInput input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.addTagInput input:focus {
+  outline: none;
+  border-color: var(--primary-500);
+}
+
+.addTagInput button {
+  padding: 6px 12px;
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.addTagInput button:hover {
+  background: var(--primary-600);
+}
+
+/* 멤버 목록 */
+.membersList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.memberCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+}
+
+.memberInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.memberAvatar {
+  width: 48px;
+  height: 48px;
+  background: var(--gray-200);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.memberDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.memberName {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.roleBadge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.roleBadge.owner {
+  background: var(--primary-100);
+  color: var(--primary-700);
+}
+
+.roleBadge.admin {
+  background: var(--purple-100);
+  color: var(--purple-700);
+}
+
+.roleBadge.member {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.memberMeta {
+  font-size: 13px;
+  color: var(--gray-600);
+}
+
+.memberActions {
+  display: flex;
+  gap: 8px;
+}
+
+.roleSelect {
+  padding: 6px 10px;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.kickButton {
+  padding: 6px 12px;
+  background: white;
+  color: var(--danger-600);
+  border: 1px solid var(--danger-300);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.kickButton:hover {
+  background: var(--danger-50);
+}
+
+/* 위험 구역 */
+.dangerZone {
+  padding: 20px;
+  background: var(--danger-50);
+  border: 1px solid var(--danger-200);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.dangerInfo strong {
+  display: block;
+  font-size: 16px;
+  color: var(--danger-700);
+  margin-bottom: 8px;
+}
+
+.dangerInfo p {
+  font-size: 14px;
+  color: var(--danger-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.deleteButton {
+  padding: 10px 20px;
+  background: var(--danger-500);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.deleteButton:hover {
+  background: var(--danger-600);
+}
+
+/* 저장 액션 */
+.saveActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 24px;
+  background: var(--gray-50);
+  border-radius: 12px;
+}
+
+.cancelButton,
+.saveButton {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton {
+  background: white;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+}
+
+.cancelButton:hover {
+  background: var(--gray-50);
+}
+
+.saveButton {
+  background: var(--primary-500);
+  color: white;
+  border: none;
+}
+
+.saveButton:hover {
+  background: var(--primary-600);
+}
+
+/* 삭제 확인 모달 */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.modalContent h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 16px 0;
+}
+
+.modalContent p {
+  font-size: 15px;
+  color: var(--gray-700);
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+.warningText {
+  color: var(--danger-600) !important;
+  font-weight: 600;
+}
+
+.deleteList {
+  margin: 12px 0;
+  padding-left: 24px;
+  color: var(--gray-700);
+}
+
+.deleteList li {
+  margin: 6px 0;
+}
+
+.confirmInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--danger-300);
+  border-radius: 8px;
+  font-size: 14px;
+  margin: 16px 0;
+}
+
+.confirmInput:focus {
+  outline: none;
+  border-color: var(--danger-500);
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.modalCancelButton,
+.modalDeleteButton {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modalCancelButton {
+  background: white;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+}
+
+.modalCancelButton:hover {
+  background: var(--gray-50);
+}
+
+.modalDeleteButton {
+  background: var(--danger-500);
+  color: white;
+  border: none;
+}
+
+.modalDeleteButton:hover:not(:disabled) {
+  background: var(--danger-600);
+}
+
+.modalDeleteButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .settingsContainer {
+    padding: 16px;
+  }
+
+  .settingsSection {
+    padding: 16px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .memberCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .memberActions {
+    width: 100%;
+  }
+
+  .roleSelect {
+    flex: 1;
+  }
+
+  .dangerZone {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .deleteButton {
+    width: 100%;
+  }
+
+  .saveActions {
+    flex-direction: column-reverse;
+  }
+
+  .cancelButton,
+  .saveButton {
+    width: 100%;
+  }
+}
+

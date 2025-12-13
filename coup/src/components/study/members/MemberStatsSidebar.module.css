@@ -1,0 +1,99 @@
+/* 멤버 통계 사이드바 스타일 */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.widget {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.widgetTitle {
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.widgetContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.statValue {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.statValue.pending {
+  color: var(--warning-600);
+}
+
+/* 권한 안내 */
+.permissionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.permissionItem {
+  font-size: 0.813rem;
+}
+
+.permissionItem strong {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.permissionItem ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.permissionItem li {
+  margin: 0.125rem 0;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .widget {
+    flex: 1;
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sidebar {
+    flex-direction: column;
+  }
+
+  .widget {
+    min-width: auto;
+  }
+}

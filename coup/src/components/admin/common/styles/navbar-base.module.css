@@ -1,0 +1,74 @@
+/* Navbar Base Styles */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: var(--bg-elevated);
+  border-bottom: var(--border-width-1) solid var(--border-primary);
+  z-index: var(--z-sticky);
+  transition: var(--transition-all);
+}
+
+.navbar.scrolled {
+  box-shadow: var(--shadow-md);
+  border-bottom-color: var(--border-secondary);
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  height: 64px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  transition: var(--transition-opacity);
+  cursor: pointer;
+}
+
+.logo img {
+  width: 120px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo:hover {
+  opacity: var(--opacity-hover);
+}
+
+.logoText {
+  font-weight: var(--font-weight-bold);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: calc(var(--z-dropdown) - 1);
+  background: transparent;
+}
+

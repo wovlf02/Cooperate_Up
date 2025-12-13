@@ -1,0 +1,308 @@
+/* 할 일 카드 스타일 */
+
+.taskCard {
+  background: #F0F4FF;
+  border: 1px solid #D6E4FF;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(99, 102, 241, 0.08), 0 1px 2px rgba(99, 102, 241, 0.04);
+}
+
+.taskCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1), 0 4px 6px -2px rgba(99, 102, 241, 0.05);
+  background: #E5EDFF;
+}
+
+.taskCard:nth-child(3n+1) {
+  background: #ECFDF5;
+  border-color: #A7F3D0;
+}
+
+.taskCard:nth-child(3n+1):hover {
+  background: #D1FAE5;
+}
+
+.taskCard:nth-child(3n+2) {
+  background: #FEF3C7;
+  border-color: #FDE68A;
+}
+
+.taskCard:nth-child(3n+2):hover {
+  background: #FEF08A;
+}
+
+.taskCard:nth-child(3n+3) {
+  background: #F3E8FF;
+  border-color: #D8B4FE;
+}
+
+.taskCard:nth-child(3n+3):hover {
+  background: #E9D5FF;
+}
+
+.taskCard.urgent {
+  background: #FEE2E2 !important;
+  border: 2px solid #FCA5A5 !important;
+}
+
+.taskCard.urgent:hover {
+  background: #FECACA !important;
+}
+
+.taskCard.completed {
+  background: #E5E7EB !important;
+  opacity: 0.7;
+}
+
+.taskHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.leftSection {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gray-300);
+  border-radius: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  font-size: 14px;
+  color: white;
+}
+
+.checkbox:hover {
+  border-color: var(--primary-500);
+  background: var(--primary-50);
+}
+
+.checkbox.checked {
+  background: var(--primary-500);
+  border-color: var(--primary-500);
+}
+
+.taskTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.deadlineInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  border: 1px solid rgba(209, 213, 219, 0.5);
+  align-self: flex-start;
+}
+
+.deadlineText {
+  font-size: 0.8125rem;
+  color: var(--gray-700);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.timeLeftBadge {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.deadlineNormal .timeLeftBadge {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+
+.deadlineUrgent .timeLeftBadge {
+  background: #FEF3C7;
+  color: #92400E;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.deadlineExpired .timeLeftBadge {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.editButton {
+  padding: 6px 14px;
+  border: 2px solid #3b82f6;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  color: #2563eb;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.1);
+}
+
+.editButton:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.editButton:active {
+  transform: translateY(0);
+}
+
+.deleteButton {
+  padding: 6px 14px;
+  border: 2px solid #ef4444;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  color: #dc2626;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.1);
+}
+
+.deleteButton:hover {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border-color: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.deleteButton:active {
+  transform: translateY(0);
+}
+
+.completed .taskTitle {
+  text-decoration: line-through;
+  color: var(--gray-500);
+}
+
+.taskMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin-left: 32px;
+  flex-wrap: wrap;
+}
+
+.studyInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gray-700);
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.priorityBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.description {
+  margin: 12px 0 0 32px;
+  font-size: 0.9375rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .taskCard {
+    padding: 16px;
+  }
+
+  .taskHeader {
+    gap: 12px;
+  }
+
+  .deadlineInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .taskTitle {
+    font-size: 1rem;
+  }
+
+  .taskMeta {
+    margin-left: 0;
+  }
+
+  .description {
+    margin-left: 0;
+  }
+}

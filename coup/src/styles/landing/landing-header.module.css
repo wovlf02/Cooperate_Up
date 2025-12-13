@@ -1,0 +1,105 @@
+/* Landing Header Styles */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed);
+  transition: all var(--transition-base);
+}
+
+.header.transparent {
+  background: transparent;
+}
+
+.header.solid {
+  background: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 1rem var(--container-padding);
+  height: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.logoImage {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loginBtn {
+  padding: 0.5rem 1.25rem;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--gray-700);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.loginBtn:hover {
+  background: var(--gray-100);
+}
+
+.signupBtn {
+  padding: 0.5rem 1.25rem;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: white;
+  background: var(--primary-600);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.signupBtn:hover {
+  background: var(--primary-700);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* 모바일 메뉴 버튼 */
+.mobileMenuBtn {
+  display: none;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  
+  .mobileMenuBtn {
+    display: block;
+  }
+}

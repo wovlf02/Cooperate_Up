@@ -1,0 +1,203 @@
+/* Input 래퍼 */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.wrapper--full-width {
+  width: 100%;
+}
+
+/* Label */
+.label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  line-height: var(--line-height-tight);
+}
+
+.required {
+  color: var(--danger-500);
+  margin-left: var(--space-1);
+}
+
+/* Input 래퍼 */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: var(--bg-primary);
+  border: var(--border-width-1) solid var(--border-primary);
+  border-radius: var(--radius);
+  transition: var(--transition-colors);
+}
+
+.inputWrapper:focus-within:not(.inputWrapper--disabled):not(.inputWrapper--readonly) {
+  border-color: var(--border-focus);
+  box-shadow: var(--focus-ring);
+}
+
+.inputWrapper--error {
+  border-color: var(--border-error);
+}
+
+.inputWrapper--error:focus-within {
+  border-color: var(--border-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.inputWrapper--disabled {
+  background-color: var(--gray-50);
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+}
+
+.inputWrapper--readonly {
+  background-color: var(--gray-50);
+  cursor: default;
+}
+
+/* Sizes */
+.inputWrapper--sm {
+  height: 32px;
+  padding: 0 var(--space-3);
+}
+
+.inputWrapper--md {
+  height: 40px;
+  padding: 0 var(--space-4);
+}
+
+.inputWrapper--lg {
+  height: 48px;
+  padding: 0 var(--space-5);
+}
+
+/* Input with icons */
+.inputWrapper--with-left-icon {
+  padding-left: var(--space-10);
+}
+
+.inputWrapper--with-right-icon {
+  padding-right: var(--space-10);
+}
+
+/* Input 필드 */
+.input {
+  flex: 1;
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-normal);
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.input:read-only {
+  cursor: default;
+}
+
+/* Input sizes */
+.input--sm {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-tight);
+}
+
+.input--md {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+}
+
+.input--lg {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+}
+
+/* Icons */
+.iconLeft,
+.iconRight {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  pointer-events: none;
+}
+
+.iconLeft {
+  left: var(--space-3);
+}
+
+.iconRight {
+  right: var(--space-3);
+}
+
+.iconLeft svg,
+.iconRight svg {
+  width: 18px;
+  height: 18px;
+}
+
+.inputWrapper--sm .iconLeft svg,
+.inputWrapper--sm .iconRight svg {
+  width: 16px;
+  height: 16px;
+}
+
+.inputWrapper--lg .iconLeft svg,
+.inputWrapper--lg .iconRight svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Helper Text */
+.helperText {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: var(--line-height-tight);
+  margin: 0;
+}
+
+/* Error Text */
+.errorText {
+  font-size: var(--font-size-sm);
+  color: var(--danger-600);
+  line-height: var(--line-height-tight);
+  margin: 0;
+}
+
+/* 숫자 입력 스피너 숨기기 (optional) */
+.input[type='number']::-webkit-inner-spin-button,
+.input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* 검색 입력 취소 버튼 스타일 */
+.input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236b7280'%3E%3Cpath d='M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+

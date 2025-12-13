@@ -1,0 +1,175 @@
+/* Sidebar 스타일 */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: clamp(200px, 12vw, 280px); /* 유동적 너비: 12% (최소 200px, 최대 280px) */
+  background: linear-gradient(180deg, #f5f3ff 0%, #f0fdf4 100%);
+  border-right: 1px solid #d4c5f9;
+  display: flex;
+  flex-direction: column;
+  z-index: 40;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Admin 스타일 */
+.sidebar.admin {
+  background: #fef2f2;
+  border-right-color: #fecaca;
+}
+
+.sidebar.admin .logo {
+  background: #dc2626;
+  color: white;
+}
+
+.sidebar.admin .navItem.active {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+/* Logo */
+.logo {
+  height: 64px;
+  padding: 0 1rem;
+  border-bottom: 1px solid #d4c5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.logo a:hover {
+  opacity: 0.8;
+}
+
+.logoImage {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Navigation */
+.nav {
+  flex: 1;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  color: #374151;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: #111827;
+}
+
+.navItem.active {
+  background: rgba(167, 139, 250, 0.15);
+  color: #7c3aed;
+  border-right: 3px solid #a78bfa;
+}
+
+.navIcon {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  flex-shrink: 0;
+}
+
+.navText {
+  flex: 1;
+}
+
+/* Bottom Actions */
+.bottom {
+  padding: 1rem 0;
+  border-top: 1px solid #d4c5f9;
+}
+
+.logoutButton {
+  color: #dc2626;
+}
+
+.logoutButton:hover {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+/* Tablet */
+@media (max-width: 1279px) {
+  .sidebar {
+    width: clamp(160px, 15vw, 200px);
+  }
+
+
+  .logoText {
+    font-size: 1.125rem;
+  }
+
+  .navItem {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .navIcon {
+    font-size: 1.125rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    width: min(280px, 80vw); /* 모바일에서는 화면의 80% 또는 280px 중 작은 값 */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* Scrollbar */
+.nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.nav::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.nav::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}

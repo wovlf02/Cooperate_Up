@@ -1,0 +1,91 @@
+/* 설정 사이드바 스타일 */
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid var(--gray-100);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  height: fit-content;
+  position: sticky;
+  top: 84px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.navItem:hover {
+  background: var(--gray-50);
+}
+
+.navItem.active {
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.navItem.active .navLabel {
+  color: white;
+}
+
+.navItem.active .navDesc {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navItem.active .navIcon {
+  transform: scale(1.1);
+}
+
+.navIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.navInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.navLabel {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 2px;
+}
+
+.navDesc {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 반응형 - 태블릿 이하에서 숨김 */
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+}
+

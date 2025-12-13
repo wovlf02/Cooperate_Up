@@ -1,0 +1,130 @@
+/* 컨트롤 바 스타일 */
+.controlBar {
+  position: fixed;
+  bottom: 0;
+  left: clamp(200px, 12vw, 280px); /* Sidebar 너비만큼 오른쪽에서 시작 */
+  right: 0;
+  height: 80px;
+  background: linear-gradient(135deg, #E8E4F3 0%, #F0E8F5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 100;
+  border-top: 1px solid rgba(200, 190, 220, 0.3);
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 태블릿 */
+@media (max-width: 1279px) {
+  .controlBar {
+    left: clamp(160px, 15vw, 200px);
+  }
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .controlBar {
+    left: 0;
+  }
+}
+
+.leftSection,
+.rightSection {
+  flex: 1;
+  display: flex;
+}
+
+.rightSection {
+  justify-content: flex-end;
+}
+
+.centerSection {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.duration {
+  color: #5B4E7C;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.controlButton {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(139, 122, 175, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  color: #5B4E7C;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.controlButton:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.controlButton.active {
+  background: #F8B4D9;
+  color: #8B4A7C;
+  border-color: #E89DC4;
+}
+
+.controlButton.active:hover {
+  background: #F5A0CB;
+}
+
+.leaveButton {
+  background: #F8B4D9;
+  color: #8B4A7C;
+  border-radius: 8px;
+  width: auto;
+  height: 48px;
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid #E89DC4;
+}
+
+.leaveButton:hover {
+  background: #F5A0CB;
+}
+
+@media (max-width: 768px) {
+  .controlBar {
+    left: 0; /* 모바일에서는 전체 너비 사용 */
+    padding: 0 16px;
+    height: 70px;
+  }
+
+  .controlButton {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  .leaveButton {
+    width: auto;
+    height: 40px;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+
+  .centerSection {
+    gap: 8px;
+  }
+
+  .leftSection {
+    display: none;
+  }
+}
+

@@ -1,0 +1,68 @@
+/* Toast Container */
+.container {
+  position: fixed;
+  z-index: var(--z-notification);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 420px;
+  width: 100%;
+  padding: var(--space-4);
+  pointer-events: none;
+}
+
+.container > * {
+  pointer-events: auto;
+}
+
+/* Positions */
+.container--top-left {
+  top: 0;
+  left: 0;
+}
+
+.container--top-center {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.container--top-right {
+  top: 0;
+  right: 0;
+}
+
+.container--bottom-left {
+  bottom: 0;
+  left: 0;
+  flex-direction: column-reverse;
+}
+
+.container--bottom-center {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column-reverse;
+}
+
+.container--bottom-right {
+  bottom: 0;
+  right: 0;
+  flex-direction: column-reverse;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    padding: var(--space-2);
+  }
+
+  .container--top-center,
+  .container--bottom-center {
+    transform: none;
+  }
+}
+

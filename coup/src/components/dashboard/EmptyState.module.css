@@ -1,0 +1,67 @@
+/* Empty State Component */
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: white;
+  border: 2px dashed var(--gray-200);
+  border-radius: var(--radius-xl);
+}
+
+.emoji {
+  font-size: 64px;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: var(--font-size-base);
+  color: var(--gray-600);
+  margin-bottom: 2rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-600);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-semibold);
+  transition: background var(--transition-fast);
+}
+
+.button:hover {
+  background: var(--primary-700);
+}
+
+@media (max-width: 768px) {
+  .emptyState {
+    padding: 3rem 1.5rem;
+  }
+
+  .emoji {
+    font-size: 48px;
+  }
+
+  .title {
+    font-size: var(--font-size-lg);
+  }
+
+  .description {
+    font-size: var(--font-size-sm);
+  }
+}
+

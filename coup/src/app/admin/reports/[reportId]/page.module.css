@@ -1,0 +1,399 @@
+.container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 뒤로가기 링크 */
+.backLink {
+  display: inline-block;
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+}
+
+.backLink:hover {
+  color: var(--primary-600);
+}
+
+/* 로딩 상태 */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-16);
+  color: var(--text-secondary);
+}
+
+.loading p {
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-primary);
+  border-top-color: var(--primary-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 에러 상태 */
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-12);
+  text-align: center;
+}
+
+.errorState svg {
+  color: var(--danger-500);
+}
+
+.errorState h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.errorState p {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.errorActions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+}
+
+.badges {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* 메인 콘텐츠 */
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sectionTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 1rem 0;
+}
+
+/* 정보 그리드 */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.infoLabel {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.infoValue {
+  font-size: 0.9375rem;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+/* 신고 사유 */
+.reasonBox {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #374151;
+  white-space: pre-wrap;
+}
+
+/* 증거 자료 */
+.evidenceBox {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.evidenceContent {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-family: 'Monaco', 'Courier New', monospace;
+  color: #374151;
+}
+
+/* 사용자 카드 */
+.userCard {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.userAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.userAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.userInfo {
+  flex: 1;
+}
+
+.userName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.userEmail {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.userMeta {
+  font-size: 0.8125rem;
+  color: #9ca3af;
+}
+
+/* 스터디 카드 */
+.studyCard {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.studyEmoji {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.studyInfo {
+  flex: 1;
+}
+
+.studyName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.studyDescription {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.studyMeta {
+  font-size: 0.8125rem;
+  color: #9ca3af;
+}
+
+/* 메시지 카드 */
+.messageCard {
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.messageContent {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #374151;
+  margin-bottom: 0.75rem;
+}
+
+.messageMeta {
+  font-size: 0.8125rem;
+  color: #9ca3af;
+}
+
+/* 처리 정보 */
+.processInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.roleTag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.125rem 0.5rem;
+  background: #6366f1;
+  color: white;
+  font-size: 0.75rem;
+  border-radius: 4px;
+}
+
+.resolutionBox {
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.resolutionLabel {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.resolutionContent {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #374151;
+  white-space: pre-wrap;
+}
+
+/* 관련 신고 */
+.relatedReports {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.relatedCard {
+  padding: 1rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+
+.relatedCard:hover {
+  border-color: #6366f1;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.relatedHeader {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.relatedReason {
+  font-size: 0.875rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.relatedMeta {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* 사이드바 */
+.sidebar {
+  position: sticky;
+  top: 2rem;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+}
+

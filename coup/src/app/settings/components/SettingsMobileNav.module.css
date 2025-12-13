@@ -1,0 +1,126 @@
+/* 설정 모바일 네비게이션 스타일 */
+
+.mobileNav {
+  display: none;
+  position: relative;
+  margin-top: 16px;
+}
+
+/* 태블릿 이하에서만 표시 */
+@media (max-width: 900px) {
+  .mobileNav {
+    display: block;
+  }
+}
+
+.mobileButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 20px;
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mobileButton:hover {
+  border-color: var(--primary-300);
+}
+
+.mobileIcon {
+  font-size: 1.5rem;
+}
+
+.mobileLabel {
+  flex: 1;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.mobileArrow {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
+.mobileMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 100;
+  overflow: hidden;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--gray-100);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.mobileItem:last-child {
+  border-bottom: none;
+}
+
+.mobileItem:hover {
+  background: var(--gray-50);
+}
+
+.mobileItem.active {
+  background: var(--primary-50);
+}
+
+.mobileItem.active .mobileItemLabel {
+  color: var(--primary-600);
+}
+
+.mobileItemIcon {
+  font-size: 1.5rem;
+}
+
+.mobileItemInfo {
+  flex: 1;
+}
+
+.mobileItemLabel {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.mobileItemDesc {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 2px;
+}
+

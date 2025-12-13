@@ -1,0 +1,363 @@
+/* 위젯 공통 스타일 */
+.widget {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 20px; /* 16px -> 20px로 증가 */
+  margin-bottom: 18px; /* 16px -> 18px로 증가 */
+  transition: all 0.2s ease;
+}
+
+.widget:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.widgetTitle {
+  font-size: 15px; /* 14px -> 15px로 증가 */
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 14px; /* 12px -> 14px로 증가 */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* 6px -> 8px로 증가 */
+}
+
+.widgetContent {
+  font-size: 14px; /* 13px -> 14px로 증가 */
+  color: var(--gray-700);
+  line-height: 1.6; /* 1.5 -> 1.6으로 증가 */
+}
+
+/* 강조 위젯 */
+.widget.highlight {
+  border-color: var(--primary-300);
+  background: var(--primary-50);
+}
+
+/* 링크 버튼 */
+.linkButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary-600);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.linkButton:hover {
+  color: var(--primary-700);
+}
+
+/* 프로그레스 바 */
+.progressBar {
+  height: 8px;
+  background: var(--gray-200);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-500), var(--primary-600));
+  transition: width 0.3s ease;
+}
+
+/* StatsWidget 전용 스타일 */
+.statItem {
+  margin-bottom: 18px; /* 16px -> 18px로 증가 */
+}
+
+.statItem:last-child {
+  margin-bottom: 0;
+}
+
+.statLabel {
+  font-size: 13px; /* 12px -> 13px로 증가 */
+  color: var(--gray-600);
+  margin-bottom: 6px; /* 4px -> 6px로 증가 */
+}
+
+.statValue {
+  font-weight: 600;
+  color: var(--gray-900);
+  font-size: 14px; /* 추가 */
+}
+
+.statTime {
+  font-size: 13px; /* 12px -> 13px로 증가 */
+  color: var(--gray-600);
+}
+
+.statMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px; /* 4px -> 6px로 증가 */
+}
+
+.statMetaLabel {
+  font-size: 13px; /* 12px -> 13px로 증가 */
+  color: var(--gray-600);
+}
+
+.statMetaValue {
+  font-size: 13px; /* 12px -> 13px로 증가 */
+  font-weight: 600;
+}
+
+.statDetail {
+  font-size: 12px; /* 11px -> 12px로 증가 */
+  color: var(--gray-500);
+}
+
+.streakInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 8px -> 10px로 증가 */
+}
+
+/* OnlineMembersWidget 전용 스타일 */
+.onlineIndicator {
+  width: 10px; /* 8px -> 10px로 증가 */
+  height: 10px; /* 8px -> 10px로 증가 */
+  background: #10B981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.memberItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px; /* 8px -> 10px로 증가 */
+  margin-bottom: 14px; /* 12px -> 14px로 증가 */
+  padding-bottom: 14px; /* 12px -> 14px로 증가 */
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.memberItem:last-of-type {
+  border-bottom: none;
+}
+
+.memberInfo {
+  flex: 1;
+}
+
+.memberHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.memberName {
+  font-weight: 600;
+  font-size: 14px; /* 13px -> 14px로 증가 */
+}
+
+.memberStatus {
+  font-size: 12px; /* 11px -> 12px로 증가 */
+  color: var(--gray-500);
+}
+
+.memberFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px; /* 8px -> 10px로 증가 */
+  border-top: 1px solid var(--gray-200);
+}
+
+.totalMembers {
+  font-size: 13px; /* 12px -> 13px로 증가 */
+  color: var(--gray-600);
+}
+
+/* 배지 */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px; /* 2px 8px -> 3px 10px로 증가 */
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badgePrimary {
+  background: var(--primary-100);
+  color: var(--primary-700);
+}
+
+/* QuickActionsWidget 전용 스타일 */
+.buttonGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px; /* 8px -> 10px로 증가 */
+  margin-top: 10px; /* 8px -> 10px로 증가 */
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* 4px -> 6px로 증가 */
+  padding: 10px 14px; /* 8px 12px -> 10px 14px로 증가 */
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px; /* 12px -> 13px로 증가 */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background: var(--primary-600);
+}
+
+.actionButton.secondary {
+  background: white;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+}
+
+.actionButton.secondary:hover {
+  background: var(--gray-50);
+}
+
+.fullWidthButton {
+  margin-top: 10px; /* 8px -> 10px로 증가 */
+  width: 100%;
+}
+
+/* PinnedNoticeWidget 전용 스타일 */
+.noticeTitle {
+  font-weight: 600;
+  margin-bottom: 6px; /* 4px -> 6px로 증가 */
+  color: var(--gray-900);
+  cursor: pointer;
+  font-size: 14px; /* 추가 */
+}
+
+.noticeMeta {
+  font-size: 12px; /* 11px -> 12px로 증가 */
+  color: var(--gray-500);
+  margin-bottom: 10px; /* 8px -> 10px로 증가 */
+}
+
+/* UrgentTasksWidget 전용 스타일 */
+.taskItem {
+  margin-bottom: 14px; /* 12px -> 14px로 증가 */
+  padding-bottom: 14px; /* 12px -> 14px로 증가 */
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.taskItem:last-of-type {
+  border-bottom: none;
+}
+
+.taskHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px; /* 6px -> 8px로 증가 */
+  margin-bottom: 6px; /* 4px -> 6px로 증가 */
+}
+
+.taskIcon {
+  font-size: 16px; /* 14px -> 16px로 증가 */
+}
+
+.taskContent {
+  flex: 1;
+}
+
+.taskTitle {
+  font-weight: 600;
+  font-size: 14px; /* 13px -> 14px로 증가 */
+  margin-bottom: 4px; /* 2px -> 4px로 증가 */
+}
+
+.taskMeta {
+  font-size: 12px; /* 11px -> 12px로 증가 */
+  color: var(--gray-500);
+}
+
+.completeButton {
+  width: 100%;
+  margin-top: 8px; /* 6px -> 8px로 증가 */
+}
+
+/* UpcomingEventsWidget 전용 스타일 */
+.eventItem {
+  margin-bottom: 14px; /* 12px -> 14px로 증가 */
+  padding-bottom: 14px; /* 12px -> 14px로 증가 */
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.eventItem:last-of-type {
+  border-bottom: none;
+}
+
+.eventDate {
+  font-size: 13px; /* 12px -> 13px로 증가 */
+  color: var(--gray-600);
+  margin-bottom: 4px; /* 2px -> 4px로 증가 */
+}
+
+.eventTitle {
+  font-weight: 600;
+  font-size: 14px; /* 13px -> 14px로 증가 */
+}
+
+/* MyActivityWidget 전용 스타일 */
+.activitySection {
+  margin-bottom: 10px; /* 8px -> 10px로 증가 */
+}
+
+.activityWeek {
+  font-size: 13px; /* 12px -> 13px로 증가 */
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 10px; /* 8px -> 10px로 증가 */
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* 4px -> 6px로 증가 */
+  font-size: 13px; /* 12px -> 13px로 증가 */
+  color: var(--gray-600);
+}
+
+/* 반응형 */
+@media (max-width: 1279px) {
+  .widget {
+    padding: 14px;
+  }
+
+  .widgetTitle {
+    font-size: 13px;
+  }
+
+  .widgetContent {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .widget {
+    padding: 12px;
+  }
+}

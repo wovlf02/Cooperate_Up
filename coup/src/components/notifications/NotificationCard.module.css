@@ -1,0 +1,164 @@
+/* 알림 카드 스타일 */
+
+.card {
+  background: #F0F4FF;
+  border: 1px solid #D6E4FF;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(99, 102, 241, 0.08), 0 1px 2px rgba(99, 102, 241, 0.04);
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.1), 0 4px 6px -2px rgba(99, 102, 241, 0.05);
+  transform: translateY(-1px);
+  background: #E5EDFF;
+}
+
+.card:nth-child(4n+1) {
+  background: #EFF6FF;
+  border-color: #BFDBFE;
+}
+
+.card:nth-child(4n+1):hover {
+  background: #DBEAFE;
+}
+
+.card:nth-child(4n+2) {
+  background: #ECFDF5;
+  border-color: #A7F3D0;
+}
+
+.card:nth-child(4n+2):hover {
+  background: #D1FAE5;
+}
+
+.card:nth-child(4n+3) {
+  background: #FCE7F3;
+  border-color: #F9A8D4;
+}
+
+.card:nth-child(4n+3):hover {
+  background: #FBCFE8;
+}
+
+.card:nth-child(4n+4) {
+  background: #FFF7ED;
+  border-color: #FED7AA;
+}
+
+.card:nth-child(4n+4):hover {
+  background: #FFEDD5;
+}
+
+.card.unread {
+  background: #FEF3C7 !important;
+  border-color: #FDE68A !important;
+  box-shadow: 0 0 0 2px #FEF08A;
+}
+
+.card.unread:hover {
+  background: #FEF08A !important;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.unreadDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--unread-dot);
+  flex-shrink: 0;
+}
+
+.readDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gray-300);
+  flex-shrink: 0;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badgeJoin {
+  background: var(--notification-join-bg);
+  color: var(--notification-join-text);
+}
+
+.badgeNotice {
+  background: var(--notification-notice-bg);
+  color: var(--notification-notice-text);
+}
+
+.badgeFile {
+  background: var(--notification-file-bg);
+  color: var(--notification-file-text);
+}
+
+.badgeEvent {
+  background: var(--notification-event-bg);
+  color: var(--notification-event-text);
+}
+
+.badgeTask {
+  background: var(--notification-task-bg);
+  color: var(--notification-task-text);
+}
+
+.badgeMember {
+  background: var(--notification-member-bg);
+  color: var(--notification-member-text);
+}
+
+.badgeKick {
+  background: var(--notification-kick-bg);
+  color: var(--notification-kick-text);
+}
+
+.badgeDefault {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.studyName {
+  font-weight: 600;
+  color: var(--gray-800);
+  font-size: 0.875rem;
+}
+
+.message {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.time {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .card {
+    padding: 12px;
+  }
+
+  .badge {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+}

@@ -1,0 +1,347 @@
+/* 스터디 탈퇴 모달 스타일 */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 헤더 */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.iconDanger {
+  font-size: 1.75rem;
+  background: #fef2f2;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.iconWarning {
+  font-size: 1.75rem;
+  background: #fef3c7;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.title {
+  flex: 1;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.closeButton {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--gray-400);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+
+/* 콘텐츠 */
+.content {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* OWNER 경고 */
+.ownerWarning {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.warningText {
+  font-size: 1.125rem;
+  color: var(--gray-800);
+  margin: 0 0 8px 0;
+}
+
+.warningSubtext {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.optionCards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.optionCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  text-align: left;
+}
+
+.optionIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.optionInfo h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin: 0 0 4px 0;
+}
+
+.optionInfo p {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* 스터디 정보 */
+.studyInfo {
+  text-align: center;
+  padding: 16px;
+  background: var(--gray-50);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.studyName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 8px 0;
+}
+
+.roleText {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.roleBadge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--gray-200);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+/* 경고 박스 */
+.warningBox {
+  padding: 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.warningBox h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #991b1b;
+  margin: 0 0 12px 0;
+}
+
+.warningList {
+  margin: 0;
+  padding-left: 20px;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.warningList li {
+  margin-bottom: 4px;
+}
+
+/* 확인 입력 */
+.confirmSection {
+  margin-top: 20px;
+}
+
+.confirmLabel {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  margin-bottom: 10px;
+}
+
+.confirmInput {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.confirmInput:focus {
+  outline: none;
+  border-color: var(--danger-500);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* 푸터 */
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--gray-200);
+  background: var(--gray-50);
+}
+
+.cancelButton {
+  padding: 12px 24px;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton:hover {
+  background: var(--gray-100);
+}
+
+.confirmButton {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.confirmButton:hover:not(.disabled) {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: translateY(-1px);
+}
+
+.confirmButton.disabled {
+  background: var(--gray-300);
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 반응형 */
+@media (max-width: 500px) {
+  .modal {
+    max-width: 100%;
+    margin: 0 16px;
+  }
+
+  .header {
+    padding: 16px 20px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 16px 20px;
+  }
+
+  .cancelButton,
+  .confirmButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

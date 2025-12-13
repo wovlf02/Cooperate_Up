@@ -1,0 +1,104 @@
+/* CTA Section Styles */
+
+.cta {
+  padding: 10rem 0;
+  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-800) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: var(--font-size-xl);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 3rem;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-600);
+  background: white;
+  border: none;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-2xl);
+}
+
+.ctaButton:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+.ctaButton svg {
+  width: 24px;
+  height: 24px;
+}
+
+.subtitle {
+  margin-top: 2rem;
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 배경 장식 */
+.cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.cta::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: 5rem 0;
+  }
+
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .description {
+    font-size: var(--font-size-lg);
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

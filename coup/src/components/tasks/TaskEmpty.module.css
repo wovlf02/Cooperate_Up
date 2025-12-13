@@ -1,0 +1,37 @@
+/* 할 일 빈 상태 스타일 */
+
+.emptyState {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 12px;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.emptyTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+}
+
+.emptyDescription {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+

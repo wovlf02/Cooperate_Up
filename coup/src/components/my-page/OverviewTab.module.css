@@ -1,0 +1,321 @@
+/* 개요 탭 스타일 */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 섹션 카드 */
+.sectionCard {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  border: 1px solid var(--gray-100);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.sectionCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 20px;
+}
+
+.sectionHeader .sectionTitle {
+  margin: 0;
+}
+
+.titleIcon {
+  font-size: 1.35rem;
+}
+
+.viewAllLink {
+  font-size: 0.9rem;
+  color: var(--primary-500);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.viewAllLink:hover {
+  color: var(--primary-600);
+  background: var(--primary-50);
+}
+
+/* 활동 그리드 */
+.activityGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.activityItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 16px;
+  border-radius: 16px;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.activityItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 활동 컬러 */
+.activityItem.green {
+  background: linear-gradient(145deg, #f0fdf4, #dcfce7);
+  border-color: #bbf7d0;
+}
+.activityItem.blue {
+  background: linear-gradient(145deg, #eff6ff, #dbeafe);
+  border-color: #bfdbfe;
+}
+.activityItem.purple {
+  background: linear-gradient(145deg, #faf5ff, #f3e8ff);
+  border-color: #e9d5ff;
+}
+.activityItem.orange {
+  background: linear-gradient(145deg, #fff7ed, #ffedd5);
+  border-color: #fed7aa;
+}
+
+.activityIcon {
+  font-size: 1.75rem;
+}
+
+.activityValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  line-height: 1;
+}
+
+.activityLabel {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* 스터디 그리드 */
+.studiesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.studyCard {
+  display: block;
+  padding: 20px;
+  background: var(--gray-50);
+  border-radius: 16px;
+  border: 2px solid var(--gray-100);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.studyCard:hover {
+  background: white;
+  border-color: var(--primary-300);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.12);
+}
+
+.studyCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.studyEmoji {
+  font-size: 1.75rem;
+}
+
+.roleBadge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.roleOwner {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
+}
+
+.roleAdmin {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e40af;
+}
+
+.roleMember {
+  background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+  color: #6b21a8;
+}
+
+.rolePending {
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  color: #6b7280;
+}
+
+.studyName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.studyMeta {
+  display: flex;
+  gap: 14px;
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
+.memberCount,
+.lastActivity {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.newActivity {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  background: var(--primary-100);
+  color: var(--primary-700);
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* 빈 상태 */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px;
+  gap: 16px;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  opacity: 0.8;
+}
+
+.emptyText {
+  color: var(--gray-500);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.exploreBtn {
+  padding: 12px 24px;
+  background: var(--primary-500);
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.exploreBtn:hover {
+  background: var(--primary-600);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .sectionCard {
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+
+  .activityGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .activityItem {
+    padding: 16px 12px;
+  }
+
+  .activityIcon {
+    font-size: 1.5rem;
+  }
+
+  .activityValue {
+    font-size: 1.25rem;
+  }
+
+  .studiesGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .studyCard {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .viewAllLink {
+    padding: 10px 16px;
+    background: var(--primary-50);
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+  }
+}
+

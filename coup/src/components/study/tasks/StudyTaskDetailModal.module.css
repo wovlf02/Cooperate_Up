@@ -1,0 +1,288 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modalTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.modalClose {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.modalClose:hover {
+  color: #111827;
+}
+
+.modalBody {
+  padding: 24px;
+}
+
+.taskTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.statusBadge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.todo {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.in_progress {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.review {
+  background: #e9d5ff;
+  color: #9333ea;
+}
+
+.done {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.priorityBadge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.priorityLOW {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.priorityMEDIUM {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.priorityHIGH {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+/* 담당자 */
+.assigneeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.assigneeItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #f3f4f6;
+  border-radius: 20px;
+}
+
+.assigneeAvatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.assigneeAvatarPlaceholder {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.assigneeName {
+  font-size: 13px;
+  color: #374151;
+}
+
+.noAssignee {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.dueDate {
+  font-size: 14px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.overdue {
+  color: #dc2626;
+}
+
+.overdueLabel {
+  background: #fee2e2;
+  color: #dc2626;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.dateInfo {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.dateInfo p {
+  margin: 4px 0;
+}
+
+/* 액션 버튼 */
+.modalActions {
+  display: flex;
+  gap: 8px;
+  padding: 16px 24px;
+  border-top: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+}
+
+.toggleButton,
+.editButton,
+.deleteButton,
+.closeButton {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.toggleButton {
+  background: #10b981;
+  color: white;
+}
+
+.toggleButton:hover:not(:disabled) {
+  background: #059669;
+}
+
+.editButton {
+  background: #3b82f6;
+  color: white;
+}
+
+.editButton:hover {
+  background: #2563eb;
+}
+
+.deleteButton {
+  background: #ef4444;
+  color: white;
+}
+
+.deleteButton:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.closeButton {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.closeButton:hover {
+  background: #e5e7eb;
+}
+
+.toggleButton:disabled,
+.deleteButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 권한 없음 메시지 */
+.noPermission {
+  font-size: 13px;
+  color: #9ca3af;
+  padding: 8px 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+  margin: 0;
+}

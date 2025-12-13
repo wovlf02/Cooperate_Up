@@ -1,0 +1,338 @@
+/* 프로필 편집 스타일 */
+
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 24px 0;
+}
+
+/* 토스트 메시지 */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toastSuccess {
+  background: #10b981;
+  color: white;
+}
+
+.toastError {
+  background: #ef4444;
+  color: white;
+}
+
+/* 에러 배너 */
+.errorBanner {
+  padding: 12px 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 프로필 사진 */
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--gray-50);
+  border-radius: 12px;
+}
+
+.avatarWrapper {
+  position: relative;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avatarPlaceholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C7B8EA 0%, #B8D4F1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  border: 4px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.avatarButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.avatarButton {
+  padding: 10px 20px;
+  background: white;
+  border: 2px solid var(--gray-200);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.avatarButton:hover:not(:disabled) {
+  background: var(--gray-50);
+  border-color: var(--gray-300);
+}
+
+.avatarButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.avatarDeleteButton {
+  padding: 10px 20px;
+  background: #fef2f2;
+  border: 2px solid #fecaca;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.avatarDeleteButton:hover:not(:disabled) {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.avatarDeleteButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 필드 */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.required {
+  color: #ef4444;
+}
+
+.input,
+.textarea,
+.select {
+  padding: 10px 12px;
+  border: 2px solid var(--gray-200);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.inputError {
+  border-color: #ef4444;
+}
+
+.errorText {
+  color: #dc2626;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.hint {
+  color: var(--gray-500);
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.inputReadonly {
+  background: var(--gray-100);
+  color: var(--gray-500);
+  cursor: not-allowed;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* 관심 분야 */
+.interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.interestTag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #C7B8EA 0%, #E8B8D9 100%);
+  color: white;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.interestRemove {
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.interestRemove:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.interestAdd {
+  padding: 6px 12px;
+  background: white;
+  border: 2px dashed var(--gray-300);
+  border-radius: 16px;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.interestAdd:hover {
+  border-color: var(--gray-400);
+  background: var(--gray-50);
+}
+
+/* 버튼 */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.cancelButton,
+.saveButton {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton {
+  background: white;
+  border: 2px solid var(--gray-200);
+  color: var(--gray-700);
+}
+
+.cancelButton:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-300);
+}
+
+.saveButton {
+  background: linear-gradient(135deg, #C7B8EA 0%, #E8B8D9 100%);
+  border: none;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.saveButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #B8A8DA 0%, #D8A8C9 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.saveButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .avatarSection {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .cancelButton,
+  .saveButton {
+    width: 100%;
+  }
+}
+

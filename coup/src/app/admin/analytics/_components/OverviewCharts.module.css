@@ -1,0 +1,145 @@
+/* OverviewCharts 스타일 */
+
+.container {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+.loading,
+.error {
+  padding: 3rem;
+  text-align: center;
+  color: #666;
+}
+
+.error {
+  color: #ef4444;
+}
+
+/* 요약 카드 */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cardHeader h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  margin: 0;
+}
+
+.cardStats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mainStat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.subStats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.subStat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.subNumber {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #6366f1;
+}
+
+.subLabel {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+/* 차트 */
+.charts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.chartContainer {
+  padding: 1.5rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.chartTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 1rem 0;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .chartContainer {
+    padding: 1rem;
+  }
+
+  .number {
+    font-size: 1.75rem;
+  }
+
+  .subNumber {
+    font-size: 1.125rem;
+  }
+}
+

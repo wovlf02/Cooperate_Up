@@ -1,0 +1,328 @@
+/* 할 일 달력 뷰 스타일 */
+
+.calendarContainer {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* 달력 헤더 */
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.currentMonth {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.currentMonth h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.navButton {
+  padding: 8px 16px;
+  background: var(--gray-100);
+  border: none;
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.navButton:hover {
+  background: var(--gray-200);
+  color: var(--gray-900);
+}
+
+.todayButton {
+  padding: 6px 16px;
+  background: var(--primary-600);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.todayButton:hover {
+  background: var(--primary-700);
+}
+
+/* 요일 헤더 */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  padding: 8px;
+}
+
+.weekday:first-child {
+  color: var(--danger-500);
+}
+
+.weekday:last-child {
+  color: var(--primary-500);
+}
+
+/* 달력 그리드 */
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendarDay {
+  min-height: 120px;
+  padding: 8px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendarDay:hover {
+  background: var(--gray-100);
+  border-color: var(--primary-300);
+}
+
+.calendarDay.today {
+  background: var(--primary-50);
+  border: 2px solid var(--primary-500);
+}
+
+.calendarDay.otherMonth {
+  background: white;
+  opacity: 0.5;
+}
+
+.calendarDay.otherMonth .dayNumber {
+  color: var(--gray-400);
+}
+
+/* 날짜 숫자 */
+.dayNumber {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+
+.today .dayNumber {
+  color: var(--primary-600);
+  font-weight: 700;
+}
+
+.taskCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  background: var(--primary-600);
+  color: white;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* 할 일 아이템 */
+.dayTasks {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  overflow: hidden;
+  border: 1px solid;
+}
+
+.taskItem:hover {
+  transform: translateX(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 긴급 (빨강 파스텔) */
+.taskItem.urgent {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+.taskItem.urgent:hover {
+  background: #fecaca;
+}
+
+/* 이번 주 (파랑 파스텔) */
+.taskItem.thisWeek {
+  background: #dbeafe;
+  border-color: #93c5fd;
+  color: #1e40af;
+}
+
+.taskItem.thisWeek:hover {
+  background: #bfdbfe;
+}
+
+/* 나중에 (초록 파스텔) */
+.taskItem.later {
+  background: #d1fae5;
+  border-color: #6ee7b7;
+  color: #065f46;
+}
+
+.taskItem.later:hover {
+  background: #a7f3d0;
+}
+
+/* 완료된 할 일 */
+.taskItem.completed {
+  background: var(--gray-100);
+  border-color: var(--gray-300);
+  color: var(--gray-500);
+  opacity: 0.6;
+}
+
+.taskItem.completed .taskTitle {
+  text-decoration: line-through;
+}
+
+.checkbox {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  flex-shrink: 0;
+  accent-color: var(--primary-600);
+}
+
+.taskTitle {
+  flex: 1;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.moreTask {
+  padding: 6px 8px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--primary-600);
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--primary-50);
+  border-radius: 6px;
+  border: 1px solid var(--primary-200);
+  transition: all 0.2s;
+}
+
+.moreTask:hover {
+  background: var(--primary-100);
+  color: var(--primary-700);
+  border-color: var(--primary-300);
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .calendarDay {
+    min-height: 100px;
+  }
+
+  .taskItem {
+    font-size: 0.7rem;
+    padding: 5px 6px;
+    gap: 4px;
+  }
+
+  .checkbox {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendarContainer {
+    padding: 16px;
+  }
+
+  .calendarHeader {
+    margin-bottom: 16px;
+  }
+
+  .currentMonth h2 {
+    font-size: 1.25rem;
+  }
+
+  .calendarDay {
+    min-height: 80px;
+    padding: 4px;
+  }
+
+  .dayNumber {
+    font-size: 0.75rem;
+  }
+
+  .taskCount {
+    min-width: 16px;
+    height: 16px;
+    font-size: 0.65rem;
+  }
+
+  .taskItem {
+    font-size: 0.65rem;
+    padding: 4px;
+    gap: 3px;
+  }
+
+  .checkbox {
+    width: 11px;
+    height: 11px;
+  }
+
+  .dayTasks {
+    gap: 2px;
+  }
+
+  .moreTask {
+    font-size: 0.65rem;
+    padding: 4px;
+  }
+}

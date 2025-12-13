@@ -1,0 +1,474 @@
+/* 스터디 프리뷰 페이지 스타일 */
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* 헤더 */
+.header {
+  margin-bottom: 24px;
+}
+
+.backButton {
+  padding: 8px 16px;
+  background: var(--gray-100);
+  border: none;
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.backButton:hover {
+  background: var(--gray-200);
+}
+
+/* 메인 레이아웃 */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 24px;
+}
+
+/* 좌측 섹션 */
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 스터디 카드 */
+.studyCard {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.emoji {
+  font-size: 4rem;
+}
+
+.recruitingBadge {
+  padding: 6px 16px;
+  background: var(--success-100);
+  color: var(--success-700);
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.studyName {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 16px;
+}
+
+.studyMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.category {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.rating {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--warning-600);
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.tag {
+  padding: 6px 12px;
+  background: var(--primary-50);
+  color: var(--primary-700);
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--gray-700);
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--gray-50);
+  border-radius: 8px;
+}
+
+/* 통계 그리드 */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--gray-50);
+  border-radius: 8px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.statValue {
+  font-size: 1rem;
+  color: var(--gray-900);
+  font-weight: 600;
+}
+
+/* 가입 버튼 */
+.joinButton {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.joinButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+}
+
+/* 가입 버튼 비활성화 */
+.joinButtonDisabled {
+  background: linear-gradient(135deg, var(--gray-400), var(--gray-500));
+  cursor: not-allowed;
+}
+
+.joinButtonDisabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* 섹션 */
+.section {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.lockBadge {
+  padding: 4px 12px;
+  background: var(--warning-100);
+  color: var(--warning-700);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* 규칙 리스트 */
+.rulesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ruleItem {
+  padding: 12px 16px;
+  background: var(--gray-50);
+  border-left: 3px solid var(--primary-500);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  color: var(--gray-700);
+}
+
+/* 미리보기 리스트 */
+.previewList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.previewItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--gray-50);
+  border-radius: 8px;
+}
+
+.pinIcon {
+  font-size: 1rem;
+}
+
+.previewTitle {
+  flex: 1;
+  font-weight: 500;
+  color: var(--gray-900);
+}
+
+.previewTime {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+/* 블러 오버레이 */
+.blurOverlay {
+  position: relative;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
+  border-radius: 8px;
+  text-align: center;
+  margin-top: -40px;
+  backdrop-filter: blur(4px);
+}
+
+.blurOverlay p {
+  color: var(--gray-600);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* 멤버 리스트 */
+.membersList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.memberItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--gray-50);
+  border-radius: 8px;
+}
+
+.memberAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-700);
+  overflow: hidden;
+}
+
+.memberAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memberInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.memberName {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.memberRole {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+}
+
+/* 우측 사이드바 */
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sideCard {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.sideCardTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 12px;
+}
+
+.sideCardText {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.sideJoinButton {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary-600);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sideJoinButton:hover {
+  background: var(--primary-700);
+  transform: translateY(-2px);
+}
+
+/* 사이드 가입 버튼 비활성화 */
+.sideJoinButtonDisabled {
+  background: var(--gray-300);
+  color: var(--gray-500);
+  cursor: not-allowed;
+}
+
+.sideJoinButtonDisabled:hover {
+  background: var(--gray-300);
+  transform: none;
+}
+
+/* 정보 리스트 */
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.infoItem:last-child {
+  border-bottom: none;
+}
+
+.infoLabel {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.infoValue {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+/* 혜택 리스트 */
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.benefitsList li {
+  padding: 8px 12px;
+  background: var(--gray-50);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+  }
+
+  .rightSection {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 16px;
+  }
+
+  .studyCard {
+    padding: 20px;
+  }
+
+  .studyName {
+    font-size: 1.5rem;
+  }
+
+  .emoji {
+    font-size: 3rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 16px;
+  }
+}
+

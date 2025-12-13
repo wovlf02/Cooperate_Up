@@ -1,0 +1,145 @@
+/* 프로필 섹션 스타일 */
+
+.section {
+  background: var(--pastel-light-blue-bg);
+  border: 1px solid var(--pastel-light-blue-border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(99, 102, 241, 0.08), 0 1px 2px rgba(99, 102, 241, 0.04);
+  transition: all 0.2s ease;
+}
+
+.section:hover {
+  box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.1), 0 2px 4px -1px rgba(99, 102, 241, 0.06);
+}
+
+.sectionHeaderWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sectionHeader {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.attendanceButton {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+.attendanceButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.attendanceButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.profileContent {
+  text-align: center;
+}
+
+.profileImageWrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.profileImage {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--gray-100);
+}
+
+.profileImagePlaceholder {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--gray-500);
+}
+
+.profileName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.profileEmail {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin-bottom: 16px;
+}
+
+.changeImageButton {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  background: white;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.changeImageButton:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-400);
+}
+
+.changeImageButton:active {
+  transform: scale(0.98);
+}
+
+.profileInfo {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-200);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .section {
+    padding: 16px;
+  }
+
+  .profileImage,
+  .profileImagePlaceholder {
+    width: 96px;
+    height: 96px;
+    font-size: 2rem;
+  }
+
+  .profileName {
+    font-size: 1.125rem;
+  }
+}

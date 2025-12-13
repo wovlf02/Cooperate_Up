@@ -1,0 +1,144 @@
+/* 위험 구역 설정 스타일 */
+
+.settingsCard {
+  background: var(--card-bg);
+  border: 1px solid var(--danger-200);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--danger-600);
+  margin: 0 0 0.5rem 0;
+}
+
+.dangerWarning {
+  font-size: 0.875rem;
+  color: var(--danger-500);
+  margin: 0 0 1.25rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--danger-100);
+}
+
+/* 위험 액션 */
+.dangerAction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--danger-100);
+}
+
+.dangerAction:last-of-type {
+  border-bottom: none;
+}
+
+.dangerInfo {
+  flex: 1;
+}
+
+.dangerTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.375rem 0;
+}
+
+.dangerDesc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 버튼 */
+.leaveButton {
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--warning-400);
+  background: var(--warning-50);
+  color: var(--warning-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.leaveButton:hover:not(:disabled) {
+  background: var(--warning-100);
+  border-color: var(--warning-500);
+}
+
+.leaveButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.deleteButton {
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  background: var(--danger-500);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.deleteButton:hover:not(:disabled) {
+  background: var(--danger-600);
+}
+
+.deleteButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* 정보 박스 */
+.infoBox {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  background: var(--primary-50);
+  border-radius: 8px;
+  border: 1px solid var(--primary-200);
+}
+
+.infoTitle {
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: var(--primary-700);
+  margin: 0 0 0.375rem 0;
+}
+
+.infoDesc {
+  font-size: 0.875rem;
+  color: var(--primary-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 반응형 */
+@media (max-width: 640px) {
+  .settingsCard {
+    padding: 1rem;
+  }
+
+  .dangerAction {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .leaveButton,
+  .deleteButton {
+    width: 100%;
+  }
+}

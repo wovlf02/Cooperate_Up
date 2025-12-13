@@ -1,0 +1,165 @@
+/* 퀵 스탯 섹션 스타일 */
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: -24px 0 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.statCard {
+  background: white;
+  border-radius: 18px;
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--gray-100);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+}
+
+.statCard:hover::before {
+  opacity: 1;
+}
+
+/* 컬러 테마 */
+.statCard.blue::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.statCard.green::before { background: linear-gradient(90deg, #22c55e, #4ade80); }
+.statCard.orange::before { background: linear-gradient(90deg, #f97316, #fb923c); }
+.statCard.purple::before { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+
+.statCard.blue { border-top: 4px solid #3b82f6; }
+.statCard.green { border-top: 4px solid #22c55e; }
+.statCard.orange { border-top: 4px solid #f97316; }
+.statCard.purple { border-top: 4px solid #8b5cf6; }
+
+.iconWrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-50);
+  transition: transform 0.3s ease;
+}
+
+.statCard:hover .iconWrapper {
+  transform: scale(1.1);
+}
+
+.statCard.blue .iconWrapper { background: #eff6ff; }
+.statCard.green .iconWrapper { background: #f0fdf4; }
+.statCard.orange .iconWrapper { background: #fff7ed; }
+.statCard.purple .iconWrapper { background: #faf5ff; }
+
+.icon {
+  font-size: 1.75rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  text-align: center;
+  font-weight: 500;
+}
+
+.trend {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+
+.trend.positive {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.trend.negative {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: -18px 0 24px;
+  }
+
+  .statCard {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+
+  .iconWrapper {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+  }
+
+  .value {
+    font-size: 1.5rem;
+  }
+
+  .label {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .statCard {
+    padding: 16px 12px;
+  }
+
+  .value {
+    font-size: 1.375rem;
+  }
+}
+

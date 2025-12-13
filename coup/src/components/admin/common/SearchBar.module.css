@@ -1,0 +1,28 @@
+/* SearchBar */
+.searchBar {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.clearButton {
+  position: absolute;
+  right: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: var(--space-2);
+  min-width: unset;
+}
+
+.clearButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .searchBar {
+    max-width: 100%;
+  }
+}
+

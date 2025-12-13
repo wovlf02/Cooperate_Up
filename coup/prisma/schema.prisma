@@ -1,0 +1,735 @@
+// Prisma 설정
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// 사용자 (User)
+// ============================================
+model User {
+  id       String   @id @default(cuid())
+  email    String   @unique
+  password String? // null for OAuth users
+  name     String?
+  avatar   String?
+  bio      String?
+  provider Provider @default(CREDENTIALS)
+  role     UserRole @default(USER)
+
+  // 소셜 로그인
+  googleId String? @unique
+  githubId String? @unique
+
+  // 상태
+  status         UserStatus @default(ACTIVE)
+  suspendedUntil DateTime?
+  suspendReason  String?
+
+  // 활동 제한
+  restrictedUntil   DateTime?
+  restrictedActions String[]  @default([])
+
+  // 타임스탬프
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  lastLoginAt DateTime?
+
+  // 관계
+  ownedStudies       Study[]             @relation("StudyOwner")
+  studyMembers       StudyMember[]
+  messages           Message[]
+  notifications      Notification[]
+  tasks              Task[]
+  reports            Report[]
+  createdNotices     Notice[]
+  uploadedFiles      File[]              @relation("FileUploader")
+  createdEvents      Event[]             @relation("EventCreator")
+  createdStudyTasks  StudyTask[]         @relation("StudyTaskCreator")
+  assignedStudyTasks StudyTaskAssignee[] @relation("TaskAssignee")
+
+  // 그룹 관련
+  createdGroups   Group[]       @relation("GroupCreator")
+  groupMembers    GroupMember[]
+  sentInvites     GroupInvite[] @relation("GroupInviter")
+  receivedInvites GroupInvite[] @relation("GroupInvitee")
+
+  // 관리자 관련
+  sanctions        Sanction[] @relation("UserSanctions")
+  receivedWarnings Warning[]
+  adminLogs        AdminLog[] @relation("AdminActions")
+  adminRole        AdminRole?
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+  @@index([lastLoginAt])
+}
+
+enum Provider {
+  CREDENTIALS
+  GOOGLE
+  GITHUB
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+
+// ============================================
+// 스터디 (Study)
+// ============================================
+model Study {
+  id          String  @id @default(cuid())
+  ownerId     String
+  name        String
+  emoji       String  @default("📚")
+  description String  @db.Text
+  category    String
+  subCategory String?
+
+  // 설정
+  maxMembers   Int     @default(20)
+  isPublic     Boolean @default(true)
+  autoApprove  Boolean @default(true)
+  isRecruiting Boolean @default(true)
+
+  // 평가
+  rating      Float? @default(0)
+  reviewCount Int?   @default(0)
+
+  // 메타
+  tags       String[] // PostgreSQL array
+  inviteCode String   @unique @default(cuid())
+
+  // 타임스탬프
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 관계
+  owner      User          @relation("StudyOwner", fields: [ownerId], references: [id])
+  members    StudyMember[]
+  messages   Message[]
+  notices    Notice[]
+  files      File[]
+  events     Event[]
+  tasks      Task[]
+  studyTasks StudyTask[]
+
+  @@index([category])
+  @@index([isPublic, isRecruiting])
+  @@index([ownerId])
+  @@index([rating])
+}
+
+// ============================================
+// 스터디 멤버 (StudyMember)
+// ============================================
+model StudyMember {
+  id      String       @id @default(cuid())
+  studyId String
+  userId  String
+  role    MemberRole   @default(MEMBER)
+  status  MemberStatus @default(PENDING)
+
+  // 가입 정보
+  introduction String? @db.Text
+  motivation   String?
+  level        String?
+
+  // 타임스탬프
+  joinedAt   DateTime  @default(now())
+  approvedAt DateTime?
+
+  // 관계
+  study Study @relation(fields: [studyId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([studyId, userId])
+  @@index([userId])
+  @@index([status])
+  @@index([studyId, status]) // 스터디 멤버 필터링 최적화
+}
+
+enum MemberRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum MemberStatus {
+  PENDING
+  ACTIVE
+  KICKED
+  LEFT
+}
+
+// ============================================
+// 채팅 메시지 (Message)
+// ============================================
+model Message {
+  id      String  @id @default(cuid())
+  studyId String
+  userId  String
+  content String  @db.Text
+  fileId  String?
+
+  // 읽음 처리
+  readers String[] // User IDs array
+
+  // 타임스탬프
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 관계
+  study Study @relation(fields: [studyId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id])
+  file  File? @relation(fields: [fileId], references: [id])
+
+  @@index([studyId, createdAt])
+}
+
+// ============================================
+// 공지사항 (Notice)
+// ============================================
+model Notice {
+  id       String @id @default(cuid())
+  studyId  String
+  authorId String
+  title    String
+  content  String @db.Text
+
+  // 상태
+  isPinned    Boolean @default(false)
+  isImportant Boolean @default(false)
+
+  // 통계
+  views Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  attachments NoticeFile[] // 공지사항에 첨부된 파일들
+
+  study  Study @relation(fields: [studyId], references: [id], onDelete: Cascade)
+  author User  @relation(fields: [authorId], references: [id])
+
+  @@index([studyId, isPinned, createdAt])
+  @@index([authorId])
+}
+
+// ============================================
+// 공지사항 파일 (NoticeFile)
+// ============================================
+model NoticeFile {
+  id        String   @id @default(cuid())
+  noticeId  String
+  fileId    String
+  createdAt DateTime @default(now())
+
+  notice Notice @relation(fields: [noticeId], references: [id], onDelete: Cascade)
+  file   File   @relation(fields: [fileId], references: [id], onDelete: Cascade)
+
+  @@unique([noticeId, fileId]) // A file can only be attached once to a specific notice
+  @@index([noticeId])
+  @@index([fileId])
+}
+
+// ============================================
+// 파일 (File)
+// ============================================
+model File {
+  id         String  @id @default(cuid())
+  studyId    String
+  uploaderId String
+  name       String
+  size       Int
+  type       String
+  url        String
+  folderId   String?
+
+  downloads Int @default(0)
+
+  createdAt DateTime @default(now())
+
+  study       Study        @relation(fields: [studyId], references: [id], onDelete: Cascade)
+  uploader    User         @relation("FileUploader", fields: [uploaderId], references: [id])
+  messages    Message[]
+  noticeFiles NoticeFile[]
+
+  @@index([studyId, folderId])
+  @@index([uploaderId])
+}
+
+// ============================================
+// 캘린더 일정 (Event)
+// ============================================
+model Event {
+  id          String   @id @default(cuid())
+  studyId     String
+  createdById String
+  title       String
+  date        DateTime @db.Date
+  startTime   String
+  endTime     String
+  location    String?
+  color       String   @default("#6366F1")
+
+  createdAt DateTime @default(now())
+
+  study     Study @relation(fields: [studyId], references: [id], onDelete: Cascade)
+  createdBy User  @relation("EventCreator", fields: [createdById], references: [id])
+
+  @@index([studyId, date])
+  @@index([createdById])
+}
+
+// ============================================
+// 할일 (Task) - 개인용
+// ============================================
+model Task {
+  id          String     @id @default(cuid())
+  studyId     String?
+  userId      String
+  title       String
+  description String?    @db.Text
+  status      TaskStatus @default(TODO)
+  priority    Priority   @default(MEDIUM)
+  dueDate     DateTime?
+
+  completed   Boolean   @default(false)
+  completedAt DateTime?
+
+  createdAt DateTime @default(now())
+
+  user  User   @relation(fields: [userId], references: [id])
+  study Study? @relation(fields: [studyId], references: [id], onDelete: Cascade)
+
+  @@index([userId, completed])
+  @@index([studyId, status])
+}
+
+// ============================================
+// 스터디 할일 (StudyTask) - 스터디 공유용
+// ============================================
+model StudyTask {
+  id          String     @id @default(cuid())
+  studyId     String
+  createdById String
+  title       String
+  description String?    @db.Text
+  status      TaskStatus @default(TODO)
+  priority    Priority   @default(MEDIUM)
+  dueDate     DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  study     Study               @relation(fields: [studyId], references: [id], onDelete: Cascade)
+  createdBy User                @relation("StudyTaskCreator", fields: [createdById], references: [id])
+  assignees StudyTaskAssignee[]
+
+  @@index([studyId, status])
+  @@index([createdById])
+}
+
+model StudyTaskAssignee {
+  id     String @id @default(cuid())
+  taskId String
+  userId String
+
+  assignedAt DateTime @default(now())
+
+  task StudyTask @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user User      @relation("TaskAssignee", fields: [userId], references: [id])
+
+  @@unique([taskId, userId])
+  @@index([userId])
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  REVIEW
+  DONE
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+// ============================================
+// 알림 (Notification)
+// ============================================
+model Notification {
+  id         String           @id @default(cuid())
+  userId     String
+  type       NotificationType
+  studyId    String?
+  studyName  String?
+  studyEmoji String?
+  message    String
+  data       Json? // 추가 데이터
+
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, isRead, createdAt])
+}
+
+enum NotificationType {
+  JOIN_APPROVED
+  NOTICE
+  FILE
+  EVENT
+  TASK
+  MEMBER
+  KICK
+  CHAT
+}
+
+// ============================================
+// 신고 (Report)
+// ============================================
+model Report {
+  id         String     @id @default(cuid())
+  reporterId String
+  targetType TargetType
+  targetId   String
+  targetName String? // 신고 대상 이름 (캐시)
+  type       ReportType
+  reason     String     @db.Text
+  evidence   Json? // 증거 자료
+
+  status   ReportStatus @default(PENDING)
+  priority Priority     @default(MEDIUM)
+
+  // 처리
+  processedBy String?
+  processedAt DateTime?
+  resolution  String?   @db.Text
+
+  createdAt DateTime @default(now())
+
+  reporter User @relation(fields: [reporterId], references: [id])
+
+  @@index([status, priority, createdAt])
+  @@index([targetType, targetId])
+}
+
+enum TargetType {
+  USER
+  STUDY
+  MESSAGE
+}
+
+enum ReportType {
+  SPAM
+  HARASSMENT
+  INAPPROPRIATE
+  COPYRIGHT
+  OTHER
+}
+
+enum ReportStatus {
+  PENDING
+  IN_PROGRESS
+  RESOLVED
+  REJECTED
+}
+
+// ============================================
+// 관리자 시스템 (Admin System)
+// ============================================
+
+// 경고 시스템
+model Warning {
+  id             String          @id @default(cuid())
+  userId         String
+  adminId        String
+  reason         String          @db.Text
+  severity       WarningSeverity @default(NORMAL)
+  relatedContent String? // URL or ID
+  expiresAt      DateTime? // 경고 유효 기간
+  createdAt      DateTime        @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([severity, createdAt])
+  @@index([userId, severity, createdAt]) // 복합 조회 최적화
+}
+
+enum WarningSeverity {
+  MINOR // 경미한 위반
+  NORMAL // 일반 위반
+  SERIOUS // 심각한 위반
+  CRITICAL // 치명적 위반
+}
+
+// 제재 이력
+model Sanction {
+  id              String       @id @default(cuid())
+  userId          String
+  adminId         String
+  type            SanctionType
+  reason          String       @db.Text
+  duration        String? // "1d", "3d", "7d", "30d", "permanent"
+  expiresAt       DateTime?
+  relatedReportId String?
+  metadata        String?      @db.Text // JSON 형식의 추가 데이터
+
+  // 해제 정보
+  isActive        Boolean   @default(true)
+  unsuspendedBy   String?
+  unsuspendReason String?
+  unsuspendedAt   DateTime?
+
+  createdAt DateTime @default(now())
+
+  user User @relation("UserSanctions", fields: [userId], references: [id])
+
+  @@index([userId, type, createdAt])
+  @@index([userId, isActive, expiresAt]) // 활성 제재 조회 최적화
+  @@index([isActive, expiresAt])
+}
+
+enum SanctionType {
+  WARNING // 경고
+  CHAT_BAN // 채팅 금지
+  STUDY_CREATE_BAN // 스터디 생성 금지
+  FILE_UPLOAD_BAN // 파일 업로드 금지
+  RESTRICTION // 활동 제한
+  SUSPENSION // 계정 정지
+  PERMANENT_BAN // 영구 정지
+}
+
+// 관리자 활동 로그
+model AdminLog {
+  id         String      @id @default(cuid())
+  adminId    String
+  action     AdminAction
+  targetType String? // "User", "Study", "Report"
+  targetId   String?
+
+  // 변경 내용
+  before Json?
+  after  Json?
+  reason String? @db.Text
+
+  // 메타 정보
+  ipAddress String?
+  userAgent String?
+
+  createdAt DateTime @default(now())
+
+  admin User @relation("AdminActions", fields: [adminId], references: [id])
+
+  @@index([adminId, createdAt])
+  @@index([action, createdAt])
+  @@index([targetType, targetId])
+}
+
+enum AdminAction {
+  // 사용자 관리
+  USER_VIEW
+  USER_SEARCH
+  USER_WARN
+  USER_SUSPEND
+  USER_UNSUSPEND
+  USER_DELETE
+  USER_RESTORE
+  USER_UPDATE
+
+  // 스터디 관리
+  STUDY_VIEW
+  STUDY_HIDE
+  STUDY_UNHIDE
+  STUDY_CLOSE
+  STUDY_REOPEN
+  STUDY_DELETE
+  STUDY_RECOMMEND
+
+  // 신고 처리
+  REPORT_VIEW
+  REPORT_ASSIGN
+  REPORT_RESOLVE
+  REPORT_REJECT
+
+  // 콘텐츠 관리
+  CONTENT_DELETE
+  CONTENT_RESTORE
+
+  // 시스템 설정
+  SETTINGS_VIEW
+  SETTINGS_UPDATE
+  SETTINGS_CACHE_CLEAR
+
+  // 분석 및 통계
+  ANALYTICS_VIEW
+  ANALYTICS_EXPORT
+
+  // 감사 로그
+  AUDIT_VIEW
+  AUDIT_EXPORT
+}
+
+// 관리자 역할 및 권한
+model AdminRole {
+  id          String        @id @default(cuid())
+  userId      String        @unique
+  role        AdminRoleType
+  permissions Json // 세부 권한 JSON
+  grantedBy   String
+  grantedAt   DateTime      @default(now())
+  expiresAt   DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([role])
+}
+
+enum AdminRoleType {
+  VIEWER // 조회만 가능
+  MODERATOR // 콘텐츠 모더레이션
+  ADMIN // 사용자/스터디 관리
+  SUPER_ADMIN // 모든 권한
+}
+
+// ============================================
+// 그룹 (Group)
+// ============================================
+model Group {
+  id          String  @id @default(cuid())
+  name        String
+  description String? @db.Text
+  category    String  @default("etc")
+  imageUrl    String?
+
+  // 그룹 설정
+  isPublic     Boolean @default(true)
+  maxMembers   Int     @default(50)
+  isRecruiting Boolean @default(true)
+
+  // 메타
+  createdBy String
+  deletedAt DateTime?
+
+  // 타임스탬프
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // 관계
+  creator User          @relation("GroupCreator", fields: [createdBy], references: [id])
+  members GroupMember[]
+  invites GroupInvite[]
+
+  @@index([category])
+  @@index([isPublic, isRecruiting])
+  @@index([createdBy])
+}
+
+// ============================================
+// 그룹 멤버 (GroupMember)
+// ============================================
+model GroupMember {
+  id      String            @id @default(cuid())
+  groupId String
+  userId  String
+  role    GroupMemberRole   @default(MEMBER)
+  status  GroupMemberStatus @default(ACTIVE)
+
+  // 타임스탬프
+  joinedAt DateTime  @default(now())
+  leftAt   DateTime?
+
+  // 관계
+  group Group @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([groupId, userId])
+  @@index([userId])
+  @@index([status])
+  @@index([groupId, status])
+}
+
+enum GroupMemberRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum GroupMemberStatus {
+  PENDING
+  ACTIVE
+  LEFT
+  KICKED
+}
+
+// ============================================
+// 그룹 초대 (GroupInvite)
+// ============================================
+model GroupInvite {
+  id        String            @id @default(cuid())
+  groupId   String
+  invitedBy String
+  email     String?
+  code      String            @unique @default(cuid())
+  status    GroupInviteStatus @default(PENDING)
+
+  // 타임스탬프
+  createdAt DateTime  @default(now())
+  expiresAt DateTime?
+  usedAt    DateTime?
+  usedBy    String?
+
+  // 관계
+  group   Group @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  inviter User  @relation("GroupInviter", fields: [invitedBy], references: [id])
+  user    User? @relation("GroupInvitee", fields: [usedBy], references: [id])
+
+  @@index([groupId])
+  @@index([invitedBy])
+  @@index([status])
+  @@index([code])
+}
+
+enum GroupInviteStatus {
+  PENDING
+  ACCEPTED
+  EXPIRED
+  CANCELLED
+}
+
+// ============================================
+// 시스템 설정 (System Settings)
+// ============================================
+model SystemSetting {
+  id          String   @id @default(cuid())
+  category    String // general, security, notification, feature
+  key         String   @unique
+  value       String   @db.Text
+  type        String // string, number, boolean, json
+  description String?
+  updatedAt   DateTime @updatedAt
+  updatedBy   String
+
+  @@index([category])
+  @@index([key])
+}

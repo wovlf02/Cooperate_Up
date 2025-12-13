@@ -1,0 +1,43 @@
+/* Admin Layout */
+.adminLayout {
+  min-height: 100vh;
+  background: linear-gradient(135deg,
+    #faf8ff 0%,      /* 파스텔 퍼플 */
+    #f0f9ff 50%,     /* 파스텔 블루 */
+    #f0fdfa 100%     /* 파스텔 틸 */
+  );
+  background-attachment: fixed;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: var(--border-width-1) solid var(--pastel-purple-200);
+}
+
+/* Main Content */
+.mainContent {
+  padding: var(--space-4);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.breadcrumbContainer {
+  margin-bottom: var(--space-4);
+}
+
+.content {
+  min-height: calc(100vh - 200px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mainContent {
+    padding: var(--space-2);
+  }
+}
+

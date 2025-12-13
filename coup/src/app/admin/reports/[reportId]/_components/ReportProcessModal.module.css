@@ -1,0 +1,419 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* 진행 표시기 */
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-tertiary);
+  font-size: var(--font-size-sm);
+}
+
+.step.active {
+  color: var(--primary-600);
+}
+
+.step.active .stepNumber {
+  background: var(--primary-500);
+  color: white;
+}
+
+.stepNumber {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  background: var(--gray-200);
+  color: var(--gray-600);
+}
+
+.stepLine {
+  width: 40px;
+  height: 2px;
+  background: var(--gray-200);
+}
+
+/* 신고 요약 */
+.reportSummary {
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.summaryRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.summaryLabel {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.reason {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* 에러 메시지 */
+.error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--danger-50);
+  border: 1px solid var(--danger-200);
+  border-radius: var(--radius);
+  color: var(--danger-700);
+  font-size: var(--font-size-sm);
+}
+
+.error svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* 섹션 타이틀 */
+.sectionTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+/* Step 1: 처리 방법 선택 */
+.actionSelection {
+  padding: var(--space-4) 0;
+}
+
+.actionCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.actionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-xl);
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actionCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.actionCard.approve:hover {
+  border-color: var(--success-400);
+  background: var(--success-50);
+}
+
+.actionCard.reject:hover {
+  border-color: var(--danger-400);
+  background: var(--danger-50);
+}
+
+.actionCard.hold:hover {
+  border-color: var(--warning-400);
+  background: var(--warning-50);
+}
+
+.actionIcon {
+  font-size: 32px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--gray-100);
+}
+
+.approve .actionIcon {
+  background: var(--success-100);
+  color: var(--success-600);
+}
+
+.reject .actionIcon {
+  background: var(--danger-100);
+  color: var(--danger-600);
+}
+
+.hold .actionIcon {
+  background: var(--warning-100);
+  color: var(--warning-600);
+}
+
+.actionTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.actionDesc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Step 2: 제재 설정 */
+.linkedActionSelection {
+  padding: var(--space-4) 0;
+}
+
+.linkedActionCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.linkedCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.linkedCard:hover {
+  border-color: var(--primary-300);
+  background: var(--primary-50);
+}
+
+.linkedCard.selected {
+  border-color: var(--primary-500);
+  background: var(--primary-50);
+}
+
+.linkedIcon {
+  font-size: 24px;
+}
+
+.linkedTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.linkedDesc {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+/* Step 3: 최종 확인 */
+.confirmation {
+  padding: var(--space-4) 0;
+}
+
+.confirmationBox {
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.confirmRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.confirmLabel {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  min-width: 100px;
+}
+
+/* 상세 설정 */
+.detailsSection {
+  padding: var(--space-4);
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-primary);
+}
+
+.detailLabel {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.radioGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-primary);
+  transition: all 0.15s ease;
+}
+
+.radioLabel:has(input:checked) {
+  background: var(--primary-50);
+  border-color: var(--primary-300);
+  color: var(--primary-700);
+}
+
+.radioLabel input {
+  accent-color: var(--primary-500);
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.checkboxLabel input {
+  accent-color: var(--primary-500);
+}
+
+/* 처리 사유 */
+.resolutionSection {
+  margin-top: var(--space-4);
+}
+
+.resolutionLabel {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.required {
+  color: var(--danger-500);
+}
+
+.resolutionInput {
+  width: 100%;
+  padding: var(--space-3);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.resolutionInput:focus {
+  outline: none;
+  border-color: var(--primary-400);
+  box-shadow: 0 0 0 3px var(--primary-100);
+}
+
+/* 경고 박스 */
+.warningBox {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--warning-50);
+  border: 1px solid var(--warning-200);
+  border-radius: var(--radius-lg);
+  color: var(--warning-800);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.warningBox svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--warning-500);
+}
+
+/* 버튼 영역 */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-primary);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .actionCards {
+    grid-template-columns: 1fr;
+  }
+
+  .linkedActionCards {
+    grid-template-columns: 1fr;
+  }
+
+  .stepper {
+    flex-wrap: wrap;
+  }
+
+  .stepLine {
+    display: none;
+  }
+
+  .radioGroup {
+    flex-direction: column;
+  }
+}
+

@@ -1,0 +1,381 @@
+/* 할일 컨테이너 */
+.tasksContainer {
+  padding: 0;
+  width: 100%;
+}
+
+/* 헤더 */
+.tasksHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.tasksHeader h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.filterButtons {
+  display: flex;
+  gap: 4px;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.filterButton {
+  padding: 8px 16px;
+  background: white;
+  color: var(--gray-700);
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filterButton:hover {
+  background: var(--gray-50);
+}
+
+.filterButton.active {
+  background: var(--primary-500);
+  color: white;
+}
+
+/* 할 일 추가 버튼 */
+.addTaskButton {
+  padding: 16px 20px;
+  background: white;
+  border: 2px dashed var(--gray-300);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+
+.addTaskButton:hover {
+  border-color: var(--primary-500);
+  color: var(--primary-500);
+  background: var(--primary-50);
+}
+
+/* 할 일 추가 폼 */
+.addTaskForm {
+  padding: 20px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 6px;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="date"],
+.formGroup select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+  outline: none;
+  border-color: var(--primary-500);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.radioGroup label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.radioGroup input[type="radio"] {
+  cursor: pointer;
+}
+
+.formActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.cancelButton,
+.submitButton {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton {
+  background: white;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+}
+
+.cancelButton:hover {
+  background: var(--gray-50);
+}
+
+.submitButton {
+  background: var(--primary-500);
+  color: white;
+  border: none;
+}
+
+.submitButton:hover {
+  background: var(--primary-600);
+}
+
+/* 할 일 섹션 */
+.taskSection {
+  margin-bottom: 32px;
+}
+
+.taskSection h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 12px 0;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.showAllButton {
+  padding: 4px 12px;
+  background: white;
+  color: var(--primary-600);
+  border: 1px solid var(--primary-300);
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.showAllButton:hover {
+  background: var(--primary-50);
+}
+
+/* 할 일 목록 */
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 할 일 카드 */
+.taskCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.taskCard:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.taskCard.completed {
+  background: var(--gray-50);
+  opacity: 0.8;
+}
+
+.taskCheckbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gray-300);
+  border-radius: 4px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.taskCard.completed .taskCheckbox {
+  accent-color: var(--primary-500);
+}
+
+.taskContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.taskTitle {
+  font-size: 16px;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.taskCard.completed .taskTitle {
+  text-decoration: line-through;
+  color: var(--gray-500);
+}
+
+.taskMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--gray-600);
+  flex-wrap: wrap;
+}
+
+.dueDate {
+  font-weight: 500;
+}
+
+.dueDate.overdue {
+  color: var(--danger-500);
+}
+
+.dueDate.urgent {
+  color: var(--warning-600);
+}
+
+.highPriority {
+  color: var(--danger-500);
+  font-weight: 600;
+}
+
+.lowPriority {
+  color: var(--info-500);
+  font-weight: 600;
+}
+
+/* 할 일 액션 */
+.taskActions {
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.taskCard:hover .taskActions {
+  opacity: 1;
+}
+
+.completeButton,
+.editButton,
+.deleteButton {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--gray-300);
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.completeButton:hover {
+  background: var(--primary-50);
+  border-color: var(--primary-500);
+  color: var(--primary-600);
+}
+
+.editButton:hover {
+  background: var(--gray-50);
+}
+
+.deleteButton:hover {
+  background: var(--danger-50);
+  border-color: var(--danger-500);
+  color: var(--danger-600);
+}
+
+/* 빈 상태 */
+.emptyState {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--gray-500);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .tasksContainer {
+    padding: 16px;
+  }
+
+  .tasksHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .filterButtons {
+    width: 100%;
+  }
+
+  .filterButton {
+    flex: 1;
+    padding: 8px 12px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .taskCard {
+    padding: 12px;
+  }
+
+  .taskActions {
+    opacity: 1;
+  }
+
+  .completeButton,
+  .editButton,
+  .deleteButton {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+}

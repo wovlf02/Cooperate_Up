@@ -1,0 +1,185 @@
+/* Dashboard Skeleton Styles */
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+/* Skeleton 애니메이션 */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--gray-200) 0%,
+    var(--gray-100) 50%,
+    var(--gray-200) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* 환영 메시지 스켈레톤 */
+.welcomeSkeleton {
+  composes: skeleton;
+  width: 300px;
+  height: 36px;
+  margin: 24px 0;
+}
+
+/* 통계 카드 스켈레톤 */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.statCardSkeleton {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+}
+
+.iconSkeleton {
+  composes: skeleton;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+}
+
+.labelSkeleton {
+  composes: skeleton;
+  width: 80px;
+  height: 14px;
+  margin-bottom: 0.5rem;
+}
+
+.valueSkeleton {
+  composes: skeleton;
+  width: 40px;
+  height: 32px;
+}
+
+/* 섹션 스켈레톤 */
+.section {
+  margin-bottom: 3rem;
+}
+
+.sectionHeaderSkeleton {
+  composes: skeleton;
+  width: 150px;
+  height: 28px;
+  margin-bottom: 1.5rem;
+}
+
+/* 스터디 카드 스켈레톤 */
+.studiesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.studyCardSkeleton {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+}
+
+.studyEmojiSkeleton {
+  composes: skeleton;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 1rem;
+}
+
+.studyNameSkeleton {
+  composes: skeleton;
+  width: 100%;
+  height: 20px;
+  margin-bottom: 0.75rem;
+}
+
+.studyMetaSkeleton {
+  composes: skeleton;
+  width: 60%;
+  height: 14px;
+  margin-bottom: 0.5rem;
+}
+
+.studyActivitySkeleton {
+  composes: skeleton;
+  width: 40%;
+  height: 12px;
+}
+
+/* 활동 스켈레톤 */
+.activitiesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.activityItemSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+}
+
+.badgeSkeleton {
+  composes: skeleton;
+  width: 60px;
+  height: 20px;
+}
+
+.contentSkeleton {
+  composes: skeleton;
+  flex: 1;
+  height: 16px;
+}
+
+.timeSkeleton {
+  composes: skeleton;
+  width: 60px;
+  height: 12px;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .studiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .statsGrid {
+    gap: 1rem;
+  }
+
+  .studiesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+

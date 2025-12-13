@@ -1,0 +1,197 @@
+/* UserAnalytics 스타일 */
+
+.container {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  font-size: 0.875rem;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.select:hover {
+  border-color: #6366f1;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.loading,
+.error {
+  padding: 3rem;
+  text-align: center;
+  color: #666;
+}
+
+.error {
+  color: #ef4444;
+}
+
+/* 메트릭 카드 */
+.metricsCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metricCard {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: white;
+}
+
+.metricCard:nth-child(2) {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.metricCard:nth-child(3) {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.metricLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.metricValue {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.metricDesc {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* 차트 그리드 */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+}
+
+.chartContainer {
+  padding: 1.5rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.chartTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 1rem 0;
+}
+
+/* 파이 차트 범례 */
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.legendLabel {
+  flex: 1;
+  color: #666;
+}
+
+.legendValue {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .chartsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .metricsCards {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    width: 100%;
+  }
+
+  .select {
+    flex: 1;
+  }
+
+  .metricValue {
+    font-size: 1.75rem;
+  }
+
+  .chartsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .chartContainer {
+    padding: 1rem;
+  }
+}
+

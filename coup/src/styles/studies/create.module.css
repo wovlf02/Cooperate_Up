@@ -1,0 +1,370 @@
+/* Study Create Page Styles */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+/* Back Button */
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  color: var(--gray-600);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-bottom: 2rem;
+}
+
+.backButton:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-400);
+}
+
+/* Header */
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--gray-600);
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Section */
+.section {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--gray-900);
+  margin-bottom: 1.5rem;
+}
+
+/* Field Group */
+.fieldGroup {
+  margin-bottom: 1.5rem;
+}
+
+.fieldGroup:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-700);
+  margin-bottom: 0.5rem;
+}
+
+.required {
+  color: var(--danger-500);
+}
+
+/* Input Fields */
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  color: var(--gray-900);
+  transition: all var(--transition-fast);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.inputError {
+  border-color: var(--danger-500);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+/* Category Row */
+.categoryRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Character Count */
+.charCount {
+  font-size: var(--font-size-xs);
+  color: var(--gray-500);
+  margin-top: 0.25rem;
+}
+
+.charCount.overLimit {
+  color: var(--danger-500);
+}
+
+/* Error Message */
+.errorMessage {
+  font-size: var(--font-size-xs);
+  color: var(--danger-500);
+  margin-top: 0.25rem;
+}
+
+/* Help Text */
+.helpText {
+  font-size: var(--font-size-xs);
+  color: var(--gray-500);
+  margin-top: 0.25rem;
+}
+
+/* Tags */
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  min-height: 32px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  background: var(--primary-100);
+  color: var(--primary-700);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.tagRemove {
+  background: none;
+  border: none;
+  color: var(--primary-700);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color var(--transition-fast);
+}
+
+.tagRemove:hover {
+  color: var(--primary-900);
+}
+
+.tagInputGroup {
+  margin-top: 0.5rem;
+}
+
+/* Number Input Group */
+.numberInputGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.numberButton {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-lg);
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.numberButton:hover:not(:disabled) {
+  background: var(--gray-50);
+  border-color: var(--gray-400);
+}
+
+.numberButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.numberDisplay {
+  min-width: 60px;
+  text-align: center;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-900);
+}
+
+.numberUnit {
+  font-size: var(--font-size-sm);
+  color: var(--gray-600);
+}
+
+/* Radio Group */
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.radioItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.radioItem:hover {
+  border-color: var(--primary-300);
+  background: var(--primary-50);
+}
+
+.radioItem.radioSelected {
+  border-color: var(--primary-500);
+  background: var(--primary-50);
+}
+
+.radioInput {
+  margin-top: 0.125rem;
+  cursor: pointer;
+}
+
+.radioTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--gray-900);
+  margin-bottom: 0.25rem;
+}
+
+.radioDesc {
+  font-size: var(--font-size-sm);
+  color: var(--gray-600);
+}
+
+/* Checkbox */
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.cancelButton,
+.submitButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cancelButton {
+  background: white;
+  border: 1px solid var(--gray-300);
+  color: var(--gray-700);
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: var(--gray-50);
+  border-color: var(--gray-400);
+}
+
+.submitButton {
+  background: var(--primary-600);
+  border: none;
+  color: white;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: var(--primary-700);
+}
+
+.submitButton:disabled,
+.cancelButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
+  .categoryRow {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+  }
+
+  .numberInputGroup {
+    justify-content: center;
+  }
+}

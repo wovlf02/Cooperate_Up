@@ -1,0 +1,249 @@
+/* NotificationFilters 컴포넌트 스타일 */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+/* ===== 읽음 상태 필터 ===== */
+.statusFilters {
+  display: flex;
+  background: var(--gray-100);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.statusTab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  color: var(--gray-600);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.statusTab:hover {
+  color: var(--gray-800);
+}
+
+.statusTab.active {
+  background: white;
+  color: #3b82f6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.count {
+  padding: 2px 8px;
+  background: var(--gray-200);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gray-600);
+}
+
+.statusTab.active .count {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.unreadBadge {
+  background: #ef4444 !important;
+  color: white !important;
+}
+
+/* ===== 알림 종류 필터 ===== */
+.typeFilter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.typeLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  white-space: nowrap;
+}
+
+/* 커스텀 드롭다운 */
+.dropdown {
+  position: relative;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: white;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 160px;
+}
+
+.dropdownTrigger:hover {
+  border-color: var(--gray-300);
+  background: var(--gray-50);
+}
+
+.dropdownTrigger:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.selectedIcon {
+  font-size: 1.125rem;
+}
+
+.selectedLabel {
+  flex: 1;
+  text-align: left;
+}
+
+.selectedCount {
+  color: var(--gray-500);
+  font-size: 0.8125rem;
+}
+
+.arrow {
+  font-size: 0.625rem;
+  color: var(--gray-500);
+  transition: transform 0.2s ease;
+  margin-left: 4px;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+/* 드롭다운 메뉴 */
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 200px;
+  background: white;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  list-style: none;
+  padding: 6px;
+  margin: 0;
+  z-index: 100;
+  animation: dropdownFadeIn 0.15s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-left: 3px solid transparent;
+}
+
+.dropdownItem:hover {
+  background: var(--gray-100);
+}
+
+.dropdownItem.selected {
+  background: rgba(59, 130, 246, 0.08);
+  border-left-color: #3b82f6;
+}
+
+.itemIcon {
+  font-size: 1.25rem;
+  width: 28px;
+  text-align: center;
+}
+
+.itemLabel {
+  flex: 1;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.itemCount {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--gray-500);
+  padding: 2px 8px;
+  background: var(--gray-100);
+  border-radius: 6px;
+}
+
+.dropdownItem.selected .itemCount {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .statusFilters {
+    width: 100%;
+  }
+
+  .statusTab {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 0.875rem;
+  }
+
+  .typeFilter {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dropdown {
+    flex: 1;
+  }
+
+  .dropdownTrigger {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .dropdownMenu {
+    left: 0;
+    right: 0;
+    min-width: auto;
+  }
+}

@@ -1,0 +1,226 @@
+/* Breadcrumb */
+.breadcrumb {
+  padding: var(--space-4) 0;
+  animation: fadeIn var(--duration-base) var(--ease-in-out);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Home Icon */
+.homeIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.homeText {
+  font-weight: var(--font-weight-medium);
+}
+
+/* Link */
+.link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: var(--transition-colors);
+}
+
+.link:hover {
+  background-color: var(--gray-100);
+  color: var(--text-primary);
+}
+
+.link:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Separator */
+.separator {
+  display: flex;
+  align-items: center;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.separator svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Current */
+.current {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  border-radius: var(--radius);
+  background-color: var(--gray-100);
+}
+
+/* Dropdown Container */
+.dropdownContainer {
+  position: relative;
+}
+
+/* Dropdown Button */
+.dropdownButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background-color: var(--gray-100);
+  border: none;
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-colors);
+}
+
+.dropdownButton:hover {
+  background-color: var(--gray-200);
+  color: var(--text-primary);
+}
+
+.dropdownButton:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.dropdownButton svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: calc(var(--z-dropdown) - 1);
+  background: transparent;
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  left: 0;
+  min-width: 200px;
+  background-color: var(--bg-elevated);
+  border: var(--border-width-1) solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-2);
+  z-index: var(--z-dropdown);
+  animation: slideDown var(--duration-fast) var(--ease-out);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownItem {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: var(--transition-colors);
+  white-space: nowrap;
+}
+
+.dropdownItem:hover {
+  background-color: var(--gray-100);
+  color: var(--primary-600);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: var(--space-3) 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .breadcrumb::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .breadcrumb::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .breadcrumb::-webkit-scrollbar-thumb {
+    background: var(--gray-300);
+    border-radius: var(--radius-full);
+  }
+
+  .list {
+    flex-wrap: nowrap;
+  }
+
+  .homeText {
+    display: none;
+  }
+
+  .link {
+    padding: var(--space-2);
+  }
+
+  .current {
+    padding: var(--space-2);
+    font-size: var(--font-size-xs);
+  }
+
+  .dropdownButton {
+    width: 28px;
+    height: 28px;
+  }
+}
+

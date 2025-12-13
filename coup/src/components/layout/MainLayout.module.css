@@ -1,0 +1,54 @@
+/* Main Layout 스타일 */
+
+.layout {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff5f7 0%, #fef3e2 50%, #f0f9ff 100%);
+}
+
+/* Main Content */
+.main {
+  margin-left: clamp(200px, 12vw, 280px); /* 사이드바 너비에 맞춰 유동적 */
+  margin-top: 64px; /* Header 높이 */
+  padding: clamp(1rem, 2vw, 2rem); /* 화면 크기에 따라 유동적 */
+  min-height: calc(100vh - 64px);
+  max-width: 100%; /* 전체 너비 활용 */
+}
+
+/* Tablet */
+@media (max-width: 1279px) {
+  .main {
+    margin-left: clamp(160px, 15vw, 200px);
+    padding: clamp(1rem, 1.5vw, 1.5rem);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .main {
+    margin-left: 0;
+    margin-top: 56px;
+    padding: 1rem;
+    min-height: calc(100vh - 56px);
+  }
+
+  /* Mobile Overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 45;
+    animation: fadeIn 0.3s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

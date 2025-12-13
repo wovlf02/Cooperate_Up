@@ -1,0 +1,60 @@
+/* EmptyState 컴포넌트 스타일 */
+
+.container {
+  text-align: center;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  font-size: 4rem;
+  margin-bottom: 8px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin: 0;
+}
+
+.description {
+  font-size: 0.9375rem;
+  color: var(--gray-500);
+  margin: 0;
+  max-width: 280px;
+  line-height: 1.5;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .container {
+    padding: 60px 16px;
+  }
+
+  .icon {
+    font-size: 3rem;
+  }
+
+  .title {
+    font-size: 1.125rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+  }
+}
+

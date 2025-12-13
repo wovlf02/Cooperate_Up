@@ -1,0 +1,159 @@
+/* 확인 모달 스타일 */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modalTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem 0;
+}
+
+.modalMessage {
+  font-size: 0.938rem;
+  color: var(--text-secondary);
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+/* 사유 입력 */
+.modalInput {
+  margin-bottom: 1.25rem;
+}
+
+.modalInput label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.modalInput textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.2s ease;
+}
+
+.modalInput textarea:focus {
+  outline: none;
+  border-color: var(--primary-400);
+}
+
+.modalInput textarea:disabled {
+  background: var(--neutral-100);
+  cursor: not-allowed;
+}
+
+.modalInput textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* 버튼 */
+.modalActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.modalCancelBtn {
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modalCancelBtn:hover:not(:disabled) {
+  background: var(--neutral-100);
+}
+
+.modalCancelBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modalConfirmBtn {
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modalConfirmBtn.danger {
+  background: var(--danger-500);
+  color: white;
+}
+
+.modalConfirmBtn.danger:hover:not(:disabled) {
+  background: var(--danger-600);
+}
+
+.modalConfirmBtn.primary {
+  background: var(--primary-500);
+  color: white;
+}
+
+.modalConfirmBtn.primary:hover:not(:disabled) {
+  background: var(--primary-600);
+}
+
+.modalConfirmBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,154 @@
+.headerContainer {
+  margin-bottom: 24px;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: var(--gray-600);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 16px;
+  transition: color 0.2s ease;
+}
+
+.backButton:hover {
+  color: var(--gray-900);
+}
+
+.studyCard {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.studyInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.studyMain {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.emoji {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.studyName {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 8px 0;
+}
+
+.studyMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--gray-600);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.primaryButton {
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primaryButton:hover {
+  background: var(--primary-600);
+  transform: translateY(-1px);
+}
+
+/* 탭 네비게이션 */
+.tabs {
+  display: flex;
+  gap: 8px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-600);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.tab:hover {
+  color: var(--gray-800);
+  background: var(--gray-50);
+}
+
+.tab.active {
+  color: var(--primary-600);
+  font-weight: 600;
+  background: var(--primary-50);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .studyInfo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .studyMain {
+    width: 100%;
+  }
+
+  .emoji {
+    font-size: 36px;
+  }
+
+  .studyName {
+    font-size: 20px;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .primaryButton {
+    width: 100%;
+  }
+
+  .tabs {
+    overflow-x: auto;
+  }
+}

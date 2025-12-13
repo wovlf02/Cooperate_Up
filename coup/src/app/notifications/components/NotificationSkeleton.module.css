@@ -1,0 +1,101 @@
+/* NotificationSkeleton 컴포넌트 스타일 */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  display: flex;
+  gap: 16px;
+  padding: 18px 20px;
+  background: white;
+  border-radius: 16px;
+  border: 1.5px solid var(--gray-200);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 50%, var(--gray-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.type {
+  height: 14px;
+  width: 50px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 50%, var(--gray-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.time {
+  height: 12px;
+  width: 60px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 50%, var(--gray-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  animation-delay: 0.1s;
+}
+
+.title {
+  height: 18px;
+  width: 70%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 50%, var(--gray-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  animation-delay: 0.2s;
+}
+
+.message {
+  height: 14px;
+  width: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 50%, var(--gray-100) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  animation-delay: 0.3s;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .card {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+

@@ -1,0 +1,469 @@
+/* 화상 통화 페이지 스타일 (3단 레이아웃) */
+
+.container {
+  min-height: 100vh;
+  background: var(--gray-50);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== 대기실 화면 ===== */
+.header {
+  padding: 20px;
+  color: white;
+}
+
+.headerTop {
+  margin-bottom: 16px;
+}
+
+.backButton {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.emoji {
+  font-size: 3rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.tab,
+.tabActive {
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tabActive {
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+}
+
+.tab:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tabIcon {
+  font-size: 1rem;
+}
+
+.waiting {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.waitingContent {
+  text-align: center;
+}
+
+.preview {
+  background: white;
+  padding: 60px 80px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.preview h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: var(--gray-900);
+}
+
+.preview p {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  margin-bottom: 32px;
+}
+
+.joinButton {
+  padding: 16px 48px;
+  background: var(--primary-600);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.joinButton:hover {
+  background: var(--primary-700);
+  transform: translateY(-2px);
+}
+
+/* ===== 화상 통화 메인 화면 (3단 레이아웃) ===== */
+
+/* 상단 헤더 */
+.videoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.videoHeaderLeft,
+.videoHeaderCenter,
+.videoHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.videoTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--gray-900);
+}
+
+.participantCount,
+.timer {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.leaveButton {
+  padding: 8px 16px;
+  background: var(--red-50);
+  color: var(--red-600);
+  border: 1px solid var(--red-200);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.leaveButton:hover {
+  background: var(--red-100);
+}
+
+/* 메인 컨텐츠 (3단 레이아웃) */
+.mainContent {
+  flex: 1;
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* 좌측 사이드바: 참여자 목록 */
+.leftSidebar {
+  width: 240px;
+  background: white;
+  border-right: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarHeader {
+  padding: 16px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.sidebarHeader h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.participantList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.participant {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.participant:hover {
+  background: var(--gray-50);
+}
+
+.participantAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary-100);
+  color: var(--primary-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.participantInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.participantName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-900);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.participantStatus {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  margin-top: 2px;
+}
+
+/* 중앙: 비디오 그리드 */
+.videoArea {
+  flex: 1;
+  background: var(--gray-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: auto;
+}
+
+.videoGrid {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+}
+
+.grid1 {
+  grid-template-columns: 1fr;
+}
+
+.grid2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+}
+
+.grid3x3 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+}
+
+.grid4x3 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+}
+
+/* 우측 사이드바: 채팅 */
+.rightSidebar {
+  width: 300px;
+  background: white;
+  border-left: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+}
+
+.chatMessages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.chatEmpty {
+  text-align: center;
+  color: var(--gray-500);
+  font-size: 0.875rem;
+  padding: 40px 20px;
+}
+
+.chatMessage {
+  margin-bottom: 16px;
+}
+
+.chatMessageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.chatMessageHeader strong {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.chatMessageTime {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+.chatMessageContent {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.chatInput {
+  padding: 16px;
+  border-top: 1px solid var(--gray-200);
+  display: flex;
+  gap: 8px;
+}
+
+.chatInputField {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.chatInputField:focus {
+  border-color: var(--primary-500);
+}
+
+.chatSendButton {
+  padding: 10px 16px;
+  background: var(--primary-600);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chatSendButton:hover {
+  background: var(--primary-700);
+}
+
+.chatSendButton:disabled {
+  background: var(--gray-300);
+  cursor: not-allowed;
+}
+
+/* 에러 배너 */
+.errorBanner {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--red-600);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+/* 로딩/에러 상태 */
+.loading,
+.error {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  color: var(--gray-600);
+}
+
+.error {
+  color: var(--red-600);
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .mainContent {
+    flex-direction: column;
+  }
+
+  .leftSidebar,
+  .rightSidebar {
+    width: 100%;
+    max-height: 200px;
+  }
+
+  .leftSidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .rightSidebar {
+    border-left: none;
+    border-top: 1px solid var(--gray-200);
+  }
+}
+
+@media (max-width: 768px) {
+  .videoHeader {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .videoHeaderCenter {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .grid2x2,
+  .grid3x3,
+  .grid4x3 {
+    grid-template-columns: 1fr;
+  }
+}
+

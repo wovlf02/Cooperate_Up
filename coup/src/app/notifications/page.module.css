@@ -1,0 +1,19 @@
+/* 알림 페이지 레이아웃 스타일 */
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  min-height: 100vh;
+}
+
+.content {
+  position: relative;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 16px;
+  }
+}

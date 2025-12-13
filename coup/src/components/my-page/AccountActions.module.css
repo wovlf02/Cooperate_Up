@@ -1,0 +1,106 @@
+/* 계정 관리 스타일 */
+
+.section {
+  background: var(--pastel-yellow-bg);
+  border: 1px solid var(--pastel-yellow-border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(251, 191, 36, 0.08), 0 1px 2px rgba(251, 191, 36, 0.04);
+  transition: all 0.2s ease;
+}
+
+.section:hover {
+  box-shadow: 0 4px 6px -1px rgba(251, 191, 36, 0.1), 0 2px 4px -1px rgba(251, 191, 36, 0.06);
+}
+
+.sectionHeader {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 20px;
+}
+
+.actionsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.actionCard {
+  padding: 20px;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  background: var(--gray-50);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dangerCard {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.actionContent {
+  flex: 1;
+}
+
+.actionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+}
+
+.actionDescription {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+.actionButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.logoutButton {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.logoutButton:hover {
+  background: var(--gray-300);
+}
+
+.deleteButton {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.deleteButton:hover {
+  background: #fecaca;
+  border-color: #fca5a5;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .section {
+    padding: 16px;
+  }
+
+  .actionsContainer {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .actionCard {
+    padding: 16px;
+  }
+}

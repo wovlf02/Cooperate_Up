@@ -1,0 +1,20 @@
+/* 멤버 목록 스타일 */
+
+.memberList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: var(--neutral-50);
+  border-radius: 12px;
+  color: var(--text-secondary);
+}
+
+.emptyState p {
+  margin: 0;
+  font-size: 0.938rem;
+}

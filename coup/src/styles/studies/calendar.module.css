@@ -1,0 +1,469 @@
+/* 캘린더 컨테이너 */
+.calendarContainer {
+  padding: 0; /* 부모 레이아웃에서 이미 padding 적용 */
+  width: 100%;
+}
+
+/* 헤더 */
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.calendarHeader h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.todayButton {
+  padding: 8px 16px;
+  background: white;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.todayButton:hover {
+  background: var(--gray-50);
+}
+
+.viewButtons {
+  display: flex;
+  gap: 4px;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.viewButton {
+  padding: 8px 16px;
+  background: white;
+  color: var(--gray-700);
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.viewButton:hover {
+  background: var(--gray-50);
+}
+
+.viewButton.active {
+  background: var(--primary-500);
+  color: white;
+}
+
+.addEventButton {
+  padding: 8px 16px;
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.addEventButton:hover {
+  background: var(--primary-600);
+}
+
+/* 캘린더 */
+.calendar {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* 캘린더 네비게이션 */
+.calendarNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.calendarNav button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--gray-300);
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+.calendarNav button:hover {
+  background: var(--gray-50);
+}
+
+.calendarNav span {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+/* 요일 헤더 */
+.weekDaysHeader {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.weekDay {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-600);
+  padding: 8px;
+}
+
+/* 날짜 그리드 */
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.dayCell {
+  aspect-ratio: 1;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  padding: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dayCell:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-300);
+}
+
+.dayCell.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.dayCell.today {
+  background: var(--primary-50);
+  border-color: var(--primary-500);
+}
+
+.dayNumber {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.dayCell.today .dayNumber {
+  color: var(--primary-600);
+}
+
+.eventDot {
+  position: absolute;
+  bottom: 4px;
+  font-size: 20px;
+  color: var(--primary-500);
+}
+
+/* 일정 목록 */
+.eventsList {
+  border-top: 1px solid var(--gray-200);
+  padding-top: 24px;
+}
+
+.eventsList h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 16px 0;
+}
+
+.eventItem {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: var(--gray-50);
+  border-left: 4px solid;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.eventDate {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+  min-width: 80px;
+}
+
+.eventInfo {
+  flex: 1;
+}
+
+.eventTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.eventType {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.eventTime {
+  font-size: 14px;
+  color: var(--gray-600);
+  margin-bottom: 4px;
+}
+
+.eventDescription {
+  font-size: 14px;
+  color: var(--gray-600);
+}
+
+/* 모달 */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.modalHeader h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.closeButton {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  color: var(--gray-500);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background: var(--gray-100);
+  color: var(--gray-900);
+}
+
+/* 폼 */
+.modalContent form {
+  padding: 24px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="date"],
+.formGroup input[type="time"],
+.formGroup textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--primary-500);
+}
+
+.radioGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.radioGroup label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.radioGroup input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.dateTimeGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.dateTimeGroup input {
+  flex: 1;
+}
+
+/* 모달 액션 */
+.modalActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.cancelButton,
+.submitButton {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton {
+  background: white;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+}
+
+.cancelButton:hover {
+  background: var(--gray-50);
+}
+
+.submitButton {
+  background: var(--primary-500);
+  color: white;
+  border: none;
+}
+
+.submitButton:hover {
+  background: var(--primary-600);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .calendarContainer {
+    padding: 16px;
+  }
+
+  .calendarHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .headerActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .calendar {
+    padding: 16px;
+  }
+
+  .daysGrid {
+    gap: 4px;
+  }
+
+  .dayCell {
+    padding: 4px;
+  }
+
+  .dayNumber {
+    font-size: 12px;
+  }
+
+  .eventDot {
+    font-size: 16px;
+    bottom: 2px;
+  }
+
+  .eventItem {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .eventDate {
+    min-width: auto;
+  }
+}

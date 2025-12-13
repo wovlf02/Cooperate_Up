@@ -1,0 +1,218 @@
+.container {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* 상태 정보 */
+.statusInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.statusBadge.warning {
+  background: var(--warning-100);
+  color: var(--warning-700);
+}
+
+.statusBadge.primary {
+  background: var(--primary-100);
+  color: var(--primary-700);
+}
+
+.statusBadge.success {
+  background: var(--success-100);
+  color: var(--success-700);
+}
+
+.statusBadge.danger {
+  background: var(--danger-100);
+  color: var(--danger-700);
+}
+
+.processedInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.processedLabel {
+  font-size: var(--font-size-xs);
+  color: var(--text-tertiary);
+}
+
+.processedValue {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+}
+
+/* 담당자 */
+.assigneeInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.assigneeName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.roleTag {
+  font-size: var(--font-size-xs);
+  padding: var(--space-1) var(--space-2);
+  background: var(--primary-100);
+  color: var(--primary-700);
+  border-radius: var(--radius);
+}
+
+.noAssignee {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3);
+  background: var(--gray-50);
+  border-radius: var(--radius);
+}
+
+.noAssignee span {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+}
+
+/* 액션 버튼 */
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.resolvedMessage {
+  padding: var(--space-3);
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+/* 처리 사유 */
+.resolutionBox {
+  padding: var(--space-3);
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* 모달 */
+.modalContent {
+  padding: var(--space-4) 0;
+}
+
+.assignOptions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.radioOption {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.radioOption:hover {
+  border-color: var(--primary-300);
+  background: var(--primary-50);
+}
+
+.radioOption:has(input:checked) {
+  border-color: var(--primary-500);
+  background: var(--primary-50);
+}
+
+.radioOption input[type="radio"] {
+  margin-top: 2px;
+  accent-color: var(--primary-500);
+}
+
+.optionContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.optionTitle {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+}
+
+.optionDesc {
+  font-size: var(--font-size-sm);
+  color: var(--text-tertiary);
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-primary);
+}
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.formTextarea {
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+

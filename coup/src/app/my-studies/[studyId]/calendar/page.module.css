@@ -1,0 +1,1664 @@
+/* 내 스터디 일정 페이지 스타일 */
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 16px 20px;
+}
+
+/* 헤더 - 동일 */
+.header {
+  margin-bottom: 12px;
+}
+
+.backButton {
+  padding: 8px 16px;
+  background: var(--gray-100);
+  border: none;
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+}
+
+.backButton:hover {
+  background: var(--gray-200);
+}
+
+.studyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border: 1px solid;
+  border-radius: 12px;
+}
+
+.studyInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.emoji {
+  font-size: 3rem;
+}
+
+.studyName {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 4px 0;
+}
+
+.studyMeta {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+.roleBadge {
+  padding: 6px 16px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.roleBadge.owner {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.roleBadge.admin {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.roleBadge.member {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* 탭 */
+.tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow-x: auto;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  color: var(--gray-600);
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  background: var(--gray-100);
+  color: var(--gray-900);
+}
+
+.tab.active {
+  background: var(--primary-600);
+  color: white;
+}
+
+/* 메인 콘텐츠 */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 24px;
+}
+
+/* 캘린더 섹션 */
+.calendarSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--pastel-purple-bg);
+  border: 1px solid var(--pastel-purple-border);
+  border-radius: 12px;
+}
+
+.calendarTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.viewTypeToggle {
+  display: flex;
+  gap: 4px;
+  background: white;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+}
+
+.viewTypeBtn {
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.viewTypeBtn:hover {
+  background: var(--gray-50);
+}
+
+.viewTypeBtn.active {
+  background: var(--primary-600);
+  color: white;
+}
+
+.addButton {
+  padding: 10px 24px;
+  background: var(--primary-600);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.addButton:hover {
+  background: var(--primary-700);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+/* 컨트롤 섹션 */
+.controlSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+}
+
+.viewModes {
+  display: flex;
+  gap: 8px;
+}
+
+.viewMode {
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.viewMode:hover {
+  background: var(--gray-50);
+}
+
+.viewMode.active {
+  background: var(--pastel-blue-bg);
+  border-color: var(--pastel-blue-border);
+  color: var(--primary-700);
+  font-weight: 600;
+}
+
+.monthNavigation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dateDisplay {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.todayButton {
+  padding: 6px 16px;
+  background: var(--primary-600);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.todayButton:hover {
+  background: var(--primary-700);
+  transform: translateY(-1px);
+}
+
+.navButton {
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.navButton:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-400);
+}
+
+.currentMonth {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  min-width: 150px;
+  text-align: center;
+}
+
+.filterButton {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filterButton:hover {
+  background: var(--gray-50);
+}
+
+/* 월 뷰 캘린더 */
+.monthView {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.weekdayHeader {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.weekday {
+  text-align: center;
+  padding: 12px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--gray-700);
+  background: var(--pastel-cyan-bg);
+  border-radius: 8px;
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.dayCell {
+  min-height: 100px;
+  padding: 12px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.dayCell:hover {
+  background: var(--pastel-blue-bg);
+  border-color: var(--pastel-blue-border);
+}
+
+.dayCell.emptyDay {
+  background: var(--gray-50);
+  cursor: default;
+}
+
+.dayCell.emptyDay:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-200);
+}
+
+.dayCell.today {
+  background: var(--pastel-yellow-bg);
+  border: 2px solid var(--pastel-yellow-border);
+  font-weight: 700;
+}
+
+.dayNumber {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+}
+
+.dayEvents {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.eventBadge {
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.eventMore {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  text-align: center;
+  margin-top: 2px;
+}
+
+.eventDot {
+  font-size: 0.875rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 선택된 날짜의 일정 */
+.selectedDayEvents {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.selectedDayTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 20px 0;
+}
+
+.eventCard {
+  padding: 20px;
+  background: var(--pastel-green-bg);
+  border: 1px solid var(--pastel-green-border);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.eventCard:hover {
+  background: var(--pastel-green-hover);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
+}
+
+.eventCard:last-child {
+  margin-bottom: 0;
+}
+
+.eventCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.eventTime {
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid var(--pastel-green-border);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.eventTitle {
+  flex: 1;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.eventEditBtn {
+  padding: 6px 16px;
+  background: white;
+  border: 1px solid var(--pastel-green-border);
+  border-radius: 6px;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.eventEditBtn:hover {
+  background: var(--primary-50);
+  border-color: var(--primary-500);
+  color: var(--primary-700);
+}
+
+.eventLocation,
+.eventAttendees {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+
+.eventDeleteBtn {
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--pastel-pink-border);
+  border-radius: 6px;
+  color: var(--red-600);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.eventDeleteBtn:hover {
+  background: var(--pastel-pink-bg);
+  border-color: var(--pastel-pink-border);
+}
+
+/* 우측 사이드바 */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.widget {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.widget:nth-child(1) {
+  background: var(--pastel-orange-bg);
+  border-color: var(--pastel-orange-border);
+}
+
+.widget:nth-child(1):hover {
+  background: var(--pastel-orange-hover);
+  box-shadow: 0 4px 12px rgba(251, 146, 60, 0.15);
+}
+
+.widget:nth-child(2) {
+  background: var(--pastel-cyan-bg);
+  border-color: var(--pastel-cyan-border);
+}
+
+.widget:nth-child(2):hover {
+  background: var(--pastel-cyan-hover);
+  box-shadow: 0 4px 12px rgba(34, 211, 238, 0.15);
+}
+
+.widget:nth-child(3) {
+  background: var(--pastel-pink-bg);
+  border-color: var(--pastel-pink-border);
+}
+
+.widget:nth-child(3):hover {
+  background: var(--pastel-pink-hover);
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15);
+}
+
+.widget:nth-child(4) {
+  background: var(--pastel-purple-bg);
+  border-color: var(--pastel-purple-border);
+}
+
+.widget:nth-child(4):hover {
+  background: var(--pastel-purple-hover);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+}
+
+.widget:nth-child(5) {
+  background: var(--pastel-yellow-bg);
+  border-color: var(--pastel-yellow-border);
+}
+
+.widget:nth-child(5):hover {
+  background: var(--pastel-yellow-hover);
+  box-shadow: 0 4px 12px rgba(234, 179, 8, 0.15);
+}
+
+.widget:nth-child(6) {
+  background: var(--pastel-green-bg);
+  border-color: var(--pastel-green-border);
+}
+
+.widget:nth-child(6):hover {
+  background: var(--pastel-green-hover);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
+}
+
+.widgetTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 16px 0;
+}
+
+.widgetContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todayDate {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+}
+
+.todayEvent {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.todayEvent:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(4px);
+}
+
+.todayEventTime {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary-700);
+  margin-bottom: 4px;
+}
+
+.todayEventTitle {
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.todayEventLocation {
+  font-size: 0.813rem;
+  color: var(--gray-600);
+}
+
+.upcomingEvent {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+}
+
+.upcomingDate {
+  font-size: 0.813rem;
+  font-weight: 600;
+  color: var(--primary-700);
+  margin-bottom: 4px;
+}
+
+.upcomingTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.checkboxLabel input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.statValue {
+  font-weight: 700;
+  color: var(--primary-700);
+}
+
+.widgetActions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.widgetButton {
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.widgetButton:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-700);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+  .mainContent {
+    grid-template-columns: 1fr 280px;
+  }
+
+  .daysGrid {
+    gap: 4px;
+  }
+
+  .dayCell {
+    min-height: 80px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 16px;
+  }
+
+  .mainContent {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    margin-top: 24px;
+  }
+
+  .controlSection {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .monthNavigation {
+    justify-content: center;
+  }
+
+  .daysGrid {
+    gap: 2px;
+  }
+
+  .dayCell {
+    min-height: 60px;
+    padding: 4px;
+  }
+
+  .dayNumber {
+    font-size: 0.875rem;
+  }
+
+  .eventDot {
+    font-size: 0.75rem;
+  }
+
+  .widgetActions {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab {
+    flex-shrink: 0;
+  }
+}
+
+/* 리스트 뷰 */
+.listView {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.eventsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dateGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dateGroupTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--gray-200);
+}
+
+.eventItem {
+  padding: 20px;
+  background: var(--pastel-blue-bg);
+  border: 1px solid var(--pastel-blue-border);
+  border-left: 4px solid;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.eventItem:hover {
+  background: var(--pastel-blue-hover);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
+
+.eventItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.eventItemTime {
+  padding: 6px 12px;
+  background: white;
+  border: 1px solid var(--pastel-blue-border);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.eventItemTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 8px 0;
+}
+
+.eventItemLocation {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin-bottom: 8px;
+}
+
+.eventItemCreator {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+}
+
+.eventDeleteBtn {
+  padding: 6px 16px;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  color: var(--error-600);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.eventDeleteBtn:hover {
+  background: var(--error-50);
+  border-color: var(--error-500);
+  color: var(--error-700);
+}
+
+/* 모달 */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: white;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.modalClose {
+  padding: 8px;
+  background: transparent;
+  border: none;
+  color: var(--gray-500);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.modalClose:hover {
+  color: var(--gray-900);
+  background: var(--gray-100);
+  border-radius: 8px;
+}
+
+.modalForm {
+  padding: 24px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formLabel {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+
+.required {
+  color: var(--error-600);
+}
+
+.formInput {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.colorPicker {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.colorOption {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.colorOption:hover {
+  transform: scale(1.1);
+}
+
+.colorOption.selected {
+  border-color: var(--gray-900);
+  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--gray-900);
+}
+
+.modalActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.cancelButton {
+  padding: 12px 24px;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton:hover {
+  background: var(--gray-50);
+  border-color: var(--gray-400);
+}
+
+.submitButton {
+  padding: 12px 24px;
+  background: var(--primary-600);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitButton:hover {
+  background: var(--primary-700);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+.submitButton:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 일정 상세 모달 */
+.detailContent {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detailSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detailLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.detailValue {
+  font-size: 1rem;
+  color: var(--gray-900);
+  padding: 12px;
+  background: var(--gray-50);
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+}
+
+.detailColorBox {
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.detailActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 24px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.detailEditButton,
+.detailDeleteButton,
+.detailCloseButton {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.detailEditButton {
+  background: var(--primary-600);
+  border: none;
+  color: white;
+}
+
+.detailEditButton:hover {
+  background: var(--primary-700);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+.detailDeleteButton {
+  background: var(--error-600);
+  border: none;
+  color: white;
+}
+
+.detailDeleteButton:hover {
+  background: var(--error-700);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25);
+}
+
+.detailCloseButton {
+  background: white;
+  border: 1px solid var(--gray-300);
+  color: var(--gray-700);
+}
+
+.detailCloseButton:hover {
+  background: var(--gray-50);
+}
+
+/* 편집 모드 스타일 */
+.editInput {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  transition: all 0.2s;
+  background: white;
+}
+
+.editInput:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.timeInputRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.timeInputRow .editInput {
+  flex: 1;
+}
+
+.timeSeparator {
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.colorPickerRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.colorInput {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 2px solid var(--gray-300);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.colorInput::-webkit-color-swatch-wrapper {
+  padding: 4px;
+}
+
+.colorInput::-webkit-color-swatch {
+  border-radius: 4px;
+  border: none;
+}
+
+.colorPresets {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.colorPreset {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.colorPreset:hover {
+  transform: scale(1.15);
+}
+
+.colorPreset.activeColor {
+  border-color: var(--gray-900);
+  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--gray-400);
+}
+
+.detailSaveButton {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--success-600);
+  border: none;
+  color: white;
+}
+
+.detailSaveButton:hover:not(:disabled) {
+  background: var(--success-700);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+
+.detailSaveButton:disabled {
+  background: var(--gray-400);
+  cursor: not-allowed;
+}
+
+.detailCancelButton {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-300);
+  color: var(--gray-700);
+}
+
+.detailCancelButton:hover {
+  background: var(--gray-200);
+}
+
+.eventBadge {
+  cursor: pointer;
+}
+
+.eventBadge:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.eventItem {
+  cursor: pointer;
+}
+
+.eventItem:hover {
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   주간 뷰 (Week View)
+   ============================================ */
+.weekView {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.weekViewHeader {
+  display: grid;
+  grid-template-columns: 80px repeat(7, minmax(0, 1fr));
+  background: var(--pastel-cyan-bg);
+  border-bottom: 2px solid var(--pastel-cyan-border);
+}
+
+/* 좌측 상단 코너 셀 (시간/날짜 대각선) */
+.cornerCell {
+  position: relative;
+  width: 80px;
+  background: var(--gray-50);
+  border-right: 2px solid var(--gray-200);
+  overflow: hidden;
+  box-sizing: border-box;
+  min-height: 72px;
+}
+
+.cornerCell::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top right,
+    transparent 0%,
+    transparent calc(50% - 1px),
+    var(--gray-300) calc(50% - 1px),
+    var(--gray-300) calc(50% + 1px),
+    transparent calc(50% + 1px),
+    transparent 100%);
+  pointer-events: none;
+}
+
+.cornerTime {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  z-index: 1;
+}
+
+.cornerDate {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  z-index: 1;
+}
+
+.weekDayHeader {
+  padding: 16px 8px;
+  text-align: center;
+  border-right: 1px solid var(--gray-200);
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.weekDayHeader:last-child {
+  border-right: none;
+}
+
+.weekDayHeader.currentDay {
+  background: var(--pastel-yellow-bg);
+  border: 2px solid var(--pastel-yellow-border);
+}
+
+.weekDayHeader.sunday {
+  color: var(--error-600);
+}
+
+.weekDayName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--gray-700);
+  margin-bottom: 4px;
+}
+
+.weekDayDate {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.weekViewBody {
+  display: grid;
+  grid-template-columns: 80px repeat(7, minmax(0, 1fr));
+  max-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.timeColumn {
+  grid-column: 1;
+  width: 80px;
+  border-right: 2px solid var(--gray-200);
+  background: var(--gray-50);
+  box-sizing: border-box;
+}
+
+.timeSlot {
+  height: 60px;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--gray-200);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-50);
+  box-sizing: border-box;
+}
+
+.weekDaysColumn {
+  grid-column: 2 / 9;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.weekDayColumn {
+  position: relative;
+  border-right: 1px solid var(--gray-200);
+  background: white;
+  min-height: calc(60px * 24);
+  box-sizing: border-box;
+}
+
+.weekDayColumn:last-child {
+  border-right: none;
+}
+
+.timeGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.timeGridSlot {
+  height: 60px;
+  border-bottom: 1px solid var(--gray-200);
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.timeGridSlot:hover {
+  background: var(--pastel-blue-bg);
+}
+
+.eventsContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 4px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.weekEvent {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  padding: 8px;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.75rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+.weekEvent:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+}
+
+.weekEventTime {
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+}
+
+.weekEventTitle {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.weekEventLocation {
+  font-size: 0.7rem;
+  opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ============================================
+   일간 뷰 (Day View)
+   ============================================ */
+.dayView {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.dayViewHeader {
+  padding: 20px 24px;
+  background: var(--pastel-purple-bg);
+  border-bottom: 2px solid var(--pastel-purple-border);
+}
+
+.dayViewTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  text-align: center;
+}
+
+.dayViewBody {
+  display: flex;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.dayEventsColumn {
+  flex: 1;
+  position: relative;
+}
+
+.dayEvent {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  padding: 16px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.dayEvent:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+}
+
+.dayEventTime {
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 8px;
+}
+
+.dayEventTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.dayEventLocation {
+  font-size: 0.875rem;
+  opacity: 0.95;
+  margin-bottom: 8px;
+}
+
+.dayEventCreator {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+/* 반응형 - 주간/일간 뷰 */
+@media (max-width: 1024px) {
+  .weekViewBody,
+  .dayViewBody {
+    max-height: 60vh;
+  }
+
+  .weekDayHeader {
+    padding: 12px 4px;
+  }
+
+  .weekDayName {
+    font-size: 0.75rem;
+  }
+
+  .weekDayDate {
+    font-size: 1rem;
+  }
+
+  .timeSlot {
+    height: 50px;
+    font-size: 0.7rem;
+  }
+
+  .timeGridSlot {
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .weekView,
+  .dayView {
+    font-size: 0.875rem;
+  }
+
+  .timeColumn {
+    width: 60px;
+  }
+
+  .timeSlot {
+    height: 40px;
+    padding: 4px;
+  }
+
+  .timeGridSlot {
+    height: 40px;
+  }
+
+  .weekEvent,
+  .dayEvent {
+    padding: 6px;
+    font-size: 0.7rem;
+  }
+
+  .dayEventTitle {
+    font-size: 1rem;
+  }
+
+  .weekEventTime,
+  .dayEventTime {
+    font-size: 0.7rem;
+  }
+
+  .weekEventLocation,
+  .dayEventLocation,
+  .dayEventCreator {
+    font-size: 0.65rem;
+  }
+}
+
+

@@ -1,0 +1,277 @@
+/* 설정 모달 스타일 */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 헤더 */
+.modalHeader {
+  padding: 24px 28px;
+  border-bottom: 1px solid rgba(200, 190, 220, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #F5F0FF 0%, #FAF5FF 100%);
+  border-radius: 16px 16px 0 0;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #5B4E7C;
+  margin: 0;
+}
+
+.closeButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(139, 122, 175, 0.1);
+  color: #5B4E7C;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background: rgba(139, 122, 175, 0.2);
+  transform: scale(1.1);
+}
+
+/* 본문 */
+.modalBody {
+  padding: 28px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.settingSection {
+  margin-bottom: 24px;
+}
+
+.settingSection:last-child {
+  margin-bottom: 0;
+}
+
+.settingLabel {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #5B4E7C;
+  margin-bottom: 8px;
+}
+
+.settingSelect {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid rgba(199, 184, 234, 0.3);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #5B4E7C;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.settingSelect:hover {
+  border-color: rgba(199, 184, 234, 0.5);
+}
+
+.settingSelect:focus {
+  border-color: #C7B8EA;
+  box-shadow: 0 0 0 3px rgba(199, 184, 234, 0.1);
+}
+
+.settingHint {
+  margin: 8px 0 0 0;
+  font-size: 0.8125rem;
+  color: #8B7AA0;
+  line-height: 1.4;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(200, 190, 220, 0.2);
+  margin: 24px 0;
+}
+
+/* 체크박스 그룹 */
+.checkboxGroup {
+  margin-bottom: 16px;
+}
+
+.checkboxGroup:last-child {
+  margin-bottom: 0;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: #5B4E7C;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(199, 184, 234, 0.5);
+  border-radius: 4px;
+  cursor: pointer;
+  accent-color: #C7B8EA;
+}
+
+.checkboxHint {
+  margin: 4px 0 0 30px;
+  font-size: 0.75rem;
+  color: #8B7AA0;
+  line-height: 1.4;
+}
+
+/* 푸터 */
+.modalFooter {
+  padding: 20px 28px;
+  border-top: 1px solid rgba(200, 190, 220, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(245, 240, 255, 0.3);
+  border-radius: 0 0 16px 16px;
+}
+
+.footerButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.resetButton,
+.cancelButton,
+.saveButton {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.resetButton {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.resetButton:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.cancelButton {
+  background: rgba(139, 122, 175, 0.1);
+  color: #5B4E7C;
+  border: 1px solid rgba(139, 122, 175, 0.2);
+}
+
+.cancelButton:hover {
+  background: rgba(139, 122, 175, 0.2);
+  border-color: rgba(139, 122, 175, 0.4);
+}
+
+.saveButton {
+  background: linear-gradient(135deg, #C7B8EA 0%, #E8B8D9 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.saveButton:hover {
+  background: linear-gradient(135deg, #B8A8DA 0%, #D8A8C9 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .modalContent {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .modalHeader {
+    padding: 20px;
+  }
+
+  .modalTitle {
+    font-size: 1.25rem;
+  }
+
+  .modalBody {
+    padding: 20px;
+  }
+
+  .modalFooter {
+    padding: 16px 20px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footerButtons {
+    width: 100%;
+  }
+
+  .resetButton,
+  .cancelButton,
+  .saveButton {
+    flex: 1;
+  }
+}
+

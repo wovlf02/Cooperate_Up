@@ -1,0 +1,282 @@
+/* 설정 탭 스타일 */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 섹션 카드 */
+.sectionCard {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid var(--gray-100);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.sectionCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.dangerSection {
+  border-color: #fecaca;
+  background: linear-gradient(145deg, #ffffff, #fef2f2);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 16px;
+}
+
+.titleIcon {
+  font-size: 1.25rem;
+}
+
+/* 설정 목록 */
+.settingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.settingItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  background: var(--gray-50);
+  border-radius: 14px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.settingItem:hover {
+  background: white;
+  border-color: var(--primary-200);
+  transform: translateX(6px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.1);
+}
+
+.settingIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.settingInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.settingName {
+  font-weight: 600;
+  color: var(--gray-900);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  padding: 2px 8px;
+  background: var(--primary-100);
+  color: var(--primary-700);
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.settingDesc {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  line-height: 1.4;
+}
+
+.settingArrow {
+  color: var(--gray-400);
+  font-size: 1.25rem;
+  transition: transform 0.2s ease;
+}
+
+.settingItem:hover .settingArrow {
+  transform: translateX(4px);
+  color: var(--primary-500);
+}
+
+/* 계정 관리 버튼 */
+.accountActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.logoutBtn,
+.deleteBtn {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.btnIcon {
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.btnContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.btnText {
+  font-weight: 600;
+}
+
+.btnWarning {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.logoutBtn {
+  background: var(--gray-100);
+  border: 2px solid var(--gray-200);
+  color: var(--gray-700);
+}
+
+.logoutBtn:hover:not(:disabled) {
+  background: var(--gray-200);
+  border-color: var(--gray-300);
+  transform: translateY(-2px);
+}
+
+.logoutBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.deleteBtn {
+  background: #fef2f2;
+  border: 2px solid #fecaca;
+  color: #dc2626;
+}
+
+.deleteBtn:hover {
+  background: #fee2e2;
+  border-color: #f87171;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.15);
+}
+
+/* 앱 정보 */
+.appInfo {
+  text-align: center;
+  padding: 20px;
+  color: var(--gray-500);
+}
+
+.appVersion {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--gray-400);
+}
+
+.appLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.appLink {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.appLink:hover {
+  color: var(--primary-500);
+  text-decoration: underline;
+}
+
+.linkDivider {
+  color: var(--gray-300);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .sectionCard {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .settingItem {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .settingIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .settingName {
+    font-size: 0.9rem;
+  }
+
+  .settingDesc {
+    font-size: 0.75rem;
+  }
+
+  .logoutBtn,
+  .deleteBtn {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .btnIcon {
+    font-size: 1.25rem;
+  }
+}
+

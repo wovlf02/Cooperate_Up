@@ -1,0 +1,390 @@
+/* 스터디 생성 페이지 스타일 */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* 헤더 */
+.header {
+  margin-bottom: 40px;
+}
+
+.backButton {
+  padding: 8px 16px;
+  background: var(--gray-100);
+  border: none;
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: all 0.2s;
+}
+
+.backButton:hover {
+  background: var(--gray-200);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+}
+
+/* 진행 단계 */
+.steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  padding: 24px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+}
+
+.stepItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepNumber {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  color: var(--gray-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+
+.stepItem.active .stepNumber {
+  background: var(--primary-600);
+  color: white;
+}
+
+.stepLabel {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.stepItem.active .stepLabel {
+  color: var(--primary-600);
+  font-weight: 600;
+}
+
+.stepLine {
+  width: 80px;
+  height: 2px;
+  background: var(--gray-200);
+  margin: 0 16px;
+}
+
+/* 폼 */
+.form {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.formSection {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gray-100);
+}
+
+.formGroup {
+  margin-bottom: 24px;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+
+.required {
+  color: var(--danger-600);
+}
+
+.input,
+.select,
+.textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.hint {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 6px;
+}
+
+/* 이모지 선택 */
+.emojiPicker {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.emojiButton {
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
+  background: white;
+  font-size: 1.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.emojiButton:hover {
+  border-color: var(--primary-500);
+  transform: scale(1.1);
+}
+
+.emojiButton.selected {
+  border-color: var(--primary-600);
+  background: var(--primary-50);
+}
+
+/* 태그 */
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--primary-50);
+  color: var(--primary-700);
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tagRemove {
+  background: none;
+  border: none;
+  color: var(--primary-700);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  line-height: 1;
+}
+
+.tagRemove:hover {
+  color: var(--primary-900);
+}
+
+/* 라디오 그룹 */
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.radioLabel:hover {
+  border-color: var(--primary-300);
+  background: var(--primary-50);
+}
+
+.radioLabel input[type="radio"] {
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.radioLabel input[type="radio"]:checked + span {
+  color: var(--primary-700);
+  font-weight: 600;
+}
+
+.radioLabel span {
+  flex: 1;
+  line-height: 1.6;
+  color: var(--gray-700);
+}
+
+/* 버튼 그룹 */
+.buttonGroup {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.prevButton,
+.nextButton,
+.submitButton {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.prevButton {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.prevButton:hover {
+  background: var(--gray-300);
+}
+
+.nextButton,
+.submitButton {
+  background: var(--primary-600);
+  color: white;
+}
+
+.nextButton:hover,
+.submitButton:hover {
+  background: var(--primary-700);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.nextButton:disabled {
+  background: var(--gray-300);
+  color: var(--gray-500);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.submitButton {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+}
+
+/* 에러 스타일 */
+.inputError {
+  border-color: var(--error-500, #ef4444);
+}
+
+.inputError:focus {
+  border-color: var(--error-500, #ef4444);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.errorText {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--error-500, #ef4444);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 16px;
+  }
+
+  .form {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .steps {
+    padding: 16px;
+  }
+
+  .stepLine {
+    width: 40px;
+    margin: 0 8px;
+  }
+
+  .stepLabel {
+    font-size: 0.75rem;
+  }
+
+  .buttonGroup {
+    flex-direction: column-reverse;
+  }
+
+  .prevButton,
+  .nextButton,
+  .submitButton {
+    width: 100%;
+  }
+}

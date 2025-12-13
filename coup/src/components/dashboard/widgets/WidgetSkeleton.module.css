@@ -1,0 +1,349 @@
+/**
+ * WidgetSkeleton.module.css
+ *
+ * 위젯 스켈레톤 스타일
+ * 로딩 애니메이션과 각 위젯별 레이아웃 정의
+ */
+
+/* ============================================
+   기본 스켈레톤 애니메이션
+   ============================================ */
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 0%,
+    #e0e0e0 20%,
+    #f0f0f0 40%,
+    #f0f0f0 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
+  border-radius: 4px;
+}
+
+/* 다크모드 대응 */
+@media (prefers-color-scheme: dark) {
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      #2a2a2a 0%,
+      #3a3a3a 20%,
+      #2a2a2a 40%,
+      #2a2a2a 100%
+    );
+  }
+}
+
+/* ============================================
+   위젯 컨테이너
+   ============================================ */
+
+.widgetContainer {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  .widgetContainer {
+    background: #1f2937;
+    border-color: #374151;
+  }
+}
+
+/* ============================================
+   StudyStatus 스켈레톤
+   ============================================ */
+
+.statSection {
+  margin-bottom: 1.5rem;
+}
+
+.statSection:last-child {
+  margin-bottom: 0;
+}
+
+.progressBar {
+  margin: 0.5rem 0;
+}
+
+/* ============================================
+   UrgentTasks 스켈레톤
+   ============================================ */
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .taskItem {
+    background: #111827;
+  }
+}
+
+.taskContent {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ============================================
+   OnlineMembers 스켈레톤
+   ============================================ */
+
+.memberList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.memberItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+}
+
+.memberInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ============================================
+   PinnedNotice 스켈레톤
+   ============================================ */
+
+.noticeContent {
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .noticeContent {
+    background: #111827;
+  }
+}
+
+.noticeMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  .noticeMeta {
+    border-top-color: #374151;
+  }
+}
+
+/* ============================================
+   QuickActions 스켈레톤
+   ============================================ */
+
+.actionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.actionItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .actionItem {
+    background: #111827;
+  }
+}
+
+/* ============================================
+   통계 카드 스켈레톤
+   ============================================ */
+
+.statCard {
+  padding: 1.5rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .statCard {
+    background: #1f2937;
+    border-color: #374151;
+  }
+}
+
+/* ============================================
+   스터디 카드 스켈레톤
+   ============================================ */
+
+.studyCard {
+  padding: 1.5rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .studyCard {
+    background: #1f2937;
+    border-color: #374151;
+  }
+}
+
+.studyMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  .studyMeta {
+    border-top-color: #374151;
+  }
+}
+
+/* ============================================
+   활동 아이템 스켈레톤
+   ============================================ */
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .activityItem {
+    background: #111827;
+  }
+}
+
+.activityContent {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ============================================
+   일정 아이템 스켈레톤
+   ============================================ */
+
+.eventItem {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .eventItem {
+    background: #111827;
+  }
+}
+
+.eventDate {
+  flex-shrink: 0;
+  width: 60px;
+  text-align: center;
+}
+
+.eventContent {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ============================================
+   범용 위젯 스켈레톤
+   ============================================ */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   반응형
+   ============================================ */
+
+@media (max-width: 768px) {
+  .widgetContainer {
+    padding: 1rem;
+  }
+
+  .actionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .taskItem,
+  .memberItem,
+  .activityItem,
+  .eventItem {
+    padding: 0.5rem;
+  }
+}
+
+/* ============================================
+   접근성 - 모션 감소
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    background: #e0e0e0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .skeleton {
+      background: #3a3a3a;
+    }
+  }
+}
+

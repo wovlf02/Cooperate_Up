@@ -1,0 +1,284 @@
+.container {
+  background: white;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.loading,
+.empty {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: #f9fafb;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.table th {
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.875rem;
+  color: #1f2937;
+}
+
+.table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.date {
+  color: #6b7280;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.admin {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.adminInfo {
+  min-width: 0;
+}
+
+.adminName {
+  font-weight: 500;
+  color: #1f2937;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.adminEmail {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.target {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.targetType {
+  font-weight: 500;
+  color: #6366f1;
+}
+
+.targetId {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.ip {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8125rem;
+  color: #6b7280;
+}
+
+.noData {
+  color: #d1d5db;
+}
+
+.detailButton {
+  padding: 0.375rem 0.75rem;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.detailButton:hover {
+  background: #e5e7eb;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.pageButton {
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pageButton:hover:not(:disabled) {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.pageButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-size: 0.875rem;
+  color: #6b7280;
+  min-width: 12rem;
+  text-align: center;
+}
+
+/* 상세 모달 */
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detailSection h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 0.75rem 0;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detailLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.detailValue {
+  font-size: 0.875rem;
+  color: #1f2937;
+  word-break: break-word;
+}
+
+.reasonBox,
+.userAgentBox {
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.jsonBox {
+  padding: 0.75rem;
+  background: #1f2937;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  overflow-x: auto;
+}
+
+.jsonBox strong {
+  color: #9ca3af;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.jsonBox pre {
+  margin: 0;
+  color: #d1d5db;
+  font-family: 'Courier New', monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .table th,
+  .table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .admin {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pageInfo {
+    font-size: 0.75rem;
+  }
+
+  .table {
+    font-size: 0.75rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem 0.375rem;
+  }
+}
+

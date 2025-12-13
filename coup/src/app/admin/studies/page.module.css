@@ -1,0 +1,29 @@
+.container {
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+}
+
+.description {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+

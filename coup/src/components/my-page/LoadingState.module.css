@@ -1,0 +1,33 @@
+/* 로딩 상태 스타일 */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 20px;
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border: 5px solid var(--gray-200);
+  border-top-color: var(--primary-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.text {
+  color: var(--gray-600);
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0;
+}
+

@@ -1,0 +1,624 @@
+/* 스터디 가입 페이지 스타일 */
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+/* 헤더 */
+.header {
+  margin-bottom: 32px;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--gray-100);
+  border: none;
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.backButton:hover {
+  background: var(--gray-200);
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 16px 0 0 0;
+}
+
+/* 메인 레이아웃 */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 24px;
+}
+
+/* 폼 섹션 */
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* 진행 표시 */
+.progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+}
+
+.progressSteps {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  color: var(--gray-500);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s;
+}
+
+.step.active {
+  background: var(--primary-600);
+  color: white;
+}
+
+.step.completed {
+  background: var(--success-500);
+  color: white;
+}
+
+.stepDivider {
+  width: 24px;
+  height: 2px;
+  background: var(--gray-200);
+}
+
+.progressLabel {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+/* 스텝 카드 */
+.stepCard {
+  padding: 32px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0 0 8px 0;
+}
+
+.stepDescription {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin: 0 0 24px 0;
+}
+
+/* 규칙 리스트 */
+.rulesList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.ruleItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--pastel-light-blue-bg);
+  border: 1px solid var(--pastel-light-blue-border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: all 0.2s;
+}
+
+.ruleItem:hover {
+  background: var(--pastel-light-blue-hover);
+}
+
+.ruleIcon {
+  font-size: 1.125rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ruleText {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  line-height: 1.5;
+}
+
+.detailLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: transparent;
+  border: none;
+  color: var(--primary-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.detailLink:hover {
+  background: var(--pastel-light-blue-bg);
+}
+
+/* 동의 체크박스 */
+.agreeBox {
+  padding: 16px;
+  background: var(--pastel-yellow-bg);
+  border: 2px solid var(--pastel-yellow-border);
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.agreeLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.agreeLabel input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.warning {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--pastel-orange-bg);
+  border: 1px solid var(--pastel-orange-border);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: var(--warning-600);
+}
+
+/* 폼 그룹 */
+.formGroup {
+  margin-bottom: 24px;
+}
+
+.formGroup:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+.textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--gray-900);
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.charCount {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 6px;
+  text-align: right;
+}
+
+/* 라디오 그룹 */
+.radioGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.radioLabel:hover {
+  background: var(--gray-50);
+  border-color: var(--primary-400);
+}
+
+.radioLabel input:checked + .radioText {
+  font-weight: 600;
+  color: var(--primary-600);
+}
+
+.radioLabel input {
+  cursor: pointer;
+}
+
+.radioText {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  transition: all 0.2s;
+}
+
+/* 체크박스 그룹 */
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkboxItem {
+  padding: 16px;
+  background: var(--pastel-light-blue-bg);
+  border: 1px solid var(--pastel-light-blue-border);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.checkboxItem:hover {
+  background: var(--pastel-light-blue-hover);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkboxLabel input {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkboxContent {
+  flex: 1;
+}
+
+.checkboxTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0 0 4px 0;
+}
+
+.checkboxDesc {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  margin: 0;
+}
+
+/* 알림 채널 */
+.channelGroup {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.channelButton {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.channelButton:hover {
+  background: var(--gray-50);
+}
+
+.channelButton.active {
+  background: var(--primary-600);
+  border-color: var(--primary-600);
+  color: white;
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-top: 12px;
+}
+
+/* 버튼 그룹 */
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.backBtn {
+  padding: 12px 24px;
+  background: white;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.backBtn:hover {
+  background: var(--gray-100);
+}
+
+.backBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.nextBtn {
+  padding: 12px 32px;
+  background: var(--primary-600);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nextBtn:hover:not(:disabled) {
+  background: var(--primary-700);
+}
+
+.nextBtn:disabled {
+  background: var(--gray-300);
+  cursor: not-allowed;
+}
+
+.submitBtn {
+  padding: 12px 32px;
+  background: var(--success-500);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--success-600);
+}
+
+.submitBtn:disabled {
+  background: var(--gray-300);
+  cursor: not-allowed;
+}
+
+/* 사이드바 */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.widget {
+  padding: 20px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.widgetTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0 0 12px 0;
+}
+
+.studyInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.studyEmoji {
+  font-size: 2rem;
+}
+
+.studyName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoLabel {
+  color: var(--gray-600);
+}
+
+.infoValue {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge.auto {
+  background: var(--pastel-green-bg);
+  color: var(--success-600);
+}
+
+.badge.manual {
+  background: var(--pastel-yellow-bg);
+  color: var(--warning-600);
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stars {
+  color: var(--warning-500);
+}
+
+/* 혜택 리스트 */
+.benefitList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.benefitIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* 반응형 */
+@media (max-width: 1023px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    order: -1;
+  }
+
+  .progress {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 16px;
+  }
+
+  .stepCard {
+    padding: 20px;
+  }
+
+  .radioGroup {
+    grid-template-columns: 1fr;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+  }
+
+  .backBtn,
+  .nextBtn,
+  .submitBtn {
+    width: 100%;
+  }
+
+  .channelGroup {
+    flex-wrap: wrap;
+  }
+}
+
