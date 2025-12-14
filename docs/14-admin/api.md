@@ -1,103 +1,130 @@
-# 📡 관리자 API
+# 🔌 관리자 API 문서
 
 ## 개요
 
-관리자 기능을 위한 REST API입니다. 모든 API는 관리자 인증과 권한 확인이 필요합니다.
+관리자 API는 `/api/admin` 경로 아래에 구성되어 있습니다. 모든 API는 관리자 인증이 필요합니다.
 
 ---
 
-## 엔드포인트 목록
+## API 구조
 
-### 통계 & 대시보드
-
-| 메서드 | 경로 | 설명 | 권한 |
-|--------|------|------|------|
-| GET | `/api/admin/stats` | 대시보드 통계 | `analytics:view` |
-
-### 사용자 관리
-
-| 메서드 | 경로 | 설명 | 권한 |
-|--------|------|------|------|
-| GET | `/api/admin/users` | 사용자 목록 | `user:view` |
-| GET | `/api/admin/users/[id]` | 사용자 상세 | `user:view` |
-| PATCH | `/api/admin/users/[id]` | 사용자 수정 | `user:update` |
-| POST | `/api/admin/users/[id]/warn` | 경고 발송 | `user:warn` |
-| POST | `/api/admin/users/[id]/suspend` | 계정 정지 | `user:suspend` |
-| POST | `/api/admin/users/[id]/unsuspend` | 정지 해제 | `user:unsuspend` |
-| DELETE | `/api/admin/users/[id]` | 계정 삭제 | `user:delete` |
-
-### 스터디 관리
-
-| 메서드 | 경로 | 설명 | 권한 |
-|--------|------|------|------|
-| GET | `/api/admin/studies` | 스터디 목록 | `study:view` |
-| GET | `/api/admin/studies/[id]` | 스터디 상세 | `study:view` |
-| POST | `/api/admin/studies/[id]/hide` | 스터디 숨김 | `study:hide` |
-| POST | `/api/admin/studies/[id]/close` | 스터디 종료 | `study:close` |
-| DELETE | `/api/admin/studies/[id]` | 스터디 삭제 | `study:delete` |
-
-### 신고 관리
-
-| 메서드 | 경로 | 설명 | 권한 |
-|--------|------|------|------|
-| GET | `/api/admin/reports` | 신고 목록 | `report:view` |
-| GET | `/api/admin/reports/[id]` | 신고 상세 | `report:view` |
-| POST | `/api/admin/reports/[id]/assign` | 신고 할당 | `report:assign` |
-| POST | `/api/admin/reports/[id]/process` | 신고 처리 | `report:process` |
-| POST | `/api/admin/reports/[id]/resolve` | 신고 해결 | `report:resolve` |
-
-### 분석 & 감사
-
-| 메서드 | 경로 | 설명 | 권한 |
-|--------|------|------|------|
-| GET | `/api/admin/analytics` | 분석 데이터 | `analytics:view` |
-| GET | `/api/admin/audit-logs` | 감사 로그 | `audit:view` |
-
-### 설정
-
-| 메서드 | 경로 | 설명 | 권한 |
-|--------|------|------|------|
-| GET | `/api/admin/settings` | 설정 조회 | `settings:view` |
-| PATCH | `/api/admin/settings` | 설정 수정 | `settings:update` |
+```
+/api/admin/
+├── stats/                   # 통계
+│   └── route.js
+├── users/                   # 사용자 관리
+│   ├── route.js            # GET: 목록
+│   └── [id]/
+│       ├── route.js        # GET: 상세, DELETE: 삭제
+│       ├── suspend/        # POST: 정지
+│       └── activate/       # POST: 활성화
+├── studies/                 # 스터디 관리
+│   ├── route.js            # GET: 목록
+│   └── [studyId]/
+│       ├── route.js        # GET: 상세
+│       ├── hide/           # POST: 숨김, DELETE: 해제
+│       ├── close/          # POST: 종료, DELETE: 재개
+│       └── delete/         # DELETE: 삭제
+├── reports/                 # 신고 관리
+│   ├── route.js            # GET: 목록
+│   └── [reportId]/
+│       ├── route.js        # GET: 상세
+│       ├── assign/         # POST: 담당자 배정
+│       └── process/        # POST: 처리
+├── analytics/               # 분석
+│   ├── overview/           # 전체 통계
+│   ├── users/              # 사용자 분석
+│   └── studies/            # 스터디 분석
+├── audit-logs/              # 감사 로그
+│   ├── route.js            # GET: 목록
+│   └── export/             # GET: 내보내기
+└── settings/                # 설정
+    ├── route.js            # GET: 조회, PUT: 업데이트
+    ├── history/            # 변경 이력
+    └── cache/
+        └── clear/          # POST: 캐시 초기화
+```
 
 ---
 
-## GET /api/admin/stats
+## 공통 응답 형식
 
-대시보드 통계를 조회합니다.
+### 성공 응답
 
-### 응답
+```json
+{
+  "success": true,
+  "data": { ... },
+  "pagination": {
+    "page": 1,
+    "limit": 20,
+    "total": 100,
+    "totalPages": 5,
+    "hasMore": true
+  }
+}
+```
 
+### 에러 응답
+
+```json
+{
+  "success": false,
+  "error": "에러 메시지",
+  "code": "ERROR_CODE"
+}
+```
+
+### HTTP 상태 코드
+
+| 코드 | 설명 |
+|------|------|
+| 200 | 성공 |
+| 400 | 잘못된 요청 |
+| 401 | 인증 필요 |
+| 403 | 권한 없음 |
+| 404 | 리소스 없음 |
+| 500 | 서버 에러 |
+
+---
+
+## 통계 API
+
+### `GET /api/admin/stats`
+
+대시보드 통계 조회
+
+**권한**: `ANALYTICS_VIEW`
+
+**응답**:
 ```json
 {
   "success": true,
   "data": {
     "summary": {
       "users": {
-        "total": 1000,
-        "active": 950,
-        "suspended": 20,
-        "newToday": 15,
-        "newThisWeek": 85
+        "total": 1234,
+        "active": 1100,
+        "suspended": 34,
+        "newToday": 12,
+        "newThisWeek": 56
       },
       "studies": {
-        "total": 300,
-        "active": 250,
+        "total": 456,
+        "active": 320,
         "newToday": 5,
-        "newThisWeek": 25
+        "newThisWeek": 23
       },
       "reports": {
-        "total": 50,
-        "pending": 10,
+        "total": 89,
+        "pending": 12,
         "urgent": 2,
         "newToday": 3
       },
-      "warnings": {
-        "total": 100,
-        "today": 5
-      },
-      "sanctions": {
-        "active": 15
+      "moderation": {
+        "totalWarnings": 45,
+        "warningsToday": 2,
+        "activeSanctions": 8
       }
     },
     "recentActivity": {
@@ -105,7 +132,7 @@
       "reports": [...],
       "warnings": [...]
     },
-    "charts": {
+    "trends": {
       "userGrowth": [...],
       "reportTrends": [...]
     }
@@ -115,115 +142,333 @@
 
 ---
 
-## GET /api/admin/users
+## 사용자 관리 API
 
-사용자 목록을 조회합니다.
+### `GET /api/admin/users`
 
-### 요청
+사용자 목록 조회
 
-**Query Parameters**
+**권한**: `USER_VIEW`
 
+**쿼리 파라미터**:
 | 파라미터 | 타입 | 설명 |
 |----------|------|------|
-| page | number | 페이지 번호 |
-| limit | number | 페이지 크기 |
-| search | string | 이름/이메일/ID 검색 |
-| status | string | 상태 필터 (ACTIVE, SUSPENDED, DELETED) |
-| provider | string | 가입 방식 필터 |
-| hasWarnings | boolean | 경고 있는 사용자만 |
-| isSuspended | boolean | 정지된 사용자만 |
-| sortBy | string | 정렬 필드 |
-| sortOrder | string | 정렬 방향 (asc, desc) |
+| `page` | number | 페이지 번호 (기본: 1) |
+| `limit` | number | 페이지당 개수 (기본: 20) |
+| `search` | string | 검색어 (이메일, 이름) |
+| `status` | string | 상태 필터 |
+| `provider` | string | 가입 방식 필터 |
+| `hasWarnings` | boolean | 경고 있는 사용자만 |
+| `sortBy` | string | 정렬 필드 |
+| `sortOrder` | string | 정렬 방향 (asc/desc) |
 
-### 응답
+---
 
+### `GET /api/admin/users/[id]`
+
+사용자 상세 조회
+
+**권한**: `USER_VIEW`
+
+---
+
+### `POST /api/admin/users/[id]/suspend`
+
+사용자 정지
+
+**권한**: `USER_SUSPEND`
+
+**요청**:
 ```json
 {
-  "success": true,
-  "data": {
-    "users": [
-      {
-        "id": "user_123",
-        "name": "홍길동",
-        "email": "hong@example.com",
-        "avatar": "/avatars/user_123.jpg",
-        "status": "ACTIVE",
-        "provider": "GOOGLE",
-        "createdAt": "2024-01-01T00:00:00.000Z",
-        "lastLoginAt": "2024-12-10T00:00:00.000Z",
-        "_count": {
-          "ownedStudies": 2,
-          "studyMembers": 5,
-          "messages": 150,
-          "receivedWarnings": 0,
-          "sanctions": 0
-        }
-      }
-    ],
-    "pagination": {
-      "page": 1,
-      "limit": 20,
-      "total": 1000,
-      "totalPages": 50
-    }
+  "reason": "정지 사유",
+  "duration": null  // null이면 영구 정지
+}
+```
+
+---
+
+### `POST /api/admin/users/[id]/activate`
+
+사용자 활성화 (정지 해제)
+
+**권한**: `USER_UNSUSPEND`
+
+---
+
+### `DELETE /api/admin/users/[id]`
+
+사용자 삭제
+
+**권한**: `USER_DELETE`
+
+---
+
+## 스터디 관리 API
+
+### `GET /api/admin/studies`
+
+스터디 목록 조회
+
+**권한**: `STUDY_VIEW`
+
+**쿼리 파라미터**:
+| 파라미터 | 타입 | 설명 |
+|----------|------|------|
+| `search` | string | 검색어 |
+| `category` | string | 카테고리 필터 |
+| `isPublic` | boolean | 공개 여부 |
+| `isRecruiting` | boolean | 모집 중 여부 |
+
+---
+
+### `GET /api/admin/studies/[studyId]`
+
+스터디 상세 조회
+
+**권한**: `STUDY_VIEW`
+
+---
+
+### `POST /api/admin/studies/[studyId]/hide`
+
+스터디 숨김
+
+**권한**: `STUDY_HIDE`
+
+**요청**:
+```json
+{
+  "reason": "숨김 사유 (10자 이상)",
+  "notifyOwner": true,
+  "notifyMembers": false
+}
+```
+
+---
+
+### `DELETE /api/admin/studies/[studyId]/hide`
+
+스터디 숨김 해제
+
+**권한**: `STUDY_HIDE`
+
+---
+
+### `POST /api/admin/studies/[studyId]/close`
+
+스터디 종료
+
+**권한**: `STUDY_CLOSE`
+
+**요청**:
+```json
+{
+  "reason": "종료 사유 (10자 이상)",
+  "notifyOwner": true,
+  "notifyMembers": false
+}
+```
+
+---
+
+### `DELETE /api/admin/studies/[studyId]/close`
+
+스터디 재개
+
+**권한**: `STUDY_CLOSE`
+
+---
+
+### `DELETE /api/admin/studies/[studyId]/delete`
+
+스터디 삭제 (영구)
+
+**권한**: `STUDY_DELETE`
+
+**요청**:
+```json
+{
+  "reason": "삭제 사유 (10자 이상)"
+}
+```
+
+---
+
+## 신고 관리 API
+
+### `GET /api/admin/reports`
+
+신고 목록 조회
+
+**권한**: `REPORT_VIEW`
+
+**쿼리 파라미터**:
+| 파라미터 | 타입 | 설명 |
+|----------|------|------|
+| `status` | string | 상태 필터 |
+| `type` | string | 신고 유형 |
+| `priority` | string | 우선순위 |
+| `targetType` | string | 대상 유형 |
+| `assignedTo` | string | 담당자 (`me`, `unassigned`) |
+
+---
+
+### `GET /api/admin/reports/[reportId]`
+
+신고 상세 조회
+
+**권한**: `REPORT_VIEW`
+
+---
+
+### `POST /api/admin/reports/[reportId]/assign`
+
+담당자 배정
+
+**권한**: `REPORT_ASSIGN`
+
+**요청**:
+```json
+{
+  "autoAssign": false  // true면 자동 배정, false면 자신에게 배정
+}
+```
+
+---
+
+### `POST /api/admin/reports/[reportId]/process`
+
+신고 처리
+
+**권한**: `REPORT_PROCESS`
+
+**요청**:
+```json
+{
+  "action": "approve",  // approve, reject, hold
+  "resolution": "처리 사유",
+  "linkedAction": "warn_user",  // none, warn_user, suspend_user, etc.
+  "linkedActionDetails": {
+    "severity": "NORMAL",
+    "duration": "7d"
   }
 }
 ```
 
 ---
 
-## 인증 미들웨어
+## 분석 API
 
-### requireAdmin
+### `GET /api/admin/analytics/overview`
 
-```javascript
-import { requireAdmin } from '@/lib/admin/auth';
-import { PERMISSIONS } from '@/lib/admin/permissions';
+전체 통계 개요
 
-export async function GET(request) {
-  const auth = await requireAdmin(request, PERMISSIONS.USER_VIEW);
-  if (auth instanceof NextResponse) return auth;
-
-  const { user, adminRole } = auth;
-  // ...
-}
-```
-
-### 처리 흐름
-
-```
-1. 세션 확인 (getServerSession)
-2. AdminRole 조회
-3. 역할 만료 확인
-4. 필요 권한 확인 (hasPermission)
-5. 성공: { user, adminRole } 반환
-   실패: NextResponse 에러 반환
-```
+**권한**: `ANALYTICS_VIEW`
 
 ---
 
-## 에러 응답
+### `GET /api/admin/analytics/users`
 
-| HTTP | 설명 |
-|------|------|
-| 401 | 로그인 필요 |
-| 403 | 관리자 권한 없음 / 권한 부족 |
-| 404 | 리소스 없음 |
-| 500 | 서버 에러 |
+사용자 분석
 
+**권한**: `ANALYTICS_VIEW`
+
+**쿼리 파라미터**:
+| 파라미터 | 기본값 | 설명 |
+|----------|--------|------|
+| `period` | daily | 집계 단위 (daily/weekly/monthly) |
+| `range` | 30 | 기간 (일) |
+
+---
+
+### `GET /api/admin/analytics/studies`
+
+스터디 분석
+
+**권한**: `ANALYTICS_VIEW`
+
+---
+
+## 감사 로그 API
+
+### `GET /api/admin/audit-logs`
+
+감사 로그 목록
+
+**권한**: `AUDIT_VIEW`
+
+**쿼리 파라미터**:
+| 파라미터 | 설명 |
+|----------|------|
+| `adminId` | 관리자 필터 |
+| `action` | 액션 타입 필터 |
+| `targetType` | 대상 타입 필터 |
+| `startDate` | 시작 날짜 |
+| `endDate` | 종료 날짜 |
+
+---
+
+### `GET /api/admin/audit-logs/export`
+
+CSV 내보내기
+
+**권한**: `AUDIT_EXPORT`
+
+---
+
+## 설정 API
+
+### `GET /api/admin/settings`
+
+설정 조회
+
+**권한**: `SETTINGS_VIEW`
+
+---
+
+### `PUT /api/admin/settings`
+
+설정 업데이트
+
+**권한**: `SETTINGS_UPDATE`
+
+**요청**:
 ```json
 {
-  "success": false,
-  "error": "관리자 권한이 없습니다."
+  "settings": [
+    { "key": "site_name", "value": "CoUp" },
+    { "key": "maintenance_mode", "value": true }
+  ]
 }
 ```
 
 ---
 
-## 관련 문서
+### `GET /api/admin/settings/history`
 
-- [README](./README.md)
-- [화면](./screens.md)
-- [권한](./permissions.md)
-- [예외](./exceptions.md)
+설정 변경 이력
+
+**권한**: `SETTINGS_VIEW`
+
+---
+
+### `POST /api/admin/settings/cache/clear`
+
+캐시 초기화
+
+**권한**: `SETTINGS_UPDATE`
+
+---
+
+## 에러 코드
+
+| 코드 | 설명 |
+|------|------|
+| `UNAUTHORIZED` | 인증 필요 |
+| `FORBIDDEN` | 권한 없음 |
+| `NOT_FOUND` | 리소스 없음 |
+| `VALIDATION_ERROR` | 유효성 검사 실패 |
+| `DATABASE_ERROR` | DB 에러 |
+| `INTERNAL_ERROR` | 서버 내부 에러 |
 

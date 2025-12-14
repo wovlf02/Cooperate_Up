@@ -2,21 +2,45 @@
 
 ## 개요
 
-플랫폼 관리를 위한 관리자 기능입니다. RBAC(Role-Based Access Control) 기반 권한 시스템을 사용합니다.
+CoUp 플랫폼의 관리자 기능을 담당하는 도메인입니다. RBAC(Role-Based Access Control) 기반의 권한 시스템을 사용하여 관리자별로 차등 권한을 부여합니다.
+
+---
+
+## 📚 문서 구조
+
+| 문서 | 설명 |
+|------|------|
+| [overview.md](./overview.md) | 관리자 시스템 개요 및 아키텍처 |
+| [permissions.md](./permissions.md) | 권한 시스템 및 RBAC 상세 |
+| [screens-dashboard.md](./screens-dashboard.md) | 대시보드 화면 |
+| [screens-users.md](./screens-users.md) | 사용자 관리 화면 |
+| [screens-studies.md](./screens-studies.md) | 스터디 관리 화면 |
+| [screens-reports.md](./screens-reports.md) | 신고 관리 화면 |
+| [screens-analytics.md](./screens-analytics.md) | 분석 화면 |
+| [screens-audit-logs.md](./screens-audit-logs.md) | 감사 로그 화면 |
+| [screens-settings.md](./screens-settings.md) | 설정 화면 |
+| [api-users.md](./api-users.md) | 사용자 관리 API |
+| [api-studies.md](./api-studies.md) | 스터디 관리 API |
+| [api-reports.md](./api-reports.md) | 신고 관리 API |
+| [api-analytics.md](./api-analytics.md) | 분석 API |
+| [api-settings.md](./api-settings.md) | 설정 및 감사로그 API |
+| [components.md](./components.md) | 관리자 공통 컴포넌트 |
+| [helpers.md](./helpers.md) | 헬퍼 함수 및 유틸리티 |
+| [exceptions.md](./exceptions.md) | 예외 처리 시스템 |
 
 ---
 
 ## 주요 기능
 
-| 기능 | 설명 |
-|------|------|
-| 대시보드 | 플랫폼 현황, 통계 |
-| 사용자 관리 | 조회, 경고, 정지, 삭제 |
-| 스터디 관리 | 조회, 숨김, 종료, 삭제 |
-| 신고 관리 | 조회, 할당, 처리, 해결 |
-| 분석 | 통계, 차트, 내보내기 |
-| 감사 로그 | 관리자 활동 기록 |
-| 설정 | 시스템 설정 관리 |
+| 기능 | 설명 | 권한 레벨 |
+|------|------|-----------|
+| 대시보드 | 플랫폼 현황, 통계, 빠른 작업 | VIEWER+ |
+| 사용자 관리 | 조회, 검색, 경고, 정지, 삭제 | VIEWER~ADMIN |
+| 스터디 관리 | 조회, 숨김, 종료, 삭제 | VIEWER~ADMIN |
+| 신고 관리 | 조회, 할당, 처리, 해결/거부 | VIEWER~MODERATOR |
+| 분석 | 통계, 차트, 트렌드 | VIEWER+ |
+| 감사 로그 | 관리자 활동 기록 조회 | ADMIN+ |
+| 시스템 설정 | 설정 관리, 캐시 초기화 | SUPER_ADMIN |
 
 ---
 
@@ -24,56 +48,10 @@
 
 | 역할 | 설명 | 권한 수준 |
 |------|------|-----------|
-| VIEWER | 조회 전용 | 최소 |
-| MODERATOR | 콘텐츠 모더레이션 | 중간 |
-| ADMIN | 사용자/스터디 관리 | 높음 |
-| SUPER_ADMIN | 모든 권한 | 최고 |
-
----
-
-## 권한 시스템
-
-### 사용자 관리
-
-| 권한 코드 | 설명 |
-|-----------|------|
-| `user:view` | 사용자 조회 |
-| `user:search` | 사용자 검색 |
-| `user:warn` | 경고 발송 |
-| `user:suspend` | 계정 정지 |
-| `user:unsuspend` | 정지 해제 |
-| `user:delete` | 계정 삭제 |
-
-### 스터디 관리
-
-| 권한 코드 | 설명 |
-|-----------|------|
-| `study:view` | 스터디 조회 |
-| `study:hide` | 스터디 숨김 |
-| `study:close` | 스터디 종료 |
-| `study:delete` | 스터디 삭제 |
-| `study:recommend` | 추천 설정 |
-
-### 신고 관리
-
-| 권한 코드 | 설명 |
-|-----------|------|
-| `report:view` | 신고 조회 |
-| `report:assign` | 신고 할당 |
-| `report:process` | 신고 처리 |
-| `report:resolve` | 신고 해결 |
-| `report:reject` | 신고 거부 |
-
-### 시스템
-
-| 권한 코드 | 설명 |
-|-----------|------|
-| `analytics:view` | 분석 조회 |
-| `analytics:export` | 데이터 내보내기 |
-| `settings:view` | 설정 조회 |
-| `settings:update` | 설정 변경 |
-| `audit:view` | 감사 로그 조회 |
-| `admin:manage` | 관리자 관리 |
+| `VIEWER` | 조회 전용 관리자 | 최소 |
+| `MODERATOR` | 콘텐츠 모더레이션 담당 | 중간 |
+| `ADMIN` | 사용자/스터디 관리 담당 | 높음 |
+| `SUPER_ADMIN` | 모든 권한 보유 | 최고 |
 
 ---
 
@@ -85,6 +63,7 @@ coup/src/
 │   ├── admin/
 │   │   ├── layout.jsx           # 관리자 레이아웃
 │   │   ├── page.jsx             # 대시보드
+│   │   ├── _components/         # 대시보드 컴포넌트
 │   │   ├── users/               # 사용자 관리
 │   │   ├── studies/             # 스터디 관리
 │   │   ├── reports/             # 신고 관리
@@ -101,95 +80,58 @@ coup/src/
 │       └── settings/            # 설정 API
 ├── components/admin/
 │   ├── common/                  # 공통 컴포넌트
-│   │   ├── AdminNavbar.jsx
-│   │   ├── Sidebar.jsx
-│   │   ├── SearchBar.jsx
-│   │   ├── FilterPanel.jsx
-│   │   └── Breadcrumb.jsx
 │   └── ui/                      # UI 컴포넌트
-│       ├── Button.jsx
-│       ├── Card.jsx
-│       ├── Stats.jsx
-│       └── Toast/
-└── lib/
-    ├── admin/
-    │   ├── auth.js              # 관리자 인증
-    │   └── permissions.js       # 권한 시스템
-    ├── exceptions/admin/
-    │   └── AdminException.js    # 예외 클래스
-    ├── logging/
-    │   └── adminLogger.js       # 관리자 로깅
-    └── utils/
-        └── admin-utils.js       # 유틸리티
+└── lib/admin/
+    ├── auth.js                  # 인증 미들웨어
+    ├── permissions.js           # 권한 시스템
+    └── roles.js                 # 역할 관리
 ```
 
 ---
 
-## 데이터베이스 모델
+## 기술 스택
 
-### AdminRole 모델
-
-```prisma
-model AdminRole {
-  id          String    @id @default(cuid())
-  userId      String    @unique
-  role        AdminRoleType @default(VIEWER)
-  permissions Json?     // 커스텀 권한
-  grantedBy   String?
-  expiresAt   DateTime?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-
-  user        User      @relation(fields: [userId], references: [id])
-}
-
-enum AdminRoleType {
-  VIEWER
-  MODERATOR
-  ADMIN
-  SUPER_ADMIN
-}
-```
-
-### Warning 모델 (경고)
-
-```prisma
-model Warning {
-  id          String    @id @default(cuid())
-  userId      String
-  issuedById  String
-  reason      String
-  severity    String    // LOW, MEDIUM, HIGH
-  createdAt   DateTime  @default(now())
-
-  user        User      @relation("ReceivedWarnings", fields: [userId], references: [id])
-  issuedBy    User      @relation("IssuedWarnings", fields: [issuedById], references: [id])
-}
-```
-
-### Sanction 모델 (제재)
-
-```prisma
-model Sanction {
-  id          String    @id @default(cuid())
-  userId      String
-  type        String    // SUSPEND, BAN
-  reason      String
-  duration    Int?      // 일 단위
-  isActive    Boolean   @default(true)
-  expiresAt   DateTime?
-  createdAt   DateTime  @default(now())
-
-  user        User      @relation(fields: [userId], references: [id])
-}
-```
+- **Frontend**: Next.js 15 (App Router), React 19
+- **Styling**: CSS Modules
+- **Charts**: Recharts
+- **State**: React Hooks (useState, useEffect, useCallback)
+- **API**: Next.js Route Handlers
+- **Auth**: NextAuth.js + Custom RBAC
+- **DB**: PostgreSQL + Prisma ORM
 
 ---
 
-## 관련 문서
+## 접근 제어
 
-- [API](./api.md)
-- [화면](./screens.md)
-- [권한](./permissions.md)
-- [예외](./exceptions.md)
+모든 관리자 페이지와 API는 다음 단계로 접근을 제어합니다:
+
+1. **세션 확인**: NextAuth.js 세션 유효성 검증
+2. **관리자 역할 확인**: `AdminRole` 테이블에서 역할 조회
+3. **만료 확인**: 역할 만료 시간 검증
+4. **권한 확인**: 요청된 작업에 필요한 권한 검증
+
+---
+
+## 시작하기
+
+### 관리자 계정 생성
+
+```bash
+cd coup
+npm run create-admin
+# 또는
+node scripts/create-super-admin.js
+```
+
+### 개발 서버 실행
+
+```bash
+npm run dev
+```
+
+### 관리자 페이지 접속
+
+```
+http://localhost:3000/admin
+```
 
