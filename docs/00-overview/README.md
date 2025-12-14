@@ -113,12 +113,30 @@
 
 ---
 
+## 🚀 확장 로드맵 (계획 중인 기능)
+
+| 기능 | 설명 | 문서 |
+|------|------|------|
+| 👥 친구 관리 | 친구 요청, 온라인 상태, 차단 | [21-friends](../21-friends/README.md) |
+| 💬 1:1/그룹 채팅 | 개인 메시지, 자유 그룹 채팅 | [22-direct-messaging](../22-direct-messaging/README.md) |
+| ⏱️ Face API 타이머 | 얼굴 인식 기반 공부 시간 측정 | [23-study-timer](../23-study-timer/README.md) |
+| 📝 퀴즈 시스템 | 모의고사, 기출문제, 오답노트 | [24-quiz-system](../24-quiz-system/README.md) |
+| 📓 협업 노트 | 실시간 협업 메모장 (Yjs) | [25-collaborative-notes](../25-collaborative-notes/README.md) |
+| 🎯 스터디 매칭 | AI 기반 맞춤 스터디 추천 | [26-study-matching](../26-study-matching/README.md) |
+| 🎮 게이미피케이션 | 포인트, 레벨, 뱃지, 랭킹 | [27-gamification](../27-gamification/README.md) |
+| 🤖 AI 어시스턴트 | AI 질문 답변, 문제 힌트 | [28-ai-assistant](../28-ai-assistant/README.md) |
+
+> 📋 전체 로드맵: [FEATURE-ROADMAP.md](../FEATURE-ROADMAP.md)
+
+---
+
 ## 관련 문서
 
 - [아키텍처](./architecture.md) - 시스템 구조 상세
 - [폴더 구조](./folder-structure.md) - 프로젝트 디렉터리 구성
 - [기술 스택](./tech-stack.md) - 사용 기술 상세
 - [배포](./deployment.md) - 환경 설정 및 배포
+- [기능 확장 로드맵](../FEATURE-ROADMAP.md) - 신규 기능 계획
 
 ---
 
