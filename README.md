@@ -12,7 +12,8 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Redis](https://img.shields.io/badge/Redis-7-DC382D?style=flat-square&logo=redis&logoColor=white)](https://redis.io/)
 [![Socket.IO](https://img.shields.io/badge/Socket.IO-4-010101?style=flat-square&logo=socket.io)](https://socket.io/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/badge/License-Non--Commercial-red.svg?style=flat-square)](LICENSE)
+[![Copyright](https://img.shields.io/badge/©-Korea%20Copyright%20Commission-blue.svg?style=flat-square)](COPYRIGHT.md)
 
 [📖 문서](./docs/README.md) · [🐛 이슈 리포트](https://github.com/wovlf02/CoUp/issues) · [💡 기능 제안](https://github.com/wovlf02/CoUp/issues)
 
@@ -35,6 +36,7 @@
 - [문서](#-문서)
 - [기여하기](#-기여하기)
 - [라이선스](#-라이선스)
+- [지식재산권](#-지식재산권)
 
 ---
 
@@ -721,17 +723,80 @@ CoUp 프로젝트에 기여해주셔서 감사합니다!
 
 ## 📄 라이선스
 
-이 프로젝트는 [MIT License](LICENSE) 하에 배포됩니다.
+### ⚠️ 중요 고지
+
+**본 프로젝트는 MIT 라이선스가 아닙니다.**
+
+본 소프트웨어는 한국저작권위원회에 프로그램 저작물로 등록되어 있으며, **비상업적 사용만 허용하는 커스텀 라이선스**로 제공됩니다.
+
+### ✅ 허용되는 사용
+
+| 용도 | 허용 여부 |
+|------|----------|
+| 교육 및 학습 목적 | ✅ 허용 |
+| 학술 연구 | ✅ 허용 |
+| 포트폴리오 참조 | ✅ 허용 |
+| 개인 비영리 프로젝트 | ✅ 허용 |
+
+### ❌ 금지되는 사용 (명시적 허가 없이)
+
+| 용도 | 허용 여부 |
+|------|----------|
+| 상업적 서비스 운영 | ❌ 금지 |
+| 유료 SaaS로 운영 | ❌ 금지 |
+| 상업적 제품에 통합 | ❌ 금지 |
+| 광고 수익 창출 서비스 | ❌ 금지 |
+| 재배포 및 재판매 | ❌ 금지 |
+
+### 📋 라이선스 문서
+
+| 문서 | 설명 |
+|------|------|
+| [LICENSE](LICENSE) | 메인 라이선스 (비상업적 사용 조건) |
+| [NOTICE.md](NOTICE.md) | 제3자 오픈소스 라이선스 고지 |
+| [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md) | 상업적 라이선스 취득 안내 |
+| [COPYRIGHT.md](COPYRIGHT.md) | 저작권 등록 정보 |
+
+### 💼 상업적 사용
+
+상업적 목적으로 본 소프트웨어를 사용하려면 별도의 상업적 라이선스가 필요합니다.
+자세한 내용은 [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md)를 참조하거나 아래로 문의해주세요.
+
+- 📧 **라이선스 문의**: [문의 이메일]
 
 ```
-MIT License
+CoUp License
 
-Copyright (c) 2025 CoUp 팀
+Copyright © 2025 CoUp. All Rights Reserved.
 
-본 소프트웨어 및 관련 문서 파일의 복사본을 취득하는 모든 사람에게
-소프트웨어를 제한 없이 사용, 복사, 수정, 병합, 게시, 배포, 
-재라이선스 및/또는 판매할 수 있는 권리를 무료로 부여합니다.
+본 소프트웨어는 한국저작권위원회에 등록된 저작물입니다.
+비상업적 목적(교육, 학습, 연구)으로만 무료 사용이 허용됩니다.
+상업적 사용은 별도의 라이선스가 필요합니다.
+
+This software is registered with the Korea Copyright Commission.
+Free use is permitted only for non-commercial purposes (education, learning, research).
+Commercial use requires a separate license.
 ```
+
+---
+
+## 🛡️ 지식재산권
+
+### 저작권 등록 정보
+
+| 항목 | 내용 |
+|------|------|
+| **등록 기관** | 한국저작권위원회 (Korea Copyright Commission) |
+| **저작물 유형** | 프로그램 저작물 (컴퓨터프로그램) |
+| **보호 범위** | 소스 코드, 문서, UI/UX 디자인, 브랜드 자산 |
+| **법적 보호** | 대한민국 저작권법, 국제 저작권 조약 (베른협약, TRIPS) |
+
+### 보호되는 요소
+
+- 🔒 **핵심 비즈니스 로직**: 스터디 관리, 매칭 알고리즘
+- 🔒 **시스템 아키텍처**: API 설계, 데이터베이스 스키마
+- 🔒 **UI/UX 디자인**: 레이아웃, 컴포넌트, 사용자 흐름
+- 🔒 **브랜드 자산**: "CoUp", "코업" 명칭 및 로고
 
 ---
 
@@ -781,6 +846,6 @@ Copyright (c) 2025 CoUp 팀
 
 ---
 
-<sub>© 2025 CoUp. All Rights Reserved.</sub>
+<sub>© 2026 CoUp (이재필). All Rights Reserved. | 등록번호: C-2025-061692</sub>
 
 </div>
