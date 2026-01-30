@@ -399,8 +399,8 @@ docker-compose -f docker-compose.prod.yml up -d signaling
 ## 📚 참고 문서
 
 - [Socket.io 공식 문서](https://socket.io/docs/)
-- [WebRTC 가이드](/docs/video-call/05-webrtc-guide.md)
-- [아키텍처 문서](/docs/video-call/08-signaling-server-architecture.md)
+- [WebRTC 가이드](/docs_pre/video-call/05-webrtc-guide.md)
+- [아키텍처 문서](/docs_pre/video-call/08-signaling-server-architecture.md)
 
 ## 라이선스
 

@@ -15,7 +15,7 @@
 [![License](https://img.shields.io/badge/License-Non--Commercial-red.svg?style=flat-square)](LICENSE)
 [![Copyright](https://img.shields.io/badge/©-Korea%20Copyright%20Commission-blue.svg?style=flat-square)](COPYRIGHT.md)
 
-[📖 문서](./docs/README.md) · [🐛 이슈 리포트](https://github.com/wovlf02/CoUp/issues) · [💡 기능 제안](https://github.com/wovlf02/CoUp/issues)
+[📖 문서](docs_pre/README.md) · [🐛 이슈 리포트](https://github.com/wovlf02/CoUp/issues) · [💡 기능 제안](https://github.com/wovlf02/CoUp/issues)
 
 </div>
 
@@ -616,7 +616,7 @@ npm run db:seed
 | GET | `/api/admin/stats` | 통계 조회 |
 | GET | `/api/admin/logs` | 관리자 로그 |
 
-> 📖 상세 API 문서는 [docs/backend/api/](./docs/backend/api/) 참조
+> 📖 상세 API 문서는 [docs/backend/api/](docs_pre/backend/api/) 참조
 
 ---
 
@@ -671,20 +671,20 @@ docker push your-dockerhub/coup-signaling:latest
 
 | 문서 | 설명 |
 |------|------|
-| [프로젝트 개요](./docs/project-init/overview.md) | 프로젝트 전체 이해 |
-| [데이터베이스 스키마](./docs/project-init/database.md) | DB 설계 |
-| [API 명세서](./docs/backend/api/) | RESTful API 문서 |
-| [인증 시스템](./docs/auth/README.md) | NextAuth 기반 인증 |
-| [화면 설계](./docs/screens/) | 페이지별 상세 설계 |
-| [화상 통화](./docs/video-call/) | WebRTC 시스템 |
-| [관리자 시스템](./docs/admin/) | 관리자 기능 |
+| [프로젝트 개요](docs_pre/project-init/overview.md) | 프로젝트 전체 이해 |
+| [데이터베이스 스키마](docs_pre/project-init/database.md) | DB 설계 |
+| [API 명세서](docs_pre/backend/api/) | RESTful API 문서 |
+| [인증 시스템](docs_pre/auth/README.md) | NextAuth 기반 인증 |
+| [화면 설계](docs_pre/screens/) | 페이지별 상세 설계 |
+| [화상 통화](docs_pre/video-call/) | WebRTC 시스템 |
+| [관리자 시스템](docs_pre/admin/) | 관리자 기능 |
 
 ### 빠른 링크
 
-- 📖 [문서 전체 보기](./docs/README.md)
-- 🔧 [개발 가이드](./docs/guides/)
-- 🎨 [UI/UX 설계](./docs/design/)
-- 📡 [백엔드 가이드](./docs/backend/README.md)
+- 📖 [문서 전체 보기](docs_pre/README.md)
+- 🔧 [개발 가이드](docs_pre/guides/)
+- 🎨 [UI/UX 설계](docs_pre/design/)
+- 📡 [백엔드 가이드](docs_pre/backend/README.md)
 
 ---
 
